@@ -1,0 +1,31 @@
+{
+  "name": "gearbox-dev-docs",
+  "version": "0.0.1",
+  "description": "Gearbox dev docs",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Gearbox protocol",
+  "license": "MIT",
+  "dependencies": {
+    "@gearbox-protocol/sdk": "^1.19.0",
+    "@types/axios": "^0.14.0",
+    "axios": "^1.2.1",
+    "ethers": "^5.7.2",
+    "next": "^13.0.6",
+    "nextra": "2.0.1",
+    "nextra-theme-docs": "2.0.1",
+    "react": "^18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "^18.2.0",
+    "react-feather": "^2.0.10",
+    "rehype-katex": "5.0.0",
+    "remark-math": "4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.10",
+    "typescript": "^4.9.3"
+  }
+}

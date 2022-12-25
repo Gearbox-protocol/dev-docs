@@ -1,0 +1,10 @@
+{
+  "build": "Building",
+  "universal": "Universal adapter",
+  "uniswap": "Uniswap adapter",
+  "curve": "Curve adapter",
+  "yearn": "Yearn adapter",
+  "lido": "Lido adapter",
+  "convex": "Convex adapter",
+  "balancer": "Balancer adapter"
+}

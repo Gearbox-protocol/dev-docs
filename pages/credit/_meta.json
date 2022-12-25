@@ -1,0 +1,13 @@
+{
+  "overview": "Overview",
+  "architecture": "Architecture",
+  "open": "Open credit account",
+  "execute": "Execute transactions",
+  "multicall": "Multicall",
+  "add-collateral": "Adding collateral",
+  "debt-management": "Debt management",
+  "closure": "Closing credit account",
+  "liquidation": "Liquidation",
+  "transfer": "Account transfer",
+  "eth": "Working with ETH"
+}
