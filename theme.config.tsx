@@ -9,7 +9,7 @@ const config: DocsThemeConfig = {
   chat: {
     link: "https://discord.com/invite/gearbox",
   },
-  docsRepositoryBase: "https://github.com/shuding/nextra-docs-template",
+  docsRepositoryBase: "https://github.com/Gearbox-protocol/dev-docs/blob/main",
   footer: {
     text: "(c) 2022, Gearbox Protocol",
   },
