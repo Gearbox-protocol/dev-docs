@@ -100,17 +100,15 @@ function executeOrder(uint256 orderId, MultiCall[] calldata calls) external {
         calls, order.manager, order.tokenIn, order.tokenOut
     );
 
-    address facade = ICreditManagerV2(order.manager).facade();
+    address facade = ICreditManagerV2(order.manager).creditFacade();
     ICreditFacade(facade).botMulticall(
         order.borrower,
-        _prependCall(
+        _addBalanceCheck(
             calls,
-            _makeBalanceCheckCall(
-                facade,
-                tokensSpent,
-                order.tokenOut,
-                minAmountOut
-            )
+            facade,
+            tokensSpent,
+            order.tokenOut,
+            minAmountOut
         )
     );
 
@@ -135,7 +133,7 @@ It also computes the correct amount of input token that must be spent in the mul
 Next, `_validateCalls` function is called to check that each subcall targets one of the allowed methods of allowed adapters and that the swap recipient is always the credit account.
 It also parses the calldata to find tokens spent in each call.
 
-The next step is `_makeBalanceCheckCall`: this creates a subcall to `revertIfReceivedLessThan` ensuring that (i) the amount of output token received is at least `minAmountOut` and (ii) the balance of any token spent in subcalls (except input) is at least that before the call.
+Next, `_addBalanceCheck` prepends a `revertIfReceivedLessThan` subcall to the multicall to ensure that (i) the amount of output token received is at least `minAmountOut` and (ii) the balance of any token spent in subcalls (except input) is at least that before the call.
 
 Then goes the actual `botMulticall`, followed by `_validateAmountSpent` that checks whether the amount of input token spent in the multicall matches the correct one.
 
