@@ -130,7 +130,7 @@ First, `_validateOrder` function is called to check if the given order can be ex
 
 It also computes the correct amount of input token that must be spent in the multicall (smaller of the account's balance and order size) and the minimum amount of output token that should be received.
 
-Next, `_validateCalls` function is called to check that each subcall targets one of the allowed methods of allowed adapters and that the swap recipient is always the credit account.
+Next, `_validateCalls` function is called to check that each subcall targets one of the allowed methods of allowed adapters.
 It also parses the calldata to find tokens spent in each call.
 
 Next, `_addBalanceCheck` prepends a `revertIfReceivedLessThan` subcall to the multicall to ensure that (i) the amount of output token received is at least `minAmountOut` and (ii) the balance of any token spent in subcalls (except input) is at least that before the call.
