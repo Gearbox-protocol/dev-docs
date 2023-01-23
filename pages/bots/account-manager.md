@@ -54,7 +54,7 @@ Let's introduce a data structure and a state variable for holding users' data:
 /// @notice User data.
 struct UserData {
     uint256 totalLossCap;
-    uint256 cumIntraTxLossCap;
+    uint256 intraOpLossCap;
     uint256 initialValue;
     uint256 intraOpLoss;
     uint256 intraOpGain;
@@ -79,10 +79,10 @@ function register(
 ) external {
     UserData storage data = userData[msg.sender][creditManager];
 
-    address account = ICreditManagerV2(creditManager).getCreditAccountOrRevert(user);
+    address account = ICreditManagerV2(creditManager).getCreditAccountOrRevert(msg.sender);
     address facade = ICreditManagerV2(creditManager).creditFacade();
 
-    data.initialValue = ICreditFacade(facade).calcTotalValue(account);
+    (data.initialValue, ) = ICreditFacade(facade).calcTotalValue(account);
 
     data.totalLossCap = totalLossCap;
     data.intraOpLossCap = intraOpLossCap;
@@ -118,13 +118,13 @@ function performOperation(
     address account = ICreditManagerV2(creditManager).getCreditAccountOrRevert(user);
     address facade = ICreditManagerV2(creditManager).creditFacade();
 
-    (uint256 totalValueBefore, ) = ICreditFacade(facade).calcTotalValue(creditAccount);
+    (uint256 totalValueBefore, ) = ICreditFacade(facade).calcTotalValue(account);
     _validateLosses(totalValueBefore, data);
 
     _validateCalls(facade, calls);
     ICreditFacade(facade).botMulticall(user, calls);
 
-    (uint256 totalValueAfter, ) = ICreditFacade(facade).calcTotalValue(creditAccount);
+    (uint256 totalValueAfter, ) = ICreditFacade(facade).calcTotalValue(account);
     if (totalValueAfter < totalValueBefore) {
         uint256 intraOpLoss;
         unchecked {
@@ -142,22 +142,22 @@ function performOperation(
 }
 
 /// @dev Checks that none of loss caps are reached.
-function _validateLosses(uint256 totalValue, UserData memory userData) internal view {
-    if (totalValue + userData.totalLossCap < userData.initialValue)
+function _validateLosses(uint256 totalValue, UserData memory data) internal pure {
+    if (totalValue + data.totalLossCap < data.initialValue)
         revert TotalLossCapReached();
-    if (userData.intraOpGain + userData.intraOpLossCap < userData.intraOpLoss)
+    if (data.intraOpGain + data.intraOpLossCap < data.intraOpLoss)
         revert IntraOpLossCapReached();
 }
 
 /// @dev Checks that calls don't try to change account's debt.
-function _validateCalls(address facade, MultiCall[] calldata calls) internal view {
+function _validateCalls(address facade, MultiCall[] calldata calls) internal pure {
     for (uint256 i = 0; i < calls.length; ) {
-        MultiCall[] calldata mcall = calls[i];
+        MultiCall calldata mcall = calls[i];
         if (mcall.target == facade) {
-            bytes4 method = mcall.callData[:4];
+            bytes4 method = bytes4(mcall.callData);
             if (
                 method == ICreditFacade.increaseDebt.selector
-                || method == ICrediditFacade.decreaseDebt.selector
+                || method == ICreditFacade.decreaseDebt.selector
             )
                 revert ChangeDebtForbidden();
         }
