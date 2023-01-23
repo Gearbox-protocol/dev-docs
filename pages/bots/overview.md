@@ -30,3 +30,4 @@ Some good practices, which are especially important when writing permissionlessl
 
 To get a better idea of how to write bots, we recommend checking our tutorials:
 * [Limit orders](limit-orders), an example of permissionlessly executable bot.
+* [Account manager](account-manager), an example of bot with permissioned execution.
