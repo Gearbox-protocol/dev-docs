@@ -27,13 +27,13 @@ First, let's make the contract inherit `OpenZeppelin`'s `Ownable`.
 Next, let's create a state variable for approved managers and allow the owner to add and remove them:
 ```solidity
 /// @dev Approved managers.
-mapping(address => bool) private _managers;
+mapping(address => bool) public managers;
 
 /// @notice Add or remove manager.
 /// @param manager Account to change the status for.
 /// @param status New status.
 function setManager(address manager, bool status) external onlyOwner {
-    _managers[manager] = status;
+    managers[manager] = status;
 }
 ```
 
@@ -41,7 +41,7 @@ The `onlyManager` modifier will also be useful to restrict accounts that can exe
 ```solidity
 /// @dev Reverts if caller is not one of approved managers.
 modifier onlyManager() {
-    if (!_managers[msg.sender])
+    if (!managers[msg.sender])
         revert CallerNotManager();
     _;
 }
@@ -66,12 +66,12 @@ mapping(address => mapping(address => UserData)) public userData;
 
 Next, we need functions to allow users to transfer control over their accounts to the bot:
 ```solidity
-/// @notice Allow bot to manage account in given credit manager.
+/// @notice Allow bot to perform operations on account in given credit manager.
 /// @param creditManager Credit manager.
 /// @param totalLossCap Cap on drop of account total value
-///        in credit manager's underlying currency.
+///        in credit manager's underlying currency. Can't be 0.
 /// @param intraOpLossCap Cap on cumulative intra-operation drop of account total value
-///        in credit manager's underlying currency.
+///        in credit manager's underlying currency. Can't be 0.
 function register(
     address creditManager,
     uint256 totalLossCap,
@@ -84,6 +84,8 @@ function register(
 
     (data.initialValue, ) = ICreditFacade(facade).calcTotalValue(account);
 
+    if (totalLossCap == 0 || intraOpLossCap == 0)
+        revert ZeroLossCap();
     data.totalLossCap = totalLossCap;
     data.intraOpLossCap = intraOpLossCap;
 }
@@ -114,6 +116,8 @@ function performOperation(
     MultiCall[] calldata calls
 ) external onlyManager {
     UserData storage data = userData[user][creditManager];
+    if (data.totalLossCap == 0)
+        revert UserNotRegistered();
 
     address account = ICreditManagerV2(creditManager).getCreditAccountOrRevert(user);
     address facade = ICreditManagerV2(creditManager).creditFacade();
