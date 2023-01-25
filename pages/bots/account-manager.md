@@ -99,10 +99,28 @@ function deregister(address creditManager) external {
 
 ## Operations
 
-Finally, let's implement a function that lets managers operate on users' accounts and performs all safety checks:
-* it should revert if anyone except approved managers tries to execute operations;
-* it should revert if any of the caps are reached before or after the multicall;
-* it should revert if managers try to increase or decrease an account's debt because it can be used to manipulate the total value.
+Now, let's implement a function allowing bot managers to perform operations with users' accounts via multicalls.
+There are a few safety properties we want this function to satisfy:
+
+1. The function should revert if anyone except approved managers tries to execute an operation.
+    * This can be ensured simply by adding the `onlyManager` modifier.
+
+2. The function should revert if the manager tries to perform an operation on an account the user hasn't approved.
+For example, the user approves this bot in the `BotList` and allows it to manage his WETH account.
+Then, we must ensure that the bot won't be able to perform operations on his USDC account.
+    * The `register` function ensures that the user can't have zero loss caps.
+    * The only way to change caps to non-zero is by calling `register`.
+    * So, if we see zero caps in user data during operation, we know this is an unregistered account and must revert.
+
+3. The function should revert if loss caps are reached.
+    * Let's start with the naive approach of checking both caps twice: before and after the multicall.
+    * If we think about it, we can omit the first intra-operation loss check because there's no way it can be violated at this point: it was below the cap right after the last successful call and surely didn't change since then.
+    * Moreover, the second intra-operation loss check should be made only if there was intra-operation value loss.
+    * Everything is slightly less trivial with total value loss because it's possible that value loss surpassed the cap since the last successful call due to price movements.
+    However, we can still remove the first check, and the only thing it changes is that bot managers are now allowed to "rescue" an account (e.g., by executing highly profitable arbitrage or simply adding collateral).
+
+4. Finally, the function shouldn't let managers change the account's debt because it can be used to manipulate the total value.
+    * For that, it is enough to check if any subcall targets the `increaseDebt` or `decreaseDebt` of the credit facade corresponding to the given account and revert if it does.
 
 Here's what the implementation might look like:
 ```solidity
@@ -119,56 +137,20 @@ function performOperation(
     if (data.totalLossCap == 0)
         revert UserNotRegistered();
 
-    address account = ICreditManagerV2(creditManager).getCreditAccountOrRevert(user);
     address facade = ICreditManagerV2(creditManager).creditFacade();
+    _validateCallsDontChangeDebt(facade, calls);
 
+    address account = ICreditManagerV2(creditManager).getCreditAccountOrRevert(user);
     (uint256 totalValueBefore, ) = ICreditFacade(facade).calcTotalValue(account);
-    _validateLosses(totalValueBefore, data);
 
-    _validateCalls(facade, calls);
     ICreditFacade(facade).botMulticall(user, calls);
 
     (uint256 totalValueAfter, ) = ICreditFacade(facade).calcTotalValue(account);
-    if (totalValueAfter < totalValueBefore) {
-        uint256 intraOpLoss;
-        unchecked {
-            intraOpLoss = totalValueBefore - totalValueAfter;
-        }
-        data.intraOpLoss += intraOpLoss;
-    } else {
-        uint256 intraOpGain;
-        unchecked {
-            intraOpGain = totalValueAfter - totalValueBefore;
-        }
-        data.intraOpGain += intraOpGain;
-    }
-    _validateLosses(totalValueAfter, data);
-}
-
-/// @dev Checks that none of loss caps are reached.
-function _validateLosses(uint256 totalValue, UserData memory data) internal pure {
-    if (totalValue + data.totalLossCap < data.initialValue)
-        revert TotalLossCapReached();
-    if (data.intraOpGain + data.intraOpLossCap < data.intraOpLoss)
+    bool isLoss = _updateIntraOpLossOrGain(totalValueBefore, totalValueAfter, data);
+    if (isLoss && data.intraOpGain + data.intraOpLossCap < data.intraOpLoss)
         revert IntraOpLossCapReached();
-}
-
-/// @dev Checks that calls don't try to change account's debt.
-function _validateCalls(address facade, MultiCall[] calldata calls) internal pure {
-    for (uint256 i = 0; i < calls.length; ) {
-        MultiCall calldata mcall = calls[i];
-        if (mcall.target == facade) {
-            bytes4 method = bytes4(mcall.callData);
-            if (
-                method == ICreditFacade.increaseDebt.selector
-                || method == ICreditFacade.decreaseDebt.selector
-            )
-                revert ChangeDebtForbidden();
-        }
-        unchecked {
-            ++i;
-        }
-    }
+    if (totalValueAfter + data.totalLossCap < data.initialValue)
+        revert TotalLossCapReached();
 }
 ```
 
