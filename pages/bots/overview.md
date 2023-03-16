@@ -9,7 +9,7 @@ They can interact with credit accounts via `CreditFacade.botMulticall`, and ther
 Gearbox only checks that bot is approved by the user in the `BotList` contract and that account's health factor after the call doesn't drop below 1.
 
 All bots can be conceptually divided into two groups:
-* _Permissionless_ that can be executed by anyone, e.g. MEV searchers, networks of keepers like Gelato, etc.
+* _Permissionless_ that can be executed by anyone, e.g. MEV searchers, networks of keepers like [Gelato](https://www.gelato.network/?utm_source=gearboxdocs), etc.
 * _Permissioned_ that can only be executed by a limited set of accounts.
 
 Typical use cases for permissionless bots are:
