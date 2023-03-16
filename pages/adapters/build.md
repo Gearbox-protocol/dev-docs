@@ -27,6 +27,7 @@ In order to do that, beyond simply calling the target contract, adapter function
 * they are called as part of the multicall and operate on the account on which it is executed;
 * tokens received after the operation are recognized as collateral by the credit manager;
 * target contract approvals for credit account's tokens are revoked after the operation;
+* ability to execute arbitrary code during the target contract call is minimized;
 * tokens recipient is always the credit account.
 
 Finally, for every adapter, there should be a library that would prepare calldata for multicalls.
