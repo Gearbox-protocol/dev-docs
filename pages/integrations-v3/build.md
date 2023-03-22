@@ -25,8 +25,8 @@ Now, what functionality should be in the adapter?
 We now need to make wrapping functions secure.
 In order to do that, beyond simply calling the target contract, adapter functions must ensure that:
 * they are called as part of the multicall and operate on the account on which it is executed;
-* tokens received after the operation are recognized as collateral by the credit manager;
 * target contract approvals for credit account's tokens are revoked after the operation;
+* tokens spent and received during the operation are recognized as collateral by the credit manager;
 * ability to execute arbitrary code during the target contract call is minimized;
 * tokens recipient is always the credit account.
 
@@ -47,15 +47,16 @@ This modifier should be used for all functions that can change adapter's configu
 * `_creditFacade`: returns the credit facade connected to the adapter's credit manager.
 
 * `creditFacadeOnly`: modifier that ensures that function is called by the credit facade, which is only possible during the multicall.
-This modifier should be used for all functions that modify account's state. Although adapters would revert if called not from the multicall because credit account is not owned by the facade, it serves as re-entrancy protection in case attacker somehow gains control during the target contract call.
+This modifier should be used for all functions that modify account's state.
+Although adapters would revert if called not from the multicall because credit account is not owned by the facade, it serves as re-entrancy protection in case attacker somehow gains control during the target contract call.
 
 * `_creditAccount`: returns the credit account the multicall is executed on, which is the account currently owned by the credit facade.
 This function should always be used when adapter needs to know the address of the credit account it's called for.
 
-* `_checkToken`: checks that token is registered as collateral token in the credit manager and returns its mask.
-This function can be used to initialize token masks in adapter's constructor and later use them in `_changeEnabledTokens`.
+* `_getMaskOrRevert`: checks that token is registered as collateral token in the credit manager and returns its mask.
+This function can be used to check and initialize token masks in adapter's constructor and later use them in `_changeEnabledTokens`.
 
-* `_approveToken`: approves given amount of credit account's token to the target contract.
+* `_approveToken`: checks that token is registered as collateral token in the credit manager and approves given amount of credit account's tokens to the target contract.
 
 * `_enableToken`: checks that token is registered as collateral token in the credit manager and enables it as collateral of the credit account.
 
@@ -65,10 +66,10 @@ This function can be used to initialize token masks in adapter's constructor and
 
 * `_execute`: calls the target contract from the credit account with passed calldata and returns the bytes-encoded call result.
 
-* `_executeSwapNoApprove`: same as `_execute`, but also enables input token and optionally disables output token.
+* `_executeSwapNoApprove`: same as `_execute`, but also checks and (optionally) disables the input token, and checks and enables the output token.
 It is useful for swap operations when input and output tokens are not known in advance.
 
-* `_executeSwapSafeApprove`: same as `_executeSwapNoApprove`, but also gives the target contract infinite approval for input token before the call and resets it to `1` after the call.
+* `_executeSwapSafeApprove`: same as `_executeSwapNoApprove`, but also gives the target contract infinite approval for the input token before the call and resets it to `1` after the call.
 It is useful for approve-requiring swap operations when input and output tokens are not known in advance.
 
 ## Optimizations
@@ -89,6 +90,6 @@ Keeping all written above in mind, we can create a formal set of conditions that
 - [ ] All wrapping functions can only modify the state of the `_creditAccount()`;
 - [ ] All wrapping functions that allow to specify a recipient must set it to the `_creditAccount()`;
 - [ ] All wrapping functions that require token approval to execute an operation must reset it to `1` after;
-- [ ] All wrapping functions that receive/spend tokens must call `_enableToken()`/`_disableToken()` (or `_changeEnabledTokens` if tokens were checked in the constructor).
+- [ ] All wrapping functions that receive/spend tokens must call `_enableToken()`/`_disableToken()` on them (or `_changeEnabledTokens` if masks were initialized in the constructor).
 
 On the next page, we'll try to write a generic adapter for ERC-4626 vaults and evaluate it against this checklist.

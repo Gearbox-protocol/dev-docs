@@ -73,11 +73,10 @@ Let's start with contract constructor and state variables.
 1. All adapters must inherit `AbstractAdapter` to gain access to credit manager functionality.
 Our adapter should also implement the interface we prepared above.
 2. Adapter type should be added to `AdapterType` enum in core repository. You can use `AdapterType.ABSTRACT` until then.
-3. We can make `asset`, `shareMask` and `assetMask` public immutable variables as they can't change during adapter's lifetime, and storing them in such way is more gas-efficient.
+3. We can make `asset`, `shareMask` and `assetMask` public immutable variables as they can't change during adapter's lifetime, and storing them in such a way is more gas-efficient.
 4. All adapter constructors should take at least two parameters: credit manager address and target contract address.
 We then use them to initialize abstract adapter.
 Finally, we initialize state variables.
-Notice that `_checkToken` would revert if asset or share token are not supported by the credit manager.
 
 ```solidity
 contract ERC4626Adapter is AbstractAdapter, IERC4626Adapter {
@@ -98,8 +97,8 @@ contract ERC4626Adapter is AbstractAdapter, IERC4626Adapter {
     /// @param _vault Address of the target vault contract
     constructor(address _creditManager, address _vault) AbstractAdapter(_creditManager, _vault) {
         asset = IERC4626(_vault).asset();
-        shareMask = _checkToken(_vault);
-        assetMask = _checkToken(asset);
+        shareMask = _getMaskOrRevert(_vault);
+        assetMask = _getMaskOrRevert(asset);
     }
 }
 ```
@@ -110,7 +109,7 @@ Now let's actually implement the state-modifying functionality.
 
 Let's consider a step-by-step process of writing a wrapper function, keeping in mind abstract adapter's helper functions.
 
-**Step 1**. Call the wrapped function of the target contract with passed calldata
+**Step 1**. Call the wrapped function of the target contract with passed calldata.
 
 ```solidity
 function deposit(uint256 assets, address receiver) external override {
@@ -270,7 +269,7 @@ contract ERC4626Adapter is AbstractAdapter, IERC4626Adapter {
 
 ## Checklist
 
-As promised, let's evaluate the new adapter against checklist on the previous page.
+As promised, let's evaluate the new adapter against the checklist on the previous page.
 
 - [x] Adapter must be made compatible with Gearbox protocol &mdash; _the only adaptation is custom oracle_
 - [x] Adapter must inherit and make use of `AbstractAdapter` &mdash; _inherits explicitly_
@@ -278,4 +277,4 @@ As promised, let's evaluate the new adapter against checklist on the previous pa
 - [x] All wrapping functions can only modify the state of the `_creditAccount()` &mdash; _recall step 3_
 - [x] All wrapping functions that allow to specify a recipient must set it to the `_creditAccount()` &mdash; _recall step 3_
 - [x] All wrapping functions that require token approval to execute an operation must reset it to `1` after &mdash; _recall step 2_
-- [x] All wrapping functions that receive/spend tokens must call `_enableToken()`/`_disableToken()` (or `_changeEnabledTokens` if tokens were checked in the constructor) &mdash; _recall step 5 and constructor_
+- [x] All wrapping functions that receive/spend tokens must call `_enableToken()`/`_disableToken()` on them (or `_changeEnabledTokens` if masks were initialized in the constructor) &mdash; _recall step 5 and constructor_
