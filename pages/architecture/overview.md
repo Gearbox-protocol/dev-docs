@@ -39,7 +39,7 @@ Core contracts provide functionality necessary to interact with the protocol, in
 | AddressProvider      | Keeps addresses of core contracts           |
 | AccountFactory       | Supplies reusable credit accounts           |
 | ACL                  | Manages access control                      |
-| ContractsRegister    | Pools & CreditManagers contrascts register  |
+| ContractsRegister    | Pools & CreditManagers contracts register  |
 | DataCompressor       | Prepares data for offchain services         |
 | PriceOracle          | Provides price data for CreditManager       |
 | WETHGateway          | Converts ETH to WETH and vice versa         |
