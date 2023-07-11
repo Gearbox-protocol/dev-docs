@@ -4,7 +4,7 @@ Credit part of the Gearbox Protocol is based on Facade pattern. CreditAccounts a
 
 ![](/images/credit/creditArchitecture.jpg)
 
-Each user could have only one credit account per creditManager, this one-to-one relationship is stored in `mapping(address => address) public override creditAccounts`, CM routes calls and operations to particulat credit account.
+Each user could have only one credit account per creditManager, this one-to-one relationship is stored in `mapping(address => address) public override creditAccounts`, CM routes calls and operations to particular credit account.
 
 AccountFactory is used to supply reusable credit accounts when it's needed (for more info, check [AccountFactory](/docs/documentation/architecture/account-factory)). CreditManager is allowed to borrow / repay funds from one particular pool. WETHGateway is used to convert WETH into ETH during closing account and liquidations as well.
 
