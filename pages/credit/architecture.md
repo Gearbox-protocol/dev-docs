@@ -10,7 +10,7 @@ AccountFactory is used to supply reusable credit accounts when it's needed (for 
 
 PriceOracle provide price data based on Chainlink oracles or complex oracles. This data is used to compute collateral value. For more information, please check Oracles chapter.
 
-To interact with 3rd party protocols, this protocols could have special contracts which are called adapters (for more information: adapters), which has one-to-one relationship: one contarct could be called through one adapter only. Adapters provide the same ABI as original contacts, so when user send transaction to adapter with the same `calldata` as for original contract, it would be executed using funds on credit account.
+To interact with 3rd party protocols, this protocols could have special contracts which are called adapters (for more information: adapters), which has one-to-one relationship: one contract could be called through one adapter only. Adapters provide the same ABI as original contacts, so when user send transaction to adapter with the same `calldata` as for original contract, it would be executed using funds on credit account.
 
 ### Credit contacts
 
