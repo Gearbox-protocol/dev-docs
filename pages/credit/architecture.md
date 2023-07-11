@@ -6,7 +6,7 @@ Credit part of the Gearbox Protocol is based on Facade pattern. CreditAccounts a
 
 Each user could have only one credit account per creditManager, this one-to-one relationship is stored in `mapping(address => address) public override creditAccounts`, CM routes calls and operations to particular credit account.
 
-AccountFactory is used to supply reusable credit accounts when it's needed (for more info, check [AccountFactory](/docs/documentation/architecture/account-factory)). CreditManager is allowed to borrow / repay funds from one particular pool. WETHGateway is used to convert WETH into ETH during closing account and liquidations as well.
+AccountFactory is used to supply reusable credit accounts when it's needed (for more info, check [AccountFactory](/architecture/account-factory)). CreditManager is allowed to borrow / repay funds from one particular pool. WETHGateway is used to convert WETH into ETH during closing account and liquidations as well.
 
 PriceOracle provide price data based on Chainlink oracles or complex oracles. This data is used to compute collateral value. For more information, please check Oracles chapter.
 
