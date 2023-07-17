@@ -4,13 +4,13 @@ Credit part of the Gearbox Protocol is based on Facade pattern. CreditAccounts a
 
 ![](/images/credit/creditArchitecture.jpg)
 
-Each user could have only one credit account per creditManager, this one-to-one relationship is stored in `mapping(address => address) public override creditAccounts`, CM routes calls and operations to particulat credit account.
+Each user could have only one credit account per creditManager, this one-to-one relationship is stored in `mapping(address => address) public override creditAccounts`, CM routes calls and operations to particular credit account.
 
-AccountFactory is used to supply reusable credit accounts when it's needed (for more info, check [AccountFactory](/docs/documentation/architecture/account-factory)). CreditManager is allowed to borrow / repay funds from one particular pool. WETHGateway is used to convert WETH into ETH during closing account and liquidations as well.
+AccountFactory is used to supply reusable credit accounts when it's needed (for more info, check [AccountFactory](/architecture/account-factory)). CreditManager is allowed to borrow / repay funds from one particular pool. WETHGateway is used to convert WETH into ETH during closing account and liquidations as well.
 
 PriceOracle provide price data based on Chainlink oracles or complex oracles. This data is used to compute collateral value. For more information, please check Oracles chapter.
 
-To interact with 3rd party protocols, this protocols could have special contracts which are called adapters (for more information: adapters), which has one-to-one relationship: one contarct could be called through one adapter only. Adapters provide the same ABI as original contacts, so when user send transaction to adapter with the same `calldata` as for original contract, it would be executed using funds on credit account.
+To interact with 3rd party protocols, this protocols could have special contracts which are called adapters (for more information: adapters), which has one-to-one relationship: one contract could be called through one adapter only. Adapters provide the same ABI as original contacts, so when user send transaction to adapter with the same `calldata` as for original contract, it would be executed using funds on credit account.
 
 ### Credit contacts
 
@@ -38,4 +38,4 @@ CreditFacade provides user interface for all operations with credit accounts:
 - Managing debt
 - Liquidating credit account
 
-It also implements Multicall feature. For more information, please check [Multicall feature](/docs/documentation/credit/multicall)
+It also implements Multicall feature. For more information, please check [Multicall feature](/credit/multicall)
