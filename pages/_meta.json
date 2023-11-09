@@ -1,6 +1,7 @@
 {
   "index": "Deployed contracts",
   "intro": "Introduction",
+  "core": "Core concepts",
   "architecture": "Architecture",
   "pools": "Pools",
   "credit": "Credit accounts",
