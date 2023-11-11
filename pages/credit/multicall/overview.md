@@ -2,176 +2,179 @@ import { Tab, Tabs } from 'nextra-theme-docs'
 
 # Multicall
 
-## Overview
+Multicalls are a main way to manage a Credit Account in Gearbox V3. A multicall is a sequence of calls submitted to the Credit Facade, which it then parses and orchestrates the requested changes on the account.
 
-Multicall is a new feature in Gearbox V2, which allows users to execute a batch of adapter or Credit Facade calls in one transaction. There is a number of advantages to using multicalls as opposed to individual adapter calls:
-
-- **Gas efficiency**  
-  Multicall only performs one collateral check after executing all actions, compared to a fastCollateralCheck or fullCollateralCheck being invoked each time after separate calls. As health checks are some of the most expensive actions in the system, this saves a lot of gas.
-
-- **One-click strategies**  
-  Multicalls can be used while opening, closing, or liquidating accounts, or run separately to manage an existing account. From the standpoint of a user, very complex levered strategies can be entered or exited with a single transaction signing.
-
-- **Low-cost liquidations**  
-  Instead of using flash loans, receiving collateral and then selling it (which is how liquidations are typically performed in overcollateralized systems), multicalls enable the liquidator to take temporary control of the account, convert collateral to underlying within the system, and then repay the loan. This flow significantly reduces liquidation costs, as borrowing/repaying a flash loan and sending a potentially large number of assets to the liquidator are no longer required.
-
-## Building a multicall
-
-To build a multicall, the developer would prepare an array of `Multicall` structs, providing the list of call targets and corresponding calldata. They would then pass the array to one of the functions in CreditFacade that supports multicalls:
+The calls are passed as an array of `MultiCall` structs:
 
 ```solidity
-    struct MultiCall {
-        address target;
-        bytes callData;
-    }
-
-    /// @dev Opens credit account and run a bunch of transactions for multicall
-    /// - Opens credit account with desired borrowed amount
-    /// - Executes multicall functions for it
-    /// - Checks that the new account has enough collateral
-    /// - Emits OpenCreditAccount event
-    ///
-    /// @param borrowedAmount Debt size
-    /// @param onBehalfOf The address that we open credit account. Same as msg.sender if the user wants to open it for  his own wallet,
-    ///   or a different address if the beneficiary is a different wallet
-    /// @param calls Multicall structure for calls. Basic usage is to place addCollateral calls to provide collateral in
-    ///   assets that differ than undelyring one
-    /// @param referralCode Referral code which is used for potential rewards. 0 if no referral code provided
-
-    function openCreditAccountMulticall(
-        uint256 borrowedAmount,
-        address onBehalfOf,
-        MultiCall[] calldata calls,
-        uint256 referralCode
-    ) external payable;
-
-
-    /// @dev Run a bunch of transactions for multicall and then close credit account
-    /// - Wraps ETH to WETH and sends it msg.sender is value > 0
-    /// - Executes multicall functions for it (the main function is to swap all assets into undelying one)
-    /// - Close credit account:
-    ///    + It checks underlying token balance, if it > than funds need to be paid to pool, the debt is paid
-    ///      by funds from creditAccount
-    ///    + if there is no enough funds in credit Account, it withdraws all funds from credit account, and then
-    ///      transfers the diff from msg.sender address
-    ///    + Then, if sendAllAssets is true, it transfers all non-zero balances from credit account to address "to"
-    ///    + If convertWETH is true, the function converts WETH into ETH on the fly
-    /// - Emits CloseCreditAccount event
-    ///
-    /// @param to Address to send funds during closing contract operation
-    /// @param skipTokenMask Tokenmask contains 1 for tokens which needed to be skipped for sending
-    /// @param convertWETH It true, it converts WETH token into ETH when sends it to "to" address
-    /// @param calls Multicall structure for calls. Basic usage is to place addCollateral calls to provide collateral in
-    ///   assets that differ than undelyring one
-    function closeCreditAccount(
-        address to,
-        uint256 skipTokenMask,
-        bool convertWETH,
-        MultiCall[] calldata data
-    ) external payable;
-
-    /// @dev Run a bunch of transactions (multicall) and then liquidate credit account
-    /// - Wraps ETH to WETH and sends it msg.sender (liquidator) is value > 0
-    /// - It checks that hf < 1, otherwise it reverts
-    /// - It computes the amount which should be paid back: borrowed amount + interest + fees
-    /// - Executes multicall functions for it (the main function is to swap all assets into undelying one)
-    /// - Close credit account:
-    ///    + It checks underlying token balance, if it > than funds need to be paid to pool, the debt is paid
-    ///      by funds from creditAccount
-    ///    + if there is no enough funds in credit Account, it withdraws all funds from credit account, and then
-    ///      transfers the diff from msg.sender address
-    ///    + Then, if sendAllAssets is false, it transfers all non-zero balances from credit account to address "to".
-    ///      Otherwise no transfers would be made. If liquidator is confident that all assets were transffered
-    ///      During multicall, this option could save gas costs.
-    ///    + If convertWETH is true, the function converts WETH into ETH on the fly
-    /// - Emits LiquidateCreditAccount event
-    ///
-    /// @param to Address to send funds during closing contract operation
-    /// @param skipTokenMask Tokenmask contains 1 for tokens which needed to be skipped for sending
-    /// @param convertWETH It true, it converts WETH token into ETH when sends it to "to" address
-    /// @param calls Multicall structure for calls. Basic usage is to place addCollateral calls to provide collateral in
-    ///   assets that differ than undelyring one
-    function liquidateCreditAccount(
-        address borrower,
-        address to,
-        uint256 skipTokenMask,
-        bool convertWETH,
-        MultiCall[] calldata data
-    ) external payable;
-
-    /// @dev Executes a bunch of transactions and then make full collateral check:
-    ///  - Wraps ETH and sends it back to msg.sender address, if value > 0
-    ///  - Execute bunch of transactions
-    ///  - Check that hf > 1 ather this bunch using fullCollateral check
-    /// @param calls Multicall structure for calls. Basic usage is to place addCollateral calls to provide collateral in
-    ///   assets that differ than undelyring one
-    function multicall(MultiCall[] calldata calls)
-        external
-        payable;
-
+struct MultiCall {
+    address target;
+    bytes callData;
+}
 ```
 
-### Examples
+The `target` field encodes the contract that will process the requested operation:
 
-The following is an example for constructing a multicall:
+1. For internal operations, such as managing debt or adding/withdrawing collateral, this is the address of the Credit Facade itself;
+2. For external operations, the target is the adapter connected to the protocol being interacted with.
 
-<Tabs items={["Solidity"]}>
-  <Tab>
+`callData` encodes the function to be executed and its parameters. Note that for adapters this is a function that is directly present in the adapter ABI (i.e. any externally callable non-view function in the adapter can be called), while for the Credit Facade, `callData` encodes functions from a [special interface](https://github.com/Gearbox-protocol/core-v3/blob/ca43d1b9bf79a0c2a71ce4ad6fdcc562bb525ba4/contracts/interfaces/ICreditFacadeV3Multicall.sol#L44), which are not available externally and can only be accessed from within a multicall.
 
+## Multicall-supporting functions
+
+All functions in `CreditFacade` that touch the contracts in some way support multicalls. These include:
 
 ```solidity
-    MultiCall[] memory calls = new MultiCall[](2);
+function openCreditAccount(address onBehalfOf, MultiCall[] calldata calls, uint256 referralCode)
+    external
+    payable
+    returns (address creditAccount);
+
+function closeCreditAccount(address creditAccount, MultiCall[] calldata calls) external payable;
+
+function liquidateCreditAccount(address creditAccount, address to, MultiCall[] calldata calls) external;
+
+function multicall(address creditAccount, MultiCall[] calldata calls) external payable;
+
+function botMulticall(address creditAccount, MultiCall[] calldata calls) external;
+```
+
+This allows users to do all their required account management in one call. As each multicall (except when closing/liquidating an account) is followed by a collateral check, this helps minimize the gas overhead by batching any required management actions under a single check.
+
+## Multicall flow
+
+All multicalls, regardless of the function, are performed as follows:
+
+1. The Credit Facade receives the `calls` array;
+2. The Credit Facade saves the balances of forbidden tokens on the Credit Account (if any);
+3. The Credit Facade applies [on-demand price feed updates](/credit/multicall/on-demand-pf). The Credit Facade always assumes that all price updates are at the beginning of the `calls` array.
+4. The Credit Facade goes through `MultiCall` structs one-by-one and parses data depending on the target. If the target is the Credit Facade itself, it attempts to decode the `callData` selector and execute an internal function corresponding to that selector with passed parameters. If the target is a (valid) adapter, the Credit Facade just routes the call to it as-is;
+5. After processing all structs, the Credit Facade calls `CreditManagerV3.fullCollateralCheck()` in order to verify account solvency, and checks that forbidden token balances were not increased, and no new forbidden tokens were enabled.
+
+## Simple multicall usage example
+
+Suppose we want to perform the following sequence of actions on opening an account:
+
+1. Add 10000 USDC as collateral;
+2. Borrow 40000 USDC from the pool;
+3. Convert all USDC to WETH using UniswapV3;
+4. Deposit all WETH into yvWETH (Yearn WETH vault);
+5. Set a quota for yvWETH to count it towards account collateral (for simplicity, we will set a quota of 50000 USDC, which is guaranteed to cover all yvWETH);
+
+For illustrative purposes, suppose also that yvWETH has an on-demand price oracle.
+
+Suppose we have the following variables defined elsewhere:
+
+```solidity
+address accountOwner;
+
+address creditManager;
+address creditFacade;
+
+address usdc;
+address weth;
+address yvWETH;
+
+address uniswapV3Router;
+
+bytes memort yvWETH_priceData;
+```
+
+Assume that the expected exchange rate between USDC and ywWETH is 2000 USDC/ywWETH.
+The following is an example for constructing a multicall that implements this strategy and opening an account with it.
+
+<Tabs items={["Solidity"]}>
+<Tab>
+
+```solidity
+
+    MultiCall[] memory calls = new MultiCall[](8);
+
+    // All on-demand price feed updates must always go first in the calls array
     calls[0] = MultiCall({
-        target: address(creditFacade),
-        callData: abi.encodeWithSelector(
-            ICreditFacade.addCollateral.selector,
-            FRIEND,
-            underlying,
-            200
-        )
+        target: creditFacade,
+        callData: abi.encodeCall(ICreditFacadeV3Multicall.onDemandPriceUpdate, (yvWETH, false, ywWETH_priceData))
     });
 
     calls[1] = MultiCall({
-        target: address(creditFacade),
-        callData: abi.encodeWithSelector(
-            ICreditFacade.decreaseDebt.selector,
-            812
-        )
+        target: creditFacade,
+        callData: abi.encodeCall(ICreditFacadeV3Multicall.addCollateral, (usdc, 10_000 * 10**6))
     });
 
-    creditFacade.multicall(calls);
+    calls[2] = MultiCall({
+        target: creditFacade,
+        callData: abi.encodeCall(ICreditFacadeV3Multicall.increaseDebt, (40_000 * 10**6))
+    });
+
+    // Before the external calls, we need to set up a slippage check
+    // The minimum output yvWETH amount is (50000 / 2000) * 0.995 = 24.875
+
+    BalanceDelta[] memory deltas = new BalanceDelta[](1);
+    deltas[0] = BalanceDelta({
+        token: yvWETH,
+        amount: (25 * 10**18) * 995 / 1000;
+    })
+
+    calls[3] = MultiCall({
+        target: creditFacade,
+        callData: abi.encodeCall(ICreditFacadeV3Multicall.storeExpectedBalances, (deltas))
+    })
+
+    // For external calls, we need to retrieve the adapter addresses, which are unique to each Credit Manager
+
+    address uniswapV3Adapter = ICreditManagerV3(creditManager).contractToAdapter(uniswapV3Router);
+    address yvWETHAdapter = ICreditManagerV3(creditManager).contractToAdapter(yvWETH);
+
+    // This is a parameter struct passed into Uniswap's `exactInputSingle`. See
+    // https://github.com/Uniswap/v3-periphery/blob/697c2474757ea89fec12a4e6db16a574fe259610/contracts/interfaces/ISwapRouter.sol#L10
+
+    ISwapRouter.ExactInputSingleParams memory params = ISwapRouter.ExactInputSingleParams({
+        tokenIn: usdc,
+        tokenOut: weth,
+        fee: 500,
+        recipient: address(0), // For obvious reasons, the adapter overrides this parameter to the credit account address automatically
+        deadline: block.timestamp + 3600,
+        amountIn: 50_000 * 10**6,
+        amountOutMinimum: 0 // We can omit the slippage check here, since we will use Gearbox's native slippage check
+        sqrtPriceLimitX96: 0
+    });
+
+    calls[4] = MultiCall({
+        target: uniswapV3Adapter,
+        callData: abi.encodeCall(IUniswapV3Adapter.exactInputSingle, (params))
+    });
+
+    // This external call uses a function `depositDiff` unique to the YearnV2 adapter
+    // See the `Adapters` section for more info
+
+    calls[5] = MultiCall({
+        target: yvWETHAdapter,
+        callData: abi.encodeCall(IYearnV2Adapter.depositDiff, (1))
+    });
+
+    // After external calls, we perform a slippage check
+    calls[6] = MultiCall({
+        target: creditFacade,
+        callData: abi.encodeCall(ICreditFacadeV3Multicall.compareBalances, ())
+    });
+
+    // Finally, we set a quota
+
+    calls[7] = MultiCall({
+        target: creditFacade,
+        callData: abi.encodeCall(ICreditFacadeV3Multicall.updateQuota, (yvWETH, 50_000 * 10 ** 6, 50_000 * 10 ** 6))
+    });
+
+    // Since we are adding collateral from this account, we need to approve tokens
+    // Note that the contract to give approval to is Credit Manager, not Credit Facade
+
+    IERC20(usdc).approve(creditManager, 10_000 * 10 ** 6);
+
+    ICreditFacadeV3(creditFacade).openCreditAccount(accountOwner, calls, 0);
 ```
 
 </Tab>
 </Tabs>
 
-### Multicall implementation
-
-There are several essential steps to a multicall:
-
-- The credit account ownership is transferred to the CreditFacade, as adapters generally locate the CA owner by msg.sender;
-- Calls are executed sequentially;
-- A full collateral check is performed;
-- Account ownership is returned to the original owner;
-
-### Functions supported in multicalls
-
-During a multicall, the following functions can be called:
-
-- Any functions in adapters allowed within a CreditManager (**note:** the adapter address must be passed as the target, instead of the original contract);
-- A number of CreditFacade functions: `addCollateral`, `increaseDebt`, `decreaseDebt`, `enableToken`;
-- `ICreditFacadeBalanceChecker.revertIfBalanceLessThan`: (see more in a section below);
-
-### Multicall slippage protection
-
-A signature `revertIfBalanceLessThan(address token, uint256 minBalance)` is defined within the `ICreditFacadeBalanceChecker` interface.
-
-While this function has no formal implementation, it can be encoded as calldata and passed to CreditFacade to protect from slippage. Upon receiving this call, CreditFacade will check whether the balance of `token` is at least `minBalance`, and revert if not.
-
-Since multicalls support arbitrarily complex strategies, the call can be made at any point during a multicall and for any token, allowing the developer fine control over slippage protection.
-
-### Restrictions
-
-- It is forbidden to increase and then decrease debt within one multicall;
-- It is forbidden to decrease debt if a multicall is a part of `openCreditAccountMulticall`;
-- All creditFacade functions are forbidden during closure / liquidation multicalls.
+For details regarding any of the mentioned functions, see the following sections.
+The specifications for Credit Facade multicall functions can be found [here](https://github.com/Gearbox-protocol/core-v3/blob/ca43d1b9bf79a0c2a71ce4ad6fdcc562bb525ba4/contracts/interfaces/ICreditFacadeV3Multicall.sol#L44).
