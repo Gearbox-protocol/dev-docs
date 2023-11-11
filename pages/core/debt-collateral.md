@@ -9,6 +9,7 @@ The following sections provide more details on how the protocol calculates debt 
 A Credit Account's debt is always denominated in the amount of the corresponding debt asset. Each Credit Account is associated with a specific Credit Facade/Credit Manager, which is in turn associated with a specific pool - therefore, for each Credit Account there is only one debt asset which is called the **underlying**.
 
 Debt in Gearbox protocol consists of several different parts:
+
 1. **Principal.** This is the amount that the Credit Account has borrowed from the pool. It only changes when the CA's owner has explicitly requested to borrow more funds or repay debt.
 2. **Interest.** This is the interest accrued on the borrowed principal. It grows over time as a percentage of principal, with the rate determined by the pool's utilization.
 3. **Quota interest.** This is the interest paid by the user on quotas they have enabled for their collateral. It grows over time as a percentage of the quota, with the rate determined by GEAR governance. More on quotas [here](/core/quota).
@@ -24,6 +25,7 @@ Gearbox V3 also supports Credit Accounts in "zero debt" state. This means that a
 While a Credit Account can in principle hold any token, only a limited set of tokens determined by Gearbox governance can be used as collateral.
 
 There are two main types of collateral tokens in V3:
+
 1. Non-quoted tokens. A small number of the most liquid tokens on the market (large stablecoins, WETH) are non-quoted. This means that they do not require quotas to be counted as collateral (i.e., the entirety of token's balance is counted towards collateral at all times) and the protocol is able to tolerate any exposure to those assets.
 2. Quoted tokens. Most collateral tokens require users to set a quota in order for the token to be considered collateral. Quotas essentially limit how much of the token can be used as collateral on the account, with a global per-token limit defined for each pool, defining maximal protocol exposure. More on quotas [here](/core/quota).
 
@@ -54,13 +56,21 @@ $$
 
 Liquidation Thresholds are essentially discounting coefficients that are tied to the asset's volatility against underlying (see more [here](/risk/liquidation-threshold)).
 
-The account's health is determined by its Health Factor, which is computed as 
+The account's health is determined by its Health Factor, which is computed as
 
 $$
 hf = \frac{TWV}{totalDebt}
 $$
 
 An account with $hf < 1$ is considered unhealthy. If the account is unhealthy after a user-initiated transaction, then the transaction is reverted. If it became unhealthy due to collateral price depreciation, then it is [liquidated](/core/liquidation).
+
+## Token masks
+
+To conserve gas, Gearbox V3 uses bit-strings (encoded into `uint256` numbers) called masks. Masks allow to efficiently store and verify set inclusion: a bit at the i-th position being set to 1 means that the i-th token in the system belongs to the set, with set inclusion being verifiable with a single `AND` op. There are several types of masks used in the system:
+
+1. `enabledTokensMask` - this mask encodes a set of collateral tokens that are enabled for a particular Credit Account. These masks are stored for each Credit Account.
+2. `quotedTokensMask` - this mask encodes the set of quoted tokens. Each `CreditFacade`/`CreditManager` has a single quoted tokens mask.
+3. `forbiddenTokensMask` - this mask encodes the set of forbiddenTokens (see below). Each `CreditFacade`/`CreditManager` has a single forbidden tokens mask.
 
 ## Forbidden tokens
 

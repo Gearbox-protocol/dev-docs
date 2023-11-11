@@ -10,5 +10,6 @@
   "oracle": "Oracles",
   "risk": "Risk management",
   "bots": "Bots",
+  "helpers": "Helper contracts",
   "tokens": "Supported tokens"
 }

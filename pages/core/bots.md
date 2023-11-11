@@ -1,6 +1,6 @@
 # Bots
 
-Bots are a special feature of Gearbox V3 that allows account owners to permit third-party actors to manage their CA. These "third-party" actors do not need to be "bots" per-se - a bot can be a human-controlled EOA, Gnosis Safe or another contract. That being said, the feature was primarily designed with automation in mind.
+Bots are a special feature of Gearbox V3 that allows account owners to permit third-party actors to manage their CA. These "third-party" actors do not need to be "bots" per-se - a bot can be a human-controlled smart-contract wallet, Gnosis Safe or another contract. That being said, the feature was primarily designed with automation in mind.
 
 Bots are essentially able to perform multicalls on behalf of the account owner, using a special `botMulticall` function. The exact scope of actions available to a bot during a multicall is defined by the user - they can set granular permissions for each action. Permissions are set in a contract called [BotList](/).
 

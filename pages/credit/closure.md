@@ -1,25 +1,38 @@
 # Closing a credit account
 
-To repay the debt and close a Credit Account normally, the following `CreditFacade` function can be used:
+The user may fully exit their position and return the Credit Account to the factory is they wish. Generally, this is not required, as they can simply decrease their debt to zero and keep the account as a smart contract wallet. But the option is there is the user chooses to do so.
+
+In order to fully close the account, several conditions must be fulfilled:
+
+1. Debt must be equal to 0;
+2. All non-quoted tokens must be withdrawn or manually disabled;
+3. Quotas for all quoted tokens must be set to 0 (and they also need to be withdrawn if the user wants to receive them);
+
+The following Credit Facade function can be used to fully close an account and return it to the factory.
 
 ```solidity
 function closeCreditAccount(
-    address to,
-    uint256 skipTokenMask,
-    bool convertWETH,
+    address creditAccount,
     MultiCall[] calldata calls
 ) external payable;
 ```
 
-| Parameter     | Description                                                                                                                                    |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| to            | The address to which the remaining collateral is sent after repaying the loan and closing the account.                                         |
-| skipTokenMask | A mask that encodes the tokens which should not be sent back to the user. Can be used to avoid sending dust or tokens that revert on transfer. |
-| convertWETH   | Whether to convert WETH to ETH before sending it to the user.                                                                                  |
-| calls         | The array of calls to execute before closing the account.                                                                                      |
+| Parameter     | Description                                                                |
+| ------------- | -------------------------------------------------------------------------- |
+| creditAccount | Credit Account to close.                                                   |
+| calls         | The array of `MultiCall` structs to be executed before closing the account |
 
-The multicall within `closeCreditAccount` would typically be used to convert collateral assets into underlying. If there is not enough underlying on the CA after performing the multicall, the Credit Manager will try to transfer the shortfall from the borrower.
+## Typical closure flow
 
-This means that it is possible to normally close even an unhealthy account, as long as either the user deposits more underlying during a multicall through `addCollateral`, or has enough underlying on their address that is approved to the Credit Manager. 
+These are the actions that would typically be submitted to `calls` in order to close an account:
 
-Trying to close a Credit Account normally will fail if the Credit Manager cannot repay the entire debt to the pool.
+1. Acquire enough underlying on the Credit Account to repay the debt (if there's not enough already):
+   - Use [external calls](/credit/multicall/external-calls) to convert the collateral assets into underlying in order to repay debt. It's up to the user whether to convert all assets or just enough to cover the debt.
+   - Another option is to [add collateral](/credit/multicall/add-collateral) to transfer enough underlying to the Credit Account;
+2. [Decrease debt](/credit/multicall/debt-management) to repay the loan;
+3. [Withdraw collateral](/credit/multicall/withdraw-collateral) to return the leftover (desired) assets to the user;
+4. [Update quotas](/credit/multicall/update-quota) to remove all non-zero quotas.
+
+## Things to look out for
+
+It is important to ensure that `withdrawCollateral` calls are passed for all assets that the user wishes to get back. Once an account was returned to factory, only the DAO can (but is not obligated to) recover assets left on it.

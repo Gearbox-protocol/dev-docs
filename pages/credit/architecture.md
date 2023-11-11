@@ -1,41 +1,18 @@
 # Architecture
 
-Credit part of the Gearbox Protocol is based on Facade pattern. CreditAccounts are simple contracts, which could executed transaction passed through all requred checks. CreditManager is backend which is responsbile for all core operations, users could interact with it via CreditFacade / Adapters contract. 
+![](/images/credit/architecture.jpg)
 
-![](/images/credit/creditArchitecture.jpg)
+Gearbox V3 separates logic for utilizing Credit Accounts into several contracts for increased modularity. These include:
 
-Each user could have only one credit account per creditManager, this one-to-one relationship is stored in `mapping(address => address) public override creditAccounts`, CM routes calls and operations to particulat credit account.
-
-AccountFactory is used to supply reusable credit accounts when it's needed (for more info, check [AccountFactory](/docs/documentation/architecture/account-factory)). CreditManager is allowed to borrow / repay funds from one particular pool. WETHGateway is used to convert WETH into ETH during closing account and liquidations as well.
-
-PriceOracle provide price data based on Chainlink oracles or complex oracles. This data is used to compute collateral value. For more information, please check Oracles chapter.
-
-To interact with 3rd party protocols, this protocols could have special contracts which are called adapters (for more information: adapters), which has one-to-one relationship: one contarct could be called through one adapter only. Adapters provide the same ABI as original contacts, so when user send transaction to adapter with the same `calldata` as for original contract, it would be executed using funds on credit account.
-
-### Credit contacts
-
-| Contract           | Responsibility                                                                     |
-| ------------------ | ---------------------------------------------------------------------------------- |
-| CreditAccount      | Primitive, which executes transaction on behalf of                                 |
-| CreditManager      | Backed contract, which execute operations, however, it could no be called directly |
-| CreditFacade       | Provide user interface and used for multicall                                      |
-| CreditConfigurator | Configure credit manager, could be called by DAO only                              |
-
-
-### CreditManager
-
-CreditManager is core contract to manager credit accounts. In V2, CreditManager itself is designed as low-level backed contract.  One pool could be connected with a few of creditManagers, however, CreditManager could be connected with one pool only. It's possible to forbid borrowing money from pool, however, each CreditManager could repay money back.
-
-![](/images/credit/poolCreditManagers.jpg)
-
-### CreditFacade
-
-CreditFacade provides user interface for all operations with credit accounts:
-
-- Opening credit account
-- Closing credit account
-- Adding collateral
-- Managing debt
-- Liquidating credit account
-
-It also implements Multicall feature. For more information, please check [Multicall feature](/docs/documentation/credit/multicall)
+| Contract                    | Responsibility                                                                                                                                                                                                                                                                                           |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CreditAccount               | The Credit Account itself, which has simple logic for transferring assets and executing calls with a target and calldata passed to it by the Credit Manager.                                                                                                                                             |
+| CreditManager               | A "backend" for all Credit Account operations, which performs collateral checks and facilitates execution of both external and internal (account management) calls. It also stores important parameters and provides a unified interface for computing CA health.                                        |
+| CreditFacade                | A "frontend" contract that CA owners directly interact with. To manage CAs, users submit arrays of `MultiCall` structs that the Credit Facade parses, orchestrating the requested internal and external actions. There is always a one-to-one relationship between the Credit Facade and Credit Manager. |
+| CreditConfigurator          | A contract that is used to change important Credit Manager and Credit Facade parameters. Can only be directly interacted with by the Gearbox DAO and some assigned controllers. There is always a one-to-one relationship between the Credit Configurator and Credit Manager.                            |
+| Adapters                    | A set of contracts that are used as interfaces to interact with external protocols. Adapters build the calldata that is then passed by the Credit Manager to CA for execution. Cannot be called directly; instead, calls to them must be included into Credit Facade multicalls.                         |
+| Pool                        | The pool is the contract that stores liquidity available for borrowing. There is always only one pool per Credit Manager, but several Credit Managers can be connected to a single pool                                                                                                                  |
+| PoolQuotaKeeper             | PoolQuotaKeeper is a contract that stores quotas set by CA owners and tracks quota interest and quota increase fees. There is one PoolQuotaKeeper per pool.                                                                                                                                              |
+| AccountFactory              | AccountFactory is a contract that stores reusable Credit Accounts. Credit Accounts are handed off to Credit Managers on account opening, and returned on account closure.                                                                                                                                |
+| PriceOracle and price feeds | PriceOracle is a contract that supplies prices for collateral calculations. There are many price feeds connected to a single PriceOracle, which serves as the main entry point for all price retrieval.                                                                                                   |
+| Gauge                       | The Gauge is a contract that computes quota interest rates and supplies them to the PoolQuotaKeeper. It is not directly involved with Credit Account operations, but can be useful for the purposes of data analysis and planning                                                                        |

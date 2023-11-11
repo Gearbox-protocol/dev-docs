@@ -23,6 +23,8 @@ The liquidator can perform a multicall with any external calls, as well as addin
 
 In some cases, the total value (minus the liquidator's premium) is enough to cover the amount owed to LPs (i.e. `debt + interest + quota interest`) but not enough to also cover the entirety of protocol fees. In this case, the protocol only collects whatever it can (leftover after paying the pool and the liquidator).
 
+In cases where the total value (minus the liquidator's premium) is not enough to cover the debt to LPs, the contracts record a loss. This will have two effects: first, the pool share exchange rate will decrease; second, borrowing in that Credit Manager will be stopped until the Gearbox governance explicitly re-enables it. In cases of large loss over short periods of time, the contracts will be paused entirely.
+
 If the liquidator wants to receive non-underlying assets as premium, they need to transfer these assets to themselves manually with a "withdraw collateral" call. Otherwise, the leftover underlying after repaying the debt and remaining funds is sent to the liquidator automatically.
 
 ## Liquidations due to expiration

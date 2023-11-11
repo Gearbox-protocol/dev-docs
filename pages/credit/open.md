@@ -1,71 +1,72 @@
 # Open credit account
 
-To interact with Gearbox, a user must open a credit account. During the opening, the credit account borrows funds in underlying from the pool and transfers collateral from the user.
-
-Example:
+To use Gearbox V3, the user must first open a Credit Account. While it's possible to just open a "plain" account (i.e., just an empty wallet without leverage), the user would generally want to borrow funds from the pool and convert them into a leveraged position of their choice.
 
 ![Opening credit account](/images/credit/openCreditAccount.jpg)
 
-The trader borrows 90 ETH and provides 10 ETH of their own funds. After opening an account, its total balance is 100 ETH. The trader can then use the credit account to interact with various protocols, but has no access to funds.
-
-**Note:** It is possible to provide collateral in an asset different from the underlying, however, this can only be done through `openCreditAccountMulticall`.
-
-## Borrowing limits and other restrictions
-
-Each CreditFacade imposes limits on the borrowed amount for a single CA, set by the DAO. Those limits can retrieved by using a CreditFacade getter `CreditFacade.limits()`, which returns a tuple of `(minAmount, maxAmount)`.
-
-It is also forbidden to open and close a Credit Account in the same block, and reducing the debt immediately after opening the account.
-
-Opening a CreditAccount on behalf of another user (`onBehalfOf != msg.sender`) is only possible of [account transfer allowance](/) from the account opener to the user is set to `true`.
-
-## Methods
-
-To open a Credit Account, two `CreditFacade` functions can be used:
-
-### Open credit account
+Opening an account is done using the following Credit Facade function:
 
 ```solidity
 function openCreditAccount(
-    uint256 amount,
-    address onBehalfOf,
-    uint16 leverageFactor,
-    uint16 referralCode
-) external payable;
-```
-
-| Parameter      | Description                                                                                                                                                     |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| amount         | Borrower's initial funds                                                                                                                                        |
-| onBehalfOf     | The address for which the Credit Account is being opened                                                                                                        |
-| leverageFactor | The amount of leverage to take on. The borrowed amount is computed as `amount * leverageFactor / 100`, hence `leverageFactor = 100` corresponds to 2x leverage. |
-| referralCode   | Referral code, which is used for potential partner rewards. 0 if no referral code provided.                                                                     |
-
-### Open credit account with a multicall
-
-```solidity
-function openCreditAccountMulticall(
-    uint256 borrowedAmount,
-    address onBehalfOf,
+    uint256 onBehalfOf,
     MultiCall[] calldata calls,
     uint16 referralCode
 ) external payable;
 ```
 
-| Parameter      | Description                                                                                 |
-| -------------- | ------------------------------------------------------------------------------------------- |
-| borrowedAmount | Amount of the underlying to borrow.                                                         |
-| onBehalfOf     | The address for which the Credit Account is being opened.                                   |
-| calls          | The array of calls to execute immediately after opening an account.                         |
-| referralCode   | Referral code, which is used for potential partner rewards. 0 if no referral code provided. |
+| Parameter | Description |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | |
+| onBehalfOf | The address of the owner of the newly opened account. |
+| calls | The array of `MultiCall` structs to be executed immediately after opening an account. |
+| referralCode | Referral code, which is used for potential partner rewards. 0 if no referral code provided. |
 
-**NB!** While collateral is automatically transferred from the `msg.sender` during `openCreditAccount`, for `openCreditAccountMulticall` that is no longer the case, and collateral has to be transferred within a multicall by adding a call to `CreditFacade.addCollateral()` to the `calls` array.
+## Typical opening flow
 
-## Degen mode
+These are the actions that need to be submitted to `calls` in order to open a leveraged position:
 
-Degen Mode is a special restricted mode in the Credit Facade, designed for testing in production. If Degen Mode is enabled, opening a credit account requires burning a special NFT from `msg.sender`. If `msg.sender`'s NFT balance is 0, account opening will fail.
+0. If the account will end up with token that have on-demand price feeds, they need to be [updated](/credit/multicall/on-demand-pf) in order for the collateral check to succeed. All on-demand price feed updates must be performed before the rest of the calls.
+1. [Increase debt](/credit/multicall/debt-management) to the required debt amount;
+2. [Add collateral](/credit/multicall/add-collateral) to add user funds (this can be in underlying or any other asset);
+3. Use [external calls](/credit/multicall/external-calls) to convert the underlying from the pool and added collateral to token(s) of choice (this will be the end token(s) collateralizing the debt). Optionally, these calls can be wrapped in a [slippage check](/credit/multicall/slippage-check).
+4. If one or more received token(s) are quoted collateral tokens, [update their quotas](/credit/multicall/update-quota) to ensure that these tokens are counted as collateral;
 
-The NFT is not returned after closing or liquidating the account, so each NFT allows to open 1 account only.
+## Things to look out for
 
-The NFTs are distributed by the DAO to well-known traders and builders in the space, in order to test the system with limited exposure of pool funds.
+### Borrowing limits
 
-`CreditFacade.whitelisted()` can be used to determine whether the Credit Facade has Degen Mode enabled. `CreditFacade.degenNFT()` can be used to retrieve the NFT address.
+Each CreditFacade imposes limits on the borrowed amount for a single CA, set by the DAO. Those limits can retrieved by using a CreditFacade getter `CreditFacadeV3.debtLimits()`, which returns a tuple of `(minDebt, maxDebt)`. The debt principal after all calls must be either in this interval, or 0. Otherwise, the opening will fail.
+
+There is also the per-Credit Manager borrowing limit. You can find the remaining capacity for borrowing as follows:
+
+```solidity
+address creditManager = ICreditFacadeV3(creditFacade).creditManager();
+address pool = ICreditManagerV3(creditManager).pool();
+
+uint256 borrowable = IPoolV3(pool).creditManagerBorrowable(creditManager);
+```
+
+Finally, there is a limit on borrows per block that is defined as a multiplier of `maxDebt`. It can be retrieved with `CreditFacadeV3.maxDebtPerBlockMultiplier()`.
+
+These values can also be retrieved from the [Data Compressor](/helpers/data-compressor).
+
+### Quota limits
+
+Before opening, it's best to check that total quotas for the target assets is not at limit, otherwise the position can't be opened. This can be retrieved as follows:
+
+```solidity
+address creditManager = ICreditFacadeV3(creditFacade).creditManager();
+address pool = ICreditManagerV3(creditManager).pool();
+
+address pqk = IPoolV3(pool).poolQuotaKeeper();
+
+(,,, uint96 totalQuoted, uint96 limit, ) = PoolQuotaKeeperV3(pqk).getTokenQuotaParams(token);
+```
+
+### DegenNFT
+
+Some Credit Facades can be in a `whitelisted` mode. This can be checked by calling `CreditFacadeV3.degenNFT()` and checking if the address is non-zero.
+In whitelisted mode, only the users with a special DegenNFT from the DAO can open accounts, with 1 DegenNFT being burned for each opening. Opening an account on behalf of someone else is also not allowed in whitelisted mode.
+
+### Function restrictions
+
+It's not allowed to decrease debt or withdraw collateral during an account opening.

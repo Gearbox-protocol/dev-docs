@@ -1,32 +1,13 @@
 # Credit accounts
 
-Composable leverage is based on credit account (DEFI primitive), which is an isolated smart contract which can execute trader's financial orders on third party protocol, but do not provide direct access to the funds on it. Credit Account could take margin loan from the pool, so there are two types of funds on it: user initial funds and borrowed funds.
+Composable leverage is based on Credit Accounts (DeFi primitive), which are isolated smart contracts that can execute trader's financial orders on third party protocols, but restrict direct access to to the funds to ensure solvency. Credit Accounts can function as a normal smart wallet (where all the funds on the account belong to the account owner) or a leveraged account (in which case, the funds are a combination of owner funds and pool funds).
 
-## Open credit account
-To interact with Gearbox, user should open an credit account. During the opening flow, credit account takes margin loan from the pool and get collateral from user account as well. 
+All account management is performed through multicalls. All functions in the Credit Facade that touch the account in some way accept a `calls` parameter, which can be used to manage the account. For example, when opening an account, `calls` are applied immediately after opening, but before the collateral check. When closing or liquidating an account, `calls` are applied before the main closure/liquidation takes place.
 
-Let's check an example:
+In this section, you will learn:
 
-![Opening credit account](</images/credit/openCreditAccount.jpg>)
-
-Trader takes 90 ETH loan and provide 10 ETH of his own initial funds. So, after opening account, the total balance on credit account would be 100 ETH. 
-
-Note! In our example, trader provides 10 ETH for simplicity, however, it's possible to provide collateral in different assets and use multicollateral if needed.
-
-Credit account is an isolated smart contract, trader could execute different transactions, however, has no direct access to the funds.
-
-## Credit manager key parameters
-
-There is a special smartcontract, which is called CreditManager (in V2 we have 3 linked contracts: CreditFacade, CreditManager and CreditConfigurator), which is responsible for managing credit accounts.
-
-One of the key parameter of each CreditManager is allowed tokens list. This policy allows to use limited list of assets for all accounts opened in one credit manager.
-
-So, in some terms, we can consider credit account as list of different tokens with balances, and introduce here two key parameters:
-
-![Opening credit account](</images/credit/creditAccount.jpg>)
-
-
-### Interacting with 3rd party protocols
-
-User can consider credit account as additional account. Working with credit account is pretty native. Each contract connected to 
-
+- [Which contracts participate in the Credit Account lifecycle](/credit/architecture);
+- [How to open a credit account](/credit/open);
+- [How to close a credit account](/credit/closure);
+- [How to liquidate a credit account](/credit/liquidation);
+- [How to manage a credit account using multicalls](/credit/multicall/overview)

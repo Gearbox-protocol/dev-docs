@@ -1,65 +1,72 @@
-# Liquidating credit accounts
+# Liquidating a credit account
 
-There are two types of liquidation in the system: liquidations by health factor and liquidations by expiration.
+When an account becomes unhealthy, it can be liquidated by anyone. The liquidator is allowed to perform almost any actions (with some restrictions) to convert collateral assets into underlying and fully repay the debt. After liquidation, the account owner retains the Credit Account with any remaining funds and zero debt.
 
-## Liquidating accounts by health factor
-
-Once a Credit Account's Health Factor goes below 1, the account can be liquidated in order to make the pool whole and prevent any bad debt. In order to liquidate the account, the liquidator would use a Credit Facade function:
+To perform a liquidation, the liquidator must call the following function:
 
 ```solidity
 function liquidateCreditAccount(
-    address borrower,
+    address creditAccount,
     address to,
-    uint256 skipTokenMask,
-    bool convertWETH,
     MultiCall[] calldata calls
 ) external payable;
 ```
 
-| Parameter     | Description                                                                                                                                    |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| borrower      | The address of the Credit Account's owner.                                                                                                     |
-| to            | The address to which the remaining collateral is sent after repaying the loan and closing the account.                                         |
-| skipTokenMask | A mask that encodes the tokens which should not be sent back to the user. Can be used to avoid sending dust or tokens that revert on transfer. |
-| convertWETH   | Whether to convert WETH to ETH before sending it to the user.                                                                                  |
-| calls         | The array of calls to execute before liquidating the account.                                                                                  |
+| Parameter     | Description                                                                           |
+| ------------- | ------------------------------------------------------------------------------------- |
+| creditAccount | The address of a Credit Account to liquidate.                                         |
+| to            | Address to transfer leftover underlying after liquidation.                            |
+| calls         | The array of `MultiCall` structs to be executed immediately after opening an account. |
 
-`liquidateCreditAccount` checks that the account's health factor is less than 1 before liquidation, and will revert otherwise.
+## Liquidation logic
 
-Note that unlike normal Credit Account closure, liquidations do not require the entire debt to be repaid to the pool. Credit Facade computes the total value of the Credit Account before liquidation, and will set the amount repaid to the pool to be `totalValue * (1 - liquidationPremium)` if the total value is less than the debt.
+Liquidations proceed as follows:
 
-The multicall would typically be used to convert all collateral to underlying in order to repay the loan; in case there is less underlying than required (based on above calculation) after performing the multicall, the shortfall will be transferred from the liquidator.
+1. The liquidator initiates a liquidation;
+2. [On demand price updates](/credit/multicall/on-demand-pf) are applied, if needed;
+2. `totalValue` is computed (see the [formula](/core/liquidation));
+3. Credit Facades stores balances of existing collateral tokens;
+4. Actions submitted in `calls` are executed;
+5. Credit Facade checks that collateral balances did not increase;
+6. Credit Manager computes `totalFunds = totalValue * (1 - liquidation premium)`, `amountToPool = min(totalDebt, totalFunds)`, `remainingFunds = totalFunds - amountToPool`;
+7. Credit Manager sends `amountToPool` of underlying to the pool; 
+8. Credit Manager checks that the value of assets (`leftover value`) left on the account is not less than `remainingFunds`; 
+9. `min(leftover value - remainingFunds, underlyingBalance)` of underlying is sent to the liquidator;
+10. All non-zero quotas are removed;
+11. Debt is set to zero;
+12. If there is any loss, then borrowing is prohibited, or, if a certain loss threshold is reached, the contracts are paused;
 
-## Liquidating accounts by expiration
+## Liquidation calls
 
-If a Credit Facade is in Expirable mode (see below) and the expiration date is reached, all still-open accounts can be liquidated. In order to liquidate an expired account, the liquidator would use a Credit Facade function:
+The liquidator has two main goals with their `calls` array:
+1. Ensure that there is enough underlying after calls to cover the total debt;
+2. Ensure that they receive their premium in collateral assets or underlying;
 
-```solidity
-function liquidateExpiredCreditAccount(
-    address borrower,
-    address to,
-    uint256 skipTokenMask,
-    bool convertWETH,
-    MultiCall[] calldata calls
-) external payable
-```
-The parameters are the same as `liquidateCreditAccount`.
+To that end, they would either:
 
-Liquidations by expiration have lower liquidation premiums, since they are typically less urgent than liquidations of unhealthy positions; the liquidators should consider that when calculating the profitability of a liquidation.
+1. Use [external calls](/credit/multicall/external-calls) to convert collateral assets fully or partially into underlying, to cover `amountToPool + totalValue * liquidationPremium` (i.e., enough to cover total debt and liquidation profit). In this case the liquidation premium will be sent to the liquidator automatically in underlying;
+2. [Add](/credit/multicall/add-collateral) enough underlying to cover debt. Then `withdraw`(/credit/multicall/withdraw-collateral) the assets they want to receive as premium, making sure that enough remains to cover `remainingFunds`.
 
-### Motivation
+Or some combination of the two.
 
-Down the line, in addition to standard variable-rate loans, Gearbox will support fixed-term loans.
+## Tracking unhealthy accounts
 
-Fixed term loans in DeFi typically involve zero-coupon bond-like tokens that have a certain maturity date and yield paid out at maturity (this is usually represented by a discount that decreases the closer to maturity the token is).
+Account health can be tracked using [`calcDebtAndCollateral`](/credit/account-data) for each individual account. This data can also be retrieved in bulk from [`DataCompressor`](/helpers/data-compressor).
 
-In order to support this mode of liquidity provision, CreditFacade has an optional Expirable mode, which is enabled when `CreditFacade.expirable() == true`.
+## Things to look out for
 
-### Expiration details
+### Slippage and fees
 
-There is a single expiration date (`CreditFacade.params().expirationDate`) for each expirable Credit Facade that affects all Credit Accounts opened through it. This expiration date would typically be set shortly before the underlying yield token maturity, so that Gearbox is able to collect any outstanding debt and repay its loan to LP's.
+`totalValue` and `remainingFunds` are calculated based on oracle prices, which do not account for price impact, slippage and trading fees. When converting assets using external calls, all of these incurred losses are essentially borne by the liquidator and are subtracted from the premium. It is recommended to account for on-chain liquidity when using DEXes such as Uniswap or Curve to liquidate, especially for medium- and long-tail assets.
 
-It is not possible to open new Credit Accounts past the expiration date, and all accounts that remain open after the expiration date are eligible to liquidation by expiration.
+### Liquidations due to expiration
 
-After expiration, the expiration date in the CreditFacade can be moved forward by the DAO, in order to reflect a new maturity date for loans, which allows opening accounts in the CreditFacade once again.
+Both liquidations due to low health and [expiration](/core/liquidation#liquidations-due-to-expiration) are handled by the same `liquidateCreditAccount` function. The particular type of liquidation is chosen as follows:
+- If the account is unhealthy, perform a normal liquidation regardless of expiration status
+- If the account is healthy, but expired, perform a liquidation due to expiration
 
+Since liquidation premiums are different for the two (and that can influence values such as `amountToPool` and `remainingFunds`), it's advised to check which liquidation the account is eligible for before liquidation.
+
+### Total debt amount
+
+The total debt grows dynamically over time due to interest on principal and quotas. This means that the exact total debt amount received in a previous block will likely be slightly smaller than the total debt at execution time. It's advised to send the underlying amount with a small buffer to fully cover debt - the remainder will be sent back to the liquidator.
