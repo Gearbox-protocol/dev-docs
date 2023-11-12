@@ -1,6 +1,7 @@
 {
   "overview": "Overview",
   "architecture": "Architecture",
+  "importing": "Importing contracts and interfaces",
   "open": "Opening a credit account",
   "closure": "Closing a credit account",
   "liquidation": "Liquidating credit accounts",
