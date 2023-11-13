@@ -1,6 +1,6 @@
 # Tutorial: limit orders
 
-Here we present a step-by-step process of writing a permissionlessly executable bot that allows Gearbox users to submit limit sell orders.
+Here we present a step-by-step process of writing a public bot that allows Gearbox users to submit limit sell orders.
 The full code can be found in the [repository](https://github.com/Gearbox-protocol/dev-bots-tutorial), which may serve as a template for other bots.
 We use Foundry to show how to test and deploy the contract.
 
@@ -9,7 +9,7 @@ We use Foundry to show how to test and deploy the contract.
 We need to implement a `LimitOrderBot` contract which should
 * allow users to submit and cancel limit sell orders in arbitrary credit managers;
 * allow users to specify the trigger price if they want to place a stop-limit order;
-* allow arbitrary accounts to execute the order by providing order identifier and multicall;
+* allow arbitrary accounts to execute the order by providing the order identifier and multicall;
 * validate that provided multicall sells the correct amount of input token at a price equal to or better than the specified limit price;
 * validate that provided multicall doesn't perform unintended actions like stealing tokens or manipulating the account's debt.
 
@@ -23,6 +23,7 @@ First of all, let's introduce a data structure for orders:
 struct Order {
     address borrower;
     address manager;
+    address creditAccount;
     address tokenIn;
     address tokenOut;
     uint256 amountIn;
@@ -34,8 +35,8 @@ struct Order {
 
 * `tokenIn`, `tokenOut`, `amountIn`, `limitPrice` and `deadline` are standard fields of a limit sell order.
 
-* `borrower` and `manager` identify the credit account.
-Using account's address alone is unsafe because Gearbox credit accounts can be used by different users at different points in time, which may lead to old orders from the previous user being executed when the next user already controls the account.
+* `borrower`, `manager` and `creditAccount` identify the credit account.
+Using account's address alone is unsafe because Gearbox credit accounts can be used by different users at different points in time (and in different Credit Managers), which may lead to old orders from the previous user being executed when the next user already controls the account, or the same user controls the account in a different Credit Maanger.
 
 * `triggerPrice` is used to indicate the stop-limit order.
 If it's set, the limit order will only be executable if the oracle price is below the specified value.
@@ -44,7 +45,7 @@ Next, we need a storage variable holding all pending orders as well as functions
 
 For storing, we can use a simple mapping from order ID to order struct.
 Functions for submission and cancelation would then simply manipulate this mapping.
-Well, if we want our bot to serve many users, we'd better make sure that user can't place/cancel an order for other user.
+Since we want our bot to serve many users, we need to make sure that a user can't place/cancel an order for other user.
 Some additional validation might be needed in practice: order size must be non-zero, input and output tokens must not be the same, etc.
 
 The implementation might look like this:
@@ -100,9 +101,9 @@ function executeOrder(uint256 orderId, MultiCall[] calldata calls) external {
         calls, order.manager, order.tokenIn, order.tokenOut
     );
 
-    address facade = ICreditManagerV2(order.manager).creditFacade();
-    ICreditFacade(facade).botMulticall(
-        order.borrower,
+    address facade = ICreditManagerV3(order.manager).creditFacade();
+    ICreditFacadeV3(facade).botMulticall(
+        order.creditAccount,
         _addBalanceCheck(
             calls,
             facade,
@@ -123,10 +124,10 @@ function executeOrder(uint256 orderId, MultiCall[] calldata calls) external {
 
 Let's analyze what's going on here.
 
-First, `_validateOrder` function is called to check if the given order can be executed:
+First, the `_validateOrder` function is called to check if the given order can be executed:
 * the order must not be expired, if deadline is set;
 * the trigger condition must hold, if trigger price is set;
-* the borrower must have an account in the manager, and this account must have a non-zero balance of the input token.
+* the credit account must exist in the manager, and belong to the specified borrower. The account must have a non-zero balance of the input token.
 
 It also computes the correct amount of input token that must be spent in the multicall (smaller of the account's balance and order size) and the minimum amount of output token that should be received.
 

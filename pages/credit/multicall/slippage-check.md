@@ -1,6 +1,6 @@
 ## Controlling slippage
 
-When executing external calls to swap/deposit/withdraw assets, slippage must always be taken into consideration. An expected output amount reported by, e.g. a DEX, in a previous block may no longer be actual. Gearbox has a native slippage control system for multicalls, which is required for several reasons:
+When executing external calls to swap/deposit/withdraw assets, slippage must always be taken into consideration. An expected output amount reported by a DEX in a previous block may no longer be actual. Gearbox has a native slippage control system for multicalls, which is required for several reasons:
 
 1. External operations may consist of several steps (such as swapping the underlying to an asset, and then depositing it), and it's not clear how to split a single slippage tolerance value (e.g., 0.1%) among individual operations without either causing unexpected failures or getting unpredictable resulting slippage;
 2. Some external contracts (such as ERC4626 vaults) do not have in-protocol slippage protection and rely on integrators to check their slippage themselves.
