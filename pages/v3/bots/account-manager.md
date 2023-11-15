@@ -105,11 +105,11 @@ function register(address creditManager, address creditAccount, uint256 totalLos
 Now, let's implement a function allowing bot managers to perform operations with users' accounts via multicalls.
 There are a few safety properties we want this function to satisfy:
 
-1. The function should revert if anyone except approved managers tries to execute an operation.
+1. The function must revert if anyone except approved managers tries to execute an operation.
 
    - This can be ensured simply by adding the `onlyManager` modifier.
 
-2. The function should revert if the manager tries to perform an operation on an account the user hasn't approved.
+2. The function must revert if the manager tries to perform an operation on an account the user hasn't approved.
    For example, the user gives permissions to this bot in `BotList` and allows it to manage his WETH account.
    Then, we must ensure that the bot won't be able to perform operations on his other accounts, or that it can't perform operations on the same account if its owner is changed.
 
@@ -117,7 +117,7 @@ There are a few safety properties we want this function to satisfy:
    - The only way to change caps to non-zero is by calling `register`. \* So, if we see zero caps in user data during operation, we know this is an unregistered account and must revert.
    - Whether the account has the same owner is checked by retrieving the owner from the Credit Manager and comparing to one in the struct.
 
-3. The function should revert if loss caps are reached.
+3. The function must revert if loss caps are reached.
 
    - Let's start with the naive approach of checking both caps twice: before and after the multicall.
    - If we think about it, we can omit the first intra-operation loss check because there's no way it can be violated at this point: it was below the cap right after the last successful call and surely didn't change since then.
@@ -125,7 +125,7 @@ There are a few safety properties we want this function to satisfy:
    - Everything is slightly less trivial with total value loss because it's possible that value loss surpassed the cap since the last successful call due to price movements.
      However, we can still remove the first check, and the only thing it changes is that bot managers are now allowed to "rescue" an account (e.g., by executing highly profitable arbitrage or simply adding collateral).
 
-4. Finally, the function shouldn't let managers change the account's debt because it can be used to manipulate the total value.
+4. Finally, the function must not let managers change the account's debt because it can be used to manipulate the total value.
    - For that, it is enough to check if any `MultiCall` targets the `increaseDebt` or `decreaseDebt` of the Credit Facade corresponding to the given account and revert if it does.
 
 Here's what the implementation might look like:
