@@ -412,3 +412,22 @@ calls[0] = MultiCall({
 
 creditFacade.multicall(calls);
 ```
+
+## Balancer Multicaller library
+
+The BalancerV2 Vault adapter a corresponding library that simplifies the MultiCall building API.
+
+Usage example for the lending pool adapter:
+
+```solidity
+import {BalancerV2_Multicaller, BalancerV2_Calls} from "@gearbox-protocol/integrations-v3/test/multicall/balancer/BalancerV2_Calls.sol";
+...
+
+using BalancerV2_Calls for BalancerV2_Multicaller;
+...
+
+MultiCall[] memory calls = new MultiCall[](1);
+calls[0] = BalancerV2_Multicaller(balancerVaultAdapter).joinPoolSingleAsset(poolId, IAsset(assetIn), amountIn, minAmountOut);
+
+creditFacade.multicall(calls);
+```

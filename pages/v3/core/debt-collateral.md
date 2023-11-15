@@ -12,7 +12,7 @@ Debt in Gearbox protocol consists of several different parts:
 
 1. **Principal.** This is the amount that the Credit Account has borrowed from the pool. It only changes when the CA's owner has explicitly requested to borrow more funds or repay debt.
 2. **Interest.** This is the interest accrued on the borrowed principal. It grows over time as a percentage of principal, with the rate determined by the pool's utilization.
-3. **Quota interest.** This is the interest paid by the user on quotas they have enabled for their collateral. It grows over time as a percentage of the quota, with the rate determined by GEAR governance. More on quotas [here](/core/quota).
+3. **Quota interest.** This is the interest paid by the user on quotas they have enabled for their collateral. It grows over time as a percentage of the quota, with the rate determined by GEAR governance. More on quotas [here](../core/quota).
 4. **Protocol fees.** This is additional fees paid directly to the protocol's treasury. They are determined as a fixed percentage of `interest + quotaInterest`, so they also grow over time pro-rata.
 5. **Trading fees.** These are additional fees which are incurred when increasing quotas for assets (which is typically done when receiving the asset on the account, i.e. "buying" it). They are added to the total debt each time the quota is increase, as a percentage of increase.
 
@@ -27,13 +27,13 @@ While a Credit Account can in principle hold any token, only a limited set of to
 There are two main types of collateral tokens in V3:
 
 1. Non-quoted tokens. A small number of the most liquid tokens on the market (large stablecoins, WETH) are non-quoted. This means that they do not require quotas to be counted as collateral (i.e., the entirety of token's balance is counted towards collateral at all times) and the protocol is able to tolerate any exposure to those assets.
-2. Quoted tokens. Most collateral tokens require users to set a quota in order for the token to be considered collateral. Quotas essentially limit how much of the token can be used as collateral on the account, with a global per-token limit defined for each pool, defining maximal protocol exposure. More on quotas [here](/core/quota).
+2. Quoted tokens. Most collateral tokens require users to set a quota in order for the token to be considered collateral. Quotas essentially limit how much of the token can be used as collateral on the account, with a global per-token limit defined for each pool, defining maximal protocol exposure. More on quotas [here](/v3/core/quota).
 
 In order to count as collateral, a token also needs to be **enabled**. Quoted tokens are enabled when a non-zero quota is set for them. Non-quoted tokens are typically enabled automatically when trading into them, but can also be enabled manually by calling a special function.
 
-Each collateral token has a number of [risk parameters](/risk/overview) associated with it. These include the aforementioned quota limits that determine maximal exposure, trading fees and quota interest to provide pool LPs proper compensation for risk, and, most importantly, the Liquidation Threshold, which determines how much the collateral is discounted when comparing it against debt.
+Each collateral token has a number of [risk parameters](../risk/overview) associated with it. These include the aforementioned quota limits that determine maximal exposure, trading fees and quota interest to provide pool LPs proper compensation for risk, and, most importantly, the Liquidation Threshold, which determines how much the collateral is discounted when comparing it against debt.
 
-Each collateral token also has an associated [price feed](/oracle/overview), which is used to determine the conversion rate of the collateral asset to underlying.
+Each collateral token also has an associated [price feed](../oracle/overview), which is used to determine the conversion rate of the collateral asset to underlying.
 
 ## Collateral value and account health
 
@@ -54,7 +54,7 @@ $$
 TWV = \sum_{i}{VW_i}
 $$
 
-Liquidation Thresholds are essentially discounting coefficients that are tied to the asset's volatility against underlying (see more [here](/risk/liquidation-threshold)).
+Liquidation Thresholds are essentially discounting coefficients that are tied to the asset's volatility against underlying (see more [here](/v3/risk/liquidation-threshold)).
 
 The account's health is determined by its Health Factor, which is computed as
 
@@ -62,7 +62,7 @@ $$
 hf = \frac{TWV}{totalDebt}
 $$
 
-An account with $hf < 1$ is considered unhealthy. If the account is unhealthy after a user-initiated transaction, then the transaction is reverted. If it became unhealthy due to collateral price depreciation, then it is [liquidated](/core/liquidation).
+An account with $hf < 1$ is considered unhealthy. If the account is unhealthy after a user-initiated transaction, then the transaction is reverted. If it became unhealthy due to collateral price depreciation, then it is [liquidated](../core/liquidation).
 
 ## Token masks
 

@@ -47,7 +47,7 @@ All multicalls, regardless of the function, are performed as follows:
 
 1. The Credit Facade receives the `calls` array;
 2. The Credit Facade saves the balances of forbidden tokens on the Credit Account (if any);
-3. The Credit Facade applies [on-demand price feed updates](/credit/multicall/on-demand-pf). The Credit Facade always assumes that all price updates are at the beginning of the `calls` array.
+3. The Credit Facade applies [on-demand price feed updates](./on-demand-pf). The Credit Facade always assumes that all price updates are at the beginning of the `calls` array.
 4. The Credit Facade goes through `MultiCall` structs one-by-one and parses data depending on the target. If the target is the Credit Facade itself, it attempts to decode the `callData` selector and execute an internal function corresponding to that selector with passed parameters. If the target is a (valid) adapter, the Credit Facade just routes the call to it as-is;
 5. After processing all structs, the Credit Facade calls `CreditManagerV3.fullCollateralCheck()` in order to verify account solvency, and checks that forbidden token balances were not increased, and no new forbidden tokens were enabled.
 

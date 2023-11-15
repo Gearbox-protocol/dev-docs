@@ -6,7 +6,7 @@ There are 3 different GearboxV3 repositories that can be useful to integrators.
 
 [`core-v3`](https://github.com/Gearbox-protocol/core-v3) is a repository that holds important system contracts (such as `AccountFactory`, `BotListV3`, etc.), pool contracts (`PoolV3`, `PoolQuotaKeeperV3`, `GaugeV3`), and, most importantly. credit contracts such as `CreditManagerV3`, `CreditFacadeV3` and `CreditAccountV3`.
 
-One of the most important interfaces in this repository is [`ICreditFacadeV3Multicall`](https://github.com/Gearbox-protocol/core-v3/blob/main/contracts/interfaces/ICreditFacadeV3Multicall.sol). It holds the function signatures that need to be encoded in Credit Facade [multicalls](/credit/multicall/overview) to manage the account.
+One of the most important interfaces in this repository is [`ICreditFacadeV3Multicall`](https://github.com/Gearbox-protocol/core-v3/blob/main/contracts/interfaces/ICreditFacadeV3Multicall.sol). It holds the function signatures that need to be encoded in Credit Facade [multicalls](multicall/overview) to manage the account.
 
 The `core-v3` package that contains all contracts and interfaces can be installed using `npm` or `yarn`:
 
@@ -15,7 +15,7 @@ The `core-v3` package that contains all contracts and interfaces can be installe
 
 ## Integrations contracts
 
-[`integrations-v3`](https://github.com/Gearbox-protocol/integrations-v3) contains GearboxV3 adapters to external protocols and various pool zappers. Adapter [contracts](https://github.com/Gearbox-protocol/integrations-v3/contracts/adapters) and [interfaces](https://github.com/Gearbox-protocol/integrations-v3/contracts/interfaces) are the most important, since they are used to [encode external operations](/credit/multicall/external-calls) in a multicall.
+[`integrations-v3`](https://github.com/Gearbox-protocol/integrations-v3) contains GearboxV3 adapters to external protocols and various pool zappers. Adapter [contracts](https://github.com/Gearbox-protocol/integrations-v3/contracts/adapters) and [interfaces](https://github.com/Gearbox-protocol/integrations-v3/contracts/interfaces) are the most important, since they are used to [encode external operations](multicall/external-calls) in a multicall.
 
 The `integrations-v3` package that contains all contracts and interfaces can be installed using `npm` or `yarn`:
 

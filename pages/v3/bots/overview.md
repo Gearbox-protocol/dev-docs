@@ -13,7 +13,7 @@ function botMulticall(address creditAccount, MultiCall[] calldata calls) externa
 
 The bot multicall generally functions the same way as the normal owner-initiated `multicall`. However, some additional restrictions apply:
 
-1. The bot can only execute actions that are explicitly [permitted](/bots/overview#permissions) by the user (or the DAO, if the bot has special permissions);
+1. The bot can only execute actions that are explicitly [permitted](/v3/bots/overview#permissions) by the user (or the DAO, if the bot has special permissions);
 2. The bot must not be forbidden by the DAO, otherwise it will not be able to call `botMulticall` for any account.
 
 As with the normal `multicall`, a collateral check is performed at the end of the `botMulticall`, and all other multicall-related rules are the same.

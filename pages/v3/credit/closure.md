@@ -27,11 +27,11 @@ function closeCreditAccount(
 These are the actions that would typically be submitted to `calls` in order to close an account:
 
 1. Acquire enough underlying on the Credit Account to repay the debt (if there's not enough already):
-   - Use [external calls](/credit/multicall/external-calls) to convert the collateral assets into underlying in order to repay debt. It's up to the user whether to convert all assets or just enough to cover the debt.
-   - Another option is to [add collateral](/credit/multicall/add-collateral) to transfer enough underlying to the Credit Account;
-2. [Decrease debt](/credit/multicall/debt-management) to repay the loan;
-3. [Withdraw collateral](/credit/multicall/withdraw-collateral) to return the leftover (desired) assets to the user;
-4. [Update quotas](/credit/multicall/update-quota) to remove all non-zero quotas.
+   - Use [external calls](multicall/external-calls) to convert the collateral assets into underlying in order to repay debt. It's up to the user whether to convert all assets or just enough to cover the debt.
+   - Another option is to [add collateral](multicall/add-collateral) to transfer enough underlying to the Credit Account;
+2. [Decrease debt](multicall/debt-management) to repay the loan;
+3. [Withdraw collateral](multicall/withdraw-collateral) to return the leftover (desired) assets to the user;
+4. [Update quotas](multicall/update-quota) to remove all non-zero quotas.
 
 ## Things to look out for
 

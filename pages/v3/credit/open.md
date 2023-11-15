@@ -24,11 +24,11 @@ function openCreditAccount(
 
 These are the actions that need to be submitted to `calls` in order to open a leveraged position:
 
-0. If the account will end up with token that have on-demand price feeds, they need to be [updated](/credit/multicall/on-demand-pf) in order for the collateral check to succeed. All on-demand price feed updates must be performed before the rest of the calls.
-1. [Increase debt](/credit/multicall/debt-management) to the required debt amount;
-2. [Add collateral](/credit/multicall/add-collateral) to add user funds (this can be in underlying or any other asset);
-3. Use [external calls](/credit/multicall/external-calls) to convert the underlying from the pool and added collateral to token(s) of choice (this will be the end token(s) collateralizing the debt). Optionally, these calls can be wrapped in a [slippage check](/credit/multicall/slippage-check).
-4. If one or more received token(s) are quoted collateral tokens, [update their quotas](/credit/multicall/update-quota) to ensure that these tokens are counted as collateral;
+0. If the account will end up with token that have on-demand price feeds, they need to be [updated](multicall/on-demand-pf) in order for the collateral check to succeed. All on-demand price feed updates must be performed before the rest of the calls.
+1. [Increase debt](multicall/debt-management) to the required debt amount;
+2. [Add collateral](multicall/add-collateral) to add user funds (this can be in underlying or any other asset);
+3. Use [external calls](multicall/external-calls) to convert the underlying from the pool and added collateral to token(s) of choice (this will be the end token(s) collateralizing the debt). Optionally, these calls can be wrapped in a [slippage check](multicall/slippage-check).
+4. If one or more received token(s) are quoted collateral tokens, [update their quotas](multicall/update-quota) to ensure that these tokens are counted as collateral;
 
 ## Things to look out for
 
@@ -47,7 +47,7 @@ uint256 borrowable = IPoolV3(pool).creditManagerBorrowable(creditManager);
 
 Finally, there is a limit on borrows per block that is defined as a multiplier of `maxDebt`. It can be retrieved with `CreditFacadeV3.maxDebtPerBlockMultiplier()`.
 
-These values can also be retrieved from the [Data Compressor](/helpers/data-compressor).
+These values can also be retrieved from the [Data Compressor](../helpers/data-compressor).
 
 ### Quota limits
 

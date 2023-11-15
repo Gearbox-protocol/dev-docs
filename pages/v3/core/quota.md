@@ -5,7 +5,7 @@ A quota is the maximum underlying equivalent of a quoted asset that is counted t
 1. Quotas are denominated in units of underlying;
 2. When computing the weighted value for a quoted asset, either the actual underlying-denominated value of the asset is used, or its quota - whichever is smaller.
 
-See [Debt and Collateral](/core/debt-collateral#collateral-value-and-account-health) for the mathematical representation of this relationship.
+See [Debt and Collateral](../core/debt-collateral#collateral-value-and-account-health) for the mathematical representation of this relationship.
 
 Users set quotas for their quoted collateral assets themselves, which is typically done when the Credit Account receives an asset and the owner wants to use it as collateral. While a Credit Account owner can potentially set as large a quota as they want, there are both global limits on total sum of all quotas for an asset, and ongoing costs of having a quota, which are proportional to the quota size. 
 

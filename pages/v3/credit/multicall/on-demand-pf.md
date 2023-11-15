@@ -26,7 +26,7 @@ creditFacade.multicall(calls);
 
 ## Updating on-demand price feeds
 
-When a token has only an [on-demand price feed](/oracle/updatable-price-feed) and is enabled as collateral on the Credit Account, any multicall on this account requires updating the price (it's technically possible that the last price is still usable, as it remains "fresh" for a few minutes after the update - however, it is best to push the price regardless just to be sure). If all required prices are not updated at the beginning, the collateral check will fail. Moreover, multicalls with [withdrawals](/credit/multicall/withdraw-collateral#collateral-check-with-safe-prices) may require updating reserve price feeds as well.
+When a token has only an [on-demand price feed](../../oracle/updatable-price-feed) and is enabled as collateral on the Credit Account, any multicall on this account requires updating the price (it's technically possible that the last price is still usable, as it remains "fresh" for a few minutes after the update - however, it is best to push the price regardless just to be sure). If all required prices are not updated at the beginning, the collateral check will fail. Moreover, multicalls with [withdrawals](./withdraw-collateral#collateral-check-with-safe-prices) may require updating reserve price feeds as well.
 
 All multicalls require price updates to be at the beginning of the `calls` array. Any `onDemandPriceUpdate` calls after another call signature will result in a revert. `data` passed to the update is usually an authenticated payload from offchain, so any contracts that interact with Gearbox and want to use tokens with on-demand price feeds must be capable of recieving these payloads as input.
 

@@ -6,8 +6,8 @@ All account management is performed through multicalls. All functions in the Cre
 
 In this section, you will learn:
 
-- [Which contracts participate in the Credit Account lifecycle](/credit/architecture);
-- [How to open a credit account](/credit/open);
-- [How to close a credit account](/credit/closure);
-- [How to liquidate a credit account](/credit/liquidation);
-- [How to manage a credit account using multicalls](/credit/multicall/overview)
+- [Which contracts participate in the Credit Account lifecycle](./architecture);
+- [How to open a credit account](./open);
+- [How to close a credit account](./closure);
+- [How to liquidate a credit account](./liquidation);
+- [How to manage a credit account using multicalls](multicall/overview)

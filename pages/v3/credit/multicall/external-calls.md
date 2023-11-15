@@ -31,7 +31,7 @@ In practice, the execution flow for an adapter functions as follows:
 9. The adapter requests the Credit Manager to reset allowances and returns two values to the CreditFacade: `tokensToEnable` and `tokensToDisable`. These are masks of tokens that need to be enabled and disabled on the account after the performed action (as a result of some tokens being spent and others being received).
 10. CreditFacade updates the in-memory `enabledTokenMask`, which is saved in CreditManager during the collateral check at the end of the multicall.
 
-The specifications for each adapter type and usage instructions can be found in the [corresponding section](/integrations-v3/overview).
+The specifications for each adapter type and usage instructions can be found in the [corresponding section](../../integrations/overview).
 
 ## Adapter calls helpers
 

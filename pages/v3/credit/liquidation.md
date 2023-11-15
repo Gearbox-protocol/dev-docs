@@ -23,8 +23,8 @@ function liquidateCreditAccount(
 Liquidations proceed as follows:
 
 1. The liquidator initiates a liquidation;
-2. [On demand price updates](/credit/multicall/on-demand-pf) are applied, if needed;
-2. `totalValue` is computed (see the [formula](/core/liquidation));
+2. [On demand price updates](multicall/on-demand-pf) are applied, if needed;
+2. `totalValue` is computed (see the [formula](../core/liquidation));
 3. Credit Facades stores balances of existing collateral tokens;
 4. Actions submitted in `calls` are executed;
 5. Credit Facade checks that collateral balances did not increase;
@@ -44,14 +44,14 @@ The liquidator has two main goals with their `calls` array:
 
 To that end, they would either:
 
-1. Use [external calls](/credit/multicall/external-calls) to convert collateral assets fully or partially into underlying, to cover `amountToPool + totalValue * liquidationPremium` (i.e., enough to cover total debt and liquidation profit). In this case the liquidation premium will be sent to the liquidator automatically in underlying;
-2. [Add](/credit/multicall/add-collateral) enough underlying to cover debt. Then [withdraw](/credit/multicall/withdraw-collateral) the assets they want to receive as premium, making sure that enough remains to cover `remainingFunds`.
+1. Use [external calls](multicall/external-calls) to convert collateral assets fully or partially into underlying, to cover `amountToPool + totalValue * liquidationPremium` (i.e., enough to cover total debt and liquidation profit). In this case the liquidation premium will be sent to the liquidator automatically in underlying;
+2. [Add](multicall/add-collateral) enough underlying to cover debt. Then [withdraw](multicall/withdraw-collateral) the assets they want to receive as premium, making sure that enough remains to cover `remainingFunds`.
 
 Or some combination of the two.
 
 ## Tracking unhealthy accounts
 
-Account health can be tracked using [`calcDebtAndCollateral`](/credit/account-data) for each individual account. This data can also be retrieved in bulk from [`DataCompressor`](/helpers/data-compressor).
+Account health can be tracked using [`calcDebtAndCollateral`](./account-data) for each individual account. This data can also be retrieved in bulk from [`DataCompressor`](../helpers/data-compressor).
 
 ## Things to look out for
 
