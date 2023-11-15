@@ -28,7 +28,7 @@ Parameter `onBehalfOf` is ignored, as it is always set to the Credit Account. `r
 Usage:
 
 ```solidity
-import {IAaveV2_LendingPoolAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_LendingPoolAdapter.sol";
+import {IAaveV2_LendingPoolAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_LendingPoolAdapter.sol";
 
 ...
 
@@ -59,7 +59,7 @@ function depositDiff(address asset, uint256 leftoverAmount)
 Usage:
 
 ```solidity
-import {IAaveV2_LendingPoolAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_LendingPoolAdapter.sol";
+import {IAaveV2_LendingPoolAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_LendingPoolAdapter.sol";
 
 ...
 
@@ -92,7 +92,7 @@ function withdraw(address asset, uint256 amount, address)
 Usage:
 
 ```solidity
-import {IAaveV2_LendingPoolAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_LendingPoolAdapter.sol";
+import {IAaveV2_LendingPoolAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_LendingPoolAdapter.sol";
 
 ...
 
@@ -123,7 +123,7 @@ function withdrawDiff(address asset, uint256 leftoverAmount)
 Usage:
 
 ```solidity
-import {IAaveV2_LendingPoolAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_LendingPoolAdapter.sol";
+import {IAaveV2_LendingPoolAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_LendingPoolAdapter.sol";
 
 ...
 
@@ -159,7 +159,7 @@ function deposit(uint256 assets)
 Usage:
 
 ```solidity
-import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
+import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
 
 ...
 
@@ -189,7 +189,7 @@ function depositDiff(uint256 leftoverAssets)
 Usage:
 
 ```solidity
-import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
+import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
 
 ...
 
@@ -219,7 +219,7 @@ function depositUnderlying(uint256 assets)
 Usage:
 
 ```solidity
-import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
+import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
 
 ...
 
@@ -249,7 +249,7 @@ function depositDiffUnderlying(uint256 leftoverAssets)
 Usage:
 
 ```solidity
-import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
+import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
 
 ...
 
@@ -279,7 +279,7 @@ function withdraw(uint256 shares)
 Usage:
 
 ```solidity
-import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
+import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
 
 ...
 
@@ -309,7 +309,7 @@ function withdrawDiff(uint256 leftoverShares)
 Usage:
 
 ```solidity
-import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
+import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
 
 ...
 
@@ -339,7 +339,7 @@ function withdrawUnderlying(uint256 shares)
 Usage:
 
 ```solidity
-import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
+import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
 
 ...
 
@@ -369,7 +369,7 @@ function withdrawDiffUnderlying(uint256 leftoverShares)
 Usage:
 
 ```solidity
-import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
+import {IAaveV2_WrappedATokenAdapter} from "@gearbox-protocol/integrations-v3/contracts/interfaces/aave/IAaveV2_WrappedATokenAdapter.sol";
 
 ...
 

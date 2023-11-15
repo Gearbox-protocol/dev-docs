@@ -2,18 +2,15 @@
 
 Here we present a step-by-step process of writing a public bot that allows Gearbox users to submit limit sell orders.
 The full code can be found in the [repository](https://github.com/Gearbox-protocol/dev-bots-tutorial), which may serve as a template for other bots.
-We use Foundry to show how to test and deploy the contract.
 
 ## Problem statement
 
 We need to implement a `LimitOrderBot` contract which should
 * allow users to submit and cancel limit sell orders in arbitrary credit managers;
 * allow users to specify the trigger price if they want to place a stop-limit order;
-* allow arbitrary accounts to execute the order by providing the order identifier and multicall;
-* validate that provided multicall sells the correct amount of input token at a price equal to or better than the specified limit price;
-* validate that provided multicall doesn't perform unintended actions like stealing tokens or manipulating the account's debt.
+* allow arbitrary accounts to execute the order by providing the order identifier;
 
-To make things simple, we'll only support full order execution and exact input swaps on Uniswap V3, Uniswap V2 and Sushiswap.
+To make things simple, we'll only support full order execution and always execute exactly at the limit price set by the user
 
 ## Order submission
 
@@ -58,8 +55,12 @@ mapping(uint256 => Order) public orders;
 /// @param order Order to submit.
 /// @return orderId ID of created order.
 function submitOrder(Order calldata order) external returns (uint256 orderId) {
-    if (order.borrower != msg.sender)
+    if (
+        order.borrower != msg.sender
+            || ICreditManagerV3(order.manager).getBorrowerOrRevert(order.creditAccount) != order.borrower
+    ) {
         revert CallerNotBorrower();
+    }
     orderId = _useOrderId();
     orders[orderId] = order;
     emit OrderCreated(msg.sender, orderId);
@@ -69,82 +70,71 @@ function submitOrder(Order calldata order) external returns (uint256 orderId) {
 /// @param orderId ID of order to cancel.
 function cancelOrder(uint256 orderId) external {
     Order storage order = orders[orderId];
-    if (order.borrower != msg.sender)
+    if (order.borrower != msg.sender) {
         revert CallerNotBorrower();
+    }
     delete orders[orderId];
     emit OrderCanceled(msg.sender, orderId);
 }
 ```
 
 The `_useOrderId` function increments an internal counter and returns its previous value.
+Note that we should always check that the user submitting the order currently owns the account.
 
 ## Order execution
 
-Now, let's implement a function that would allow anyone to execute an order by providing multicall data and revert if any of our safety requirements is violated.
-Here's how it might look like:
+Now, we will implement a function that would allow anyone to execute an order by providing the order ID and approving a sufficient amount of output token to the bot:
 
 ```solidity
-/// @notice Execute given order using provided multicall.
+/// @notice Execute given order.
 /// @param orderId ID of order to execute.
-/// @param calls Multicall needed to execute an order.
-function executeOrder(uint256 orderId, MultiCall[] calldata calls) external {
+function executeOrder(uint256 orderId) external {
     Order storage order = orders[orderId];
 
-    (
-        address creditAccount,
-        uint256 balanceBefore,
-        uint256 amountIn,
-        uint256 minAmountOut
-    ) = _validateOrder(order);
+    (uint256 amountIn, uint256 minAmountOut) = _validateOrder(order);
 
-    address[] memory tokensSpent = _validateCalls(
-        calls, order.manager, order.tokenIn, order.tokenOut
-    );
+    IERC20(order.tokenOut).transferFrom(msg.sender, address(this), minAmountOut);
+    IERC20(order.tokenOut).approve(order.manager, minAmountOut + 1);
+
+    MultiCall[] memory calls = new MultiCall[](2);
 
     address facade = ICreditManagerV3(order.manager).creditFacade();
-    ICreditFacadeV3(facade).botMulticall(
-        order.creditAccount,
-        _addBalanceCheck(
-            calls,
-            facade,
-            tokensSpent,
-            order.tokenOut,
-            minAmountOut
-        )
-    );
 
-    _validateAmountSpent(
-        order.tokenIn, creditAccount, balanceBefore, amountIn
-    );
+    calls[0] = MultiCall({
+        target: facade,
+        callData: abi.encodeCall(ICreditFacadeV3Multicall.addCollateral, (order.tokenOut, minAmountOut))
+    });
+
+    calls[1] = MultiCall({
+        target: facade,
+        callData: abi.encodeCall(ICreditFacadeV3Multicall.withdrawCollateral, (order.tokenIn, amountIn, msg.sender))
+    });
+
+    ICreditFacadeV3(facade).botMulticall(order.creditAccount, calls);
 
     delete orders[orderId];
     emit OrderExecuted(msg.sender, orderId);
 }
 ```
 
-Let's analyze what's going on here.
+Let's analyze what this function is doing:
 
 First, the `_validateOrder` function is called to check if the given order can be executed:
 * the order must not be expired, if deadline is set;
 * the trigger condition must hold, if trigger price is set;
 * the credit account must exist in the manager, and belong to the specified borrower. The account must have a non-zero balance of the input token.
 
-It also computes the correct amount of input token that must be spent in the multicall (smaller of the account's balance and order size) and the minimum amount of output token that should be received.
+It also computes the correct amount of input token that must be spent in the multicall. If the user does not have the entire `amountIn`, only their current balance will be swapped.
 
-Next, `_validateCalls` function is called to check that each subcall targets one of the allowed methods of allowed adapters.
-It also parses the calldata to find tokens spent in each call.
+Then, the bot transfers the output token from the caller and approves the output amount to the Credit Manager (since Credit Manager will transfer from it during `addCollateral`). It then constructs a multicall that withdraws the input token and sends it to the caller, while adding the output token as collateral.
 
-Next, `_addBalanceCheck` prepends a `revertIfReceivedLessThan` subcall to the multicall to ensure that (i) the amount of output token received is at least `minAmountOut` and (ii) the balance of any token spent in subcalls (except input) is at least that before the call.
-
-Then goes the actual `botMulticall`, followed by `_validateAmountSpent` that checks whether the amount of input token spent in the multicall matches the correct one.
+Then, `botMulticall` is called and the order is deleted.
 
 ## Improvement ideas
 
 This tutorial shows how to write a bot that interacts with Gearbox smart contracts and what typical safety considerations should be.
 However, this bot is overly simplistic, and there are many directions for improvement, some of which are listed below.
 
-* In this implementation, one might expect that users will always get filled very close to the limit price because of sandwiching, which is especially bad for those placing stop-limit orders, who need to choose between lower slippage and a higher probability of getting filled.
-This can be addressed by making the minimum execution price decay from oracle price to the limit price with time.
-* Gas costs of storing orders on-chain are very high, so it might make sense to use EIP-712 signed orders.
-* Some tokens simply cannot be traded on Uniswap or Sushiswap or have little liquidity there, so supporting more integrations would be great.
+* In this implementation, orders can only be fully filled, which may not be convenient for the executors if the order is large.
+* Gas costs of storing orders on-chain are very high (and the UX for the user is not ideal), so it might make sense to use EIP-712 signed orders.
 * Adding incentives for bot executors is an important question not addressed in this tutorial.
