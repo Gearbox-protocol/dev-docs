@@ -415,9 +415,9 @@ creditFacade.multicall(calls);
 
 ## Balancer Multicaller library
 
-The BalancerV2 Vault adapter a corresponding library that simplifies the MultiCall building API.
+The BalancerV2 Vault adapter has a corresponding library that simplifies the MultiCall building API.
 
-Usage example for the lending pool adapter:
+Usage example:
 
 ```solidity
 import {BalancerV2_Multicaller, BalancerV2_Calls} from "@gearbox-protocol/integrations-v3/test/multicall/balancer/BalancerV2_Calls.sol";
