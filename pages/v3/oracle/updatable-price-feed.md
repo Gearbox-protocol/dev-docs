@@ -1,0 +1,1 @@
+Some tokens lack a proper Chainlink price feed, which means that only alternative protocols, such as Redstone or Chronicle are available for them. These protocols generally facilitate an alternative price update flow, where instead of protocol validators pushing prices at fixed periods, the consumer of the price performs an update when needed, using authenticated 

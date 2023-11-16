@@ -1,0 +1,13 @@
+{
+  "overview": "Overview",
+  "external-calls": "Performing external calls",
+  "add-collateral": "Adding collateral",
+  "withdraw-collateral": "Withdrawing collateral",
+  "debt-management": "Managing debt",
+  "update-quota": "Updating quotas",
+  "enable-disable": "Enabling and disabling tokens",
+  "revoke-allowances": "Revoking allowances",
+  "slippage-check": "Controlling slippage",
+  "full-check-params": "Extra collateral check parameters",
+  "on-demand-pf": "Updating on-demand price feeds"
+}

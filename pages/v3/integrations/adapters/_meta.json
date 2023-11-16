@@ -1,0 +1,11 @@
+{
+  "aave": "Aave V2",
+  "balancer": "Balancer V2",
+  "compound": "Compound V2",
+  "convex": "Convex",
+  "curve": "Curve stable and crypto pools",
+  "erc4626": "ERC4626 vaults",
+  "lido": "Lido",
+  "uniswap": "Uniswap V2 and V3",
+  "yearn": "Yearn V2"
+}

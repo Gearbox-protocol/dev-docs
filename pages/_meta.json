@@ -1,13 +1,7 @@
 {
   "index": "Deployed contracts",
   "intro": "Introduction",
-  "architecture": "Architecture",
-  "pools": "Pools",
-  "credit": "Credit accounts",
-  "integrations-v3": "Adapters V3",
-  "integrations": "Adapters V2",
-  "oracle": "Oracles",
-  "risk": "Risk management",
-  "bots": "Bots",
+  "v3": "Gearbox V3",
+  "v2": "Gearbox V2",
   "tokens": "Supported tokens"
 }

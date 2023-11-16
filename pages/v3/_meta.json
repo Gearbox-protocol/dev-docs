@@ -1,0 +1,11 @@
+{
+    "core": "Core concepts",
+    "architecture": "Architecture",
+    "pools": "Pools",
+    "credit": "Credit accounts",
+    "integrations": "Adapters",
+    "oracle": "Oracles",
+    "risk": "Risk management",
+    "bots": "Bots",
+    "helpers": "Helper contracts"
+  }
