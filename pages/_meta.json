@@ -1,7 +1,12 @@
 {
   "index": "Deployed contracts",
   "intro": "Introduction",
-  "v3": "Gearbox V3",
+  "core": "Core concepts",
+  "credit": "Credit accounts",
+  "integrations": "Adapters",
+  "oracle": "Oracles",
+  "bots": "Bots",
+  "pools": "Pools",
   "v2": "Gearbox V2",
   "tokens": "Supported tokens"
 }

@@ -11,7 +11,7 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: "https://github.com/Gearbox-protocol/dev-docs/blob/main",
   footer: {
-    text: "(c) 2022, Gearbox Protocol",
+    text: "(c) 2023, Gearbox Protocol",
   },
 };
 
