@@ -1,14 +1,14 @@
 # Contracts discovery 
 
-## Core contracts
-Each interaction with Gearbox starts from retrieving the addresses of important contracts. `AddressProviderV3` stores the addresses of all core contracts in mapping. To get contract, you should call `getAddressOrRevert(bytes32 key, uint256 _version)`, where `KEY` is symbolic key for desired contact, version - contract version (or 0, if contract doesn't support versioning).
+## System-level contracts
+Each interaction with Gearbox starts from retrieving the addresses of important contracts. `AddressProviderV3` stores the addresses of all system-level contracts in a mapping. `getAddressOrRevert(bytes32 key, uint256 _version)` is used to retrieve addresses, where `key` is a symbolic key for the desired contact, `_version` - a version of the contract from the [`IVersion`](./discovery#versioning) interface (for V3 contracts, this is `3_00`).
 
-[List of supported keys](https://github.com/Gearbox-protocol/core-v3/blob/main/contracts/interfaces/IAddressProviderV3.sol)
+The list of supported keys can be found [here](https://github.com/Gearbox-protocol/core-v3/blob/main/contracts/interfaces/IAddressProviderV3.sol).
 
-[List of all deployed contracts on mainnet](/docs/documentation/deployments/deployed-contracts)
+[List of all deployed contracts on mainnet](/index).
 
 
-## Getting list of pools & credit managers
+## Retrieving pools and credit manager
 `ContractsRegister` keeps a list of all active pools and Credit Managers:
 
 ```solidity
@@ -56,11 +56,13 @@ interface IContractsRegister is IContractsRegisterEvents {
 }
 ```
 
+Note that the `ContractsRegister` returns pools and CMs of all versions, including outdated ones. To filter out older contracts, make sure to check that `IVersion(contractAddress).version() >= 3_00`.
+
 ## Versioning
-Each contract in the protocol has a function `version` which returns the current version as a `uint256` value. Contract ABIs can change between versions, so it is recommended to get and verify the value before interacting with a particular contract.
+Each contract in the protocol implements an `IVersion` interface that has a `version` function. It returns the contract's version as a `uint256` value. Contract ABIs can change between versions, so it is recommended to get and verify the value before interacting with a particular contract.
 
 Code snippet from CreditManager:
 ```solidity
 // Contract version
-uint256 public constant override version = 2;
+uint256 public constant override version = 3_00;
 ```
