@@ -1,12 +1,13 @@
 {
-  "index": "Deployed contracts",
   "intro": "Introduction",
   "core": "Core concepts",
+  "system-contracts": "System-level contracts",
   "credit": "Credit accounts",
   "integrations": "Adapters",
   "oracle": "Oracles",
   "bots": "Bots",
   "pools": "Pools",
   "v2": "Gearbox V2",
+  "index": "Deployed contracts",
   "tokens": "Supported tokens"
 }
