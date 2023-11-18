@@ -6,9 +6,10 @@ The full code can be found in the [repository](https://github.com/Gearbox-protoc
 ## Problem statement
 
 We need to implement a `LimitOrderBot` contract which should
-* allow users to submit and cancel limit sell orders in arbitrary credit managers;
-* allow users to specify the trigger price if they want to place a stop-limit order;
-* allow arbitrary accounts to execute the order by providing the order identifier;
+
+- allow users to submit and cancel limit sell orders in arbitrary credit managers;
+- allow users to specify the trigger price if they want to place a stop-limit order;
+- allow arbitrary accounts to execute the order by providing the order identifier;
 
 To make things simple, we'll only support full order execution and always execute exactly at the limit price set by the user
 
@@ -30,13 +31,13 @@ struct Order {
 }
 ```
 
-* `tokenIn`, `tokenOut`, `amountIn`, `limitPrice` and `deadline` are standard fields of a limit sell order.
+- `tokenIn`, `tokenOut`, `amountIn`, `limitPrice` and `deadline` are standard fields of a limit sell order.
 
-* `borrower`, `manager` and `creditAccount` identify the credit account.
-Using account's address alone is unsafe because Gearbox credit accounts can be used by different users at different points in time (and in different Credit Managers), which may lead to old orders from the previous user being executed when the next user already controls the account, or the same user controls the account in a different Credit Maanger.
+- `borrower`, `manager` and `creditAccount` identify the credit account.
+  Using account's address alone is unsafe because Gearbox credit accounts can be used by different users at different points in time (and in different Credit Managers), which may lead to old orders from the previous user being executed when the next user already controls the account, or the same user controls the account in a different Credit Maanger.
 
-* `triggerPrice` is used to indicate the stop-limit order.
-If it's set, the limit order will only be executable if the oracle price is below the specified value.
+- `triggerPrice` is used to indicate the stop-limit order.
+  If it's set, the limit order will only be executable if the oracle price is below the specified value.
 
 Next, we need a storage variable holding all pending orders as well as functions allowing users to submit and cancel orders.
 
@@ -120,9 +121,10 @@ function executeOrder(uint256 orderId) external {
 Let's analyze what this function is doing:
 
 First, the `_validateOrder` function is called to check if the given order can be executed:
-* the order must not be expired, if deadline is set;
-* the trigger condition must hold, if trigger price is set;
-* the credit account must exist in the manager, and belong to the specified borrower. The account must have a non-zero balance of the input token.
+
+- the order must not be expired, if deadline is set;
+- the trigger condition must hold, if trigger price is set;
+- the credit account must exist in the manager, and belong to the specified borrower. The account must have a non-zero balance of the input token.
 
 It also computes the correct amount of input token that must be spent in the multicall. If the user does not have the entire `amountIn`, only their current balance will be swapped.
 
@@ -135,6 +137,7 @@ Then, `botMulticall` is called and the order is deleted.
 This tutorial shows how to write a bot that interacts with Gearbox smart contracts and what typical safety considerations should be.
 However, this bot is overly simplistic, and there are many directions for improvement, some of which are listed below.
 
-* In this implementation, orders can only be fully filled, which may not be convenient for the executors if the order is large.
-* Gas costs of storing orders on-chain are very high (and the UX for the user is not ideal), so it might make sense to use EIP-712 signed orders.
-* Adding incentives for bot executors is an important question not addressed in this tutorial.
+- In this implementation, orders can only be fully filled, which may not be convenient for the executors if the order is large.
+- Gas costs of storing orders on-chain are very high (and the UX for the user is not ideal), so it might make sense to use EIP-712 signed orders.
+- Adding incentives for bot executors is an important question not addressed in this tutorial.
+- The implementation does not account for quotas. Since it doesn't set a quota for `tokenOut`, the collateral check will revert if `tokenOut` is a quoted token.
