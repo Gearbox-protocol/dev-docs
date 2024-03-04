@@ -2,7 +2,7 @@ import { Tab, Tabs } from "nextra-theme-docs";
 
 # Deployed Contracts
 
-<Tabs items={["Mainnet V3", "Mainnet V2/V1"]}>
+<Tabs items={["Mainnet V3", "Mainnet V2/V1", "Arbitrum"]}>
   <Tab>
   <>
 
@@ -552,6 +552,115 @@ Zappers:
 #### V2 (Deprecated)
 
 - Credit Manager [0xa3e1e0d58fe8dd8c9dd48204699a1178f1b274d8](https://etherscan.io/address/0xa3e1e0d58fe8dd8c9dd48204699a1178f1b274d8)
+
+
+</>
+ 
+  </Tab>
+
+
+<Tab>
+<>
+
+
+## Arbitrum contracts
+
+### Core
+
+| Name | Address |
+| --- | --- |
+| Timelock | 0x148DD932eCe1155c11006F5650c6Ff428f8D374A |
+| Governor | 0xF0C89a0eDCD68B4176A26B3bf7574498DD3E6d09 |
+| ACL | 0xb2FA6c1a629Ed72BF99fbB24f75E5D130A5586F1 |
+| ContractsRegister | 0xc3e00cdA97D5779BFC8f17588d55b4544C8a6c47 |
+| GEAR Token | 0x2F26337576127efabEEc1f62BE79dB1bcA9148A4 |
+| BotListV3 | 0xd74Cd076e9A548D32B2c2c91B6F401348a01402c |
+| GearStakingV3 | 0xf3599BEfe8E79169Afd5f0b7eb0A1aA322F193D9 |
+| DegenNFT | 0x32D72d4AB2A6066A2f301EEc0515d04B282aC06A |
+| AccountFactoryV3 | 0x03cD6b5c36c15B9feed278C417274902609E5Df9 |
+| ControllerTimelockV3 | 0x12064f4f30d73A1562BcfED8BB7A5604a1E2f17D |
+| PriceOracleV3 | 0xF6C709a419e18819dea30248f59c95cA20fd83d5 |
+
+### Price feeds
+
+| Name | Address |
+| --- | --- |
+| WBTC Composite Price Feed | 0x8510465eDdD32225d40550eB6B308216f5d9a78b |
+| wstETH Composite Price Feed | 0x93791d9bAb4098623F49c851f8d83A22B0Bf6edf |
+| rETH Composite Price Feed | 0xF23c86048d8C42d96d991F77c622D3255EF80a5E |
+| cbETH Composite Price Feed | 0x6ca37b5544EE3B1BC0FfcfC7543610A1B9E9ae35 |
+| WETH Price Feed | 0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612 |
+| ARB Price Feed | 0xb2A824043730FE05F3DA2efaFa1CBbe83fa548D6 |
+| GMX Price Feed | 0xDB98056FecFff59D032aB628337A4887110df3dB |
+| LINK Price Feed | 0x86E53CF1B870786351Da77A57575e79CB55812CB |
+| PENDLE Price Feed | 0x66853E19d73c0F9301fe099c324A1E9726953433 |
+| USDC and USDC.e Price Feed | 0x50834F3163758fcC1Df9973b6e91f0F0F0434aD3 |
+
+### Pools
+
+#### USDC.e Pool
+
+| Name | Address |
+| --- | --- |
+| LinearInterestRateModelV3 | 0x3fA0b13Dcb3dF7E378aE13B405E578595637a4ef |
+| PoolV3 | 0xa76c604145D7394DEc36C49Af494C144Ff327861 |
+| GaugeV3 | 0xCdE12917842Af3299e167eeA9B15dFD2DbA5B975 |
+| PoolQuotaKeeperV3 | 0x260304D4A7fEa2ce9821949d818B6d00c9A28F82 |
+| FarmingPool | 0x608F9e2E8933Ce6b39A8CddBc34a1e3E8D21cE75 |
+
+#### WETH Pool
+
+| Name | Address |
+| --- | --- |
+| LinearInterestRateModelV3 | 0x0F7dD9Abd4aEd1297BbF566191e765a8F16EEf91 |
+| PoolV3 | 0x04419d3509f13054f60d253E0c79491d9E683399 |
+| GaugeV3 | 0x4689172EB8b83304832cd8D20F1575C9E33Ee99C |
+| PoolQuotaKeeperV3 | 0xafa5127209c932E35C8Aaf08318c9848ca57Fdb4 |
+| FarmingPool | 0x6773fF780Dd38175247795545Ee37adD6ab6139a |
+
+### Credit Managers
+
+#### Trade USDC.e Tier 1 Arbitrum
+
+| Name | Address |
+| --- | --- |
+| CreditManagerV3 | 0x75BC0fef1C93723BE3d73b2000b5Ba139A0c680C |
+| CreditFacadeV3 | 0x026329e9b559ecE6eAaB765e6d3aA6aaa7d01E11 |
+| CreditConfiguratorV3 | 0x4f0ddaB78e08Ca71f35AeF17aE59ccd3aDB58269 |
+| UniswapV3 Adapter | 0x47C9a78602fb4a14E1EAd0e4a88E8690270c084a |
+| BalancerV2 Adapter | 0xb552b2026D1275486679758198623E4CBE207936 |
+
+#### Trade USDC.e Tier 2 Arbitrum
+
+| Name | Address |
+| --- | --- |
+| CreditManagerV3 | 0xB4bc02c0859B372c61AbcCFa5dF91B1CCaa4DD1F |
+| CreditFacadeV3 | 0x8D5d92D4595Fdb190d41e1A20F96a0363F17F72C |
+| CreditConfiguratorV3 | 0x1fd1431b30b6a0e91fcF9792b31559De0489Ee0C |
+| UniswapV3 Adapter | 0x3c59cffbEc9B3B9b73edf35C96B024Ebe7598945 |
+
+#### Trade WETH Tier 1 Arbitrum
+
+| Name | Address |
+| --- | --- |
+| CreditManagerV3 | 0xcedaa4B4A42c0A771F6c24a3745c3ca3eD73F17A |
+| CreditFacadeV3 | 0x7d4A58b2F09F97537310A31e77eCD41E7D0dcBfa |
+| CreditConfiguratorV3 | 0xC3fB79e3affF9580E8761fEbE7C29B59bD72b0B5 |
+| UniswapV3 Adapter | 0x8E7Ff9A2ad3B8720876897EC224b7a0F60354d06 |
+| BalancerV2 Adapter | 0xa8b10E1A812E3C683d615649EB5D9f52E3061F99 |
+
+####
+
+#### Trade USDC.e Tier 2 Arbitrum
+
+| Name | Address |
+| --- | --- |
+| CreditManagerV3 | 0x3Ab1D35500d2DA4216f5863229A7b81e2F6FF976 |
+| CreditFacadeV3 | 0xF1fADA023dd48B9BB5f52c10B0f833E35D1C4C56 |
+| CreditConfiguratorV3 | 0x7Df767ecD6E7690E3f5bD0a2aE1220d94a7dafff |
+| UniswapV3 Adapter | 0x035B48e0620433F81A668A881c234e0a8B5249B5 |
+
+
 
 </>
  
