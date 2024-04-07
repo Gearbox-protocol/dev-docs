@@ -1,0 +1,2237 @@
+{
+  "block": 198671500,
+  "core": {
+    "addressProviderV3": {
+      "address": "0x7d04eCdb892Ae074f03B5D0aBA03796F90F3F2af",
+      "addresses": {
+        "ADDRESS_PROVIDER": {
+          "300": "0x7d04eCdb892Ae074f03B5D0aBA03796F90F3F2af"
+        },
+        "ACL": {
+          "0": "0xb2FA6c1a629Ed72BF99fbB24f75E5D130A5586F1"
+        },
+        "TREASURY": {
+          "0": "0x2c31eFFE426765E68A43163A96DD13DF70B53C14"
+        },
+        "WETH_TOKEN": {
+          "0": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+        },
+        "GEAR_TOKEN": {
+          "0": "0x2F26337576127efabEEc1f62BE79dB1bcA9148A4"
+        },
+        "CONTRACTS_REGISTER": {
+          "0": "0xc3e00cdA97D5779BFC8f17588d55b4544C8a6c47"
+        },
+        "BOT_LIST": {
+          "300": "0xd74Cd076e9A548D32B2c2c91B6F401348a01402c"
+        },
+        "GEAR_STAKING": {
+          "300": "0xf3599BEfe8E79169Afd5f0b7eb0A1aA322F193D9"
+        },
+        "DEGEN_NFT": {
+          "1": "0x32D72d4AB2A6066A2f301EEc0515d04B282aC06A"
+        },
+        "ACCOUNT_FACTORY": {
+          "0": "0x03cD6b5c36c15B9feed278C417274902609E5Df9"
+        },
+        "CONTROLLER_TIMELOCK": {
+          "300": "0x12064f4f30d73A1562BcfED8BB7A5604a1E2f17D"
+        },
+        "INFLATION_ATTACK_BLOCKER": {
+          "300": "0x35221923c014e21B5692FB8D3dadD8Ee72f354bb"
+        },
+        "ROUTER": {
+          "301": "0x617e216888dbF53b6CAD39F0dEb9938e54C3b0d5",
+          "302": "0xF26186465964ED3564EdFE0046eE65502a6Ac34D"
+        },
+        "PRICE_ORACLE": {
+          "300": "0xF6C709a419e18819dea30248f59c95cA20fd83d5"
+        },
+        "ZERO_PRICE_FEED": {
+          "0": "0x7aBc634Ad057438af054714d920a9d16c318bc13"
+        },
+        "ZAPPER_REGISTER": {
+          "300": "0xFFadb168E3ACB881DE164aDdfc77d92dbc2D4C16"
+        },
+        "DATA_COMPRESSOR": {
+          "300": "0x88aa4FbF86392cBF6f6517790E288314DE03E181"
+        },
+        "MULTI_PAUSE": {
+          "0": "0xf9E344ADa2181A4104a7DC6092A92A1bC67A52c9"
+        },
+        "DEGEN_DISTRIBUTOR": {
+          "300": "0x79a6FcdDDe1918D6a5b1D9757f29a338C942d547"
+        }
+      }
+    },
+    "acl": {
+      "address": "0xb2FA6c1a629Ed72BF99fbB24f75E5D130A5586F1",
+      "owner": "0x148DD932eCe1155c11006F5650c6Ff428f8D374A",
+      "pausableAdmins": [
+        "0x148DD932eCe1155c11006F5650c6Ff428f8D374A",
+        "0xf9E344ADa2181A4104a7DC6092A92A1bC67A52c9",
+        "0x65b384cEcb12527Da51d52f15b4140ED7FaD7308",
+        "0xD5C96E5c1E1C84dFD293473fC195BbE7FC8E4840",
+        "0x746fb3AcAfF6Bfe246206EC2E51F587d2E57abb6"
+      ],
+      "unpausableAdmins": [
+        "0x148DD932eCe1155c11006F5650c6Ff428f8D374A",
+        "0xf9E344ADa2181A4104a7DC6092A92A1bC67A52c9",
+        "0x746fb3AcAfF6Bfe246206EC2E51F587d2E57abb6"
+      ]
+    },
+    "contractsRegister": {
+      "address": "0xc3e00cdA97D5779BFC8f17588d55b4544C8a6c47"
+    },
+    "botList": {
+      "address": "0xd74Cd076e9A548D32B2c2c91B6F401348a01402c"
+    },
+    "accountFactory": {
+      "address": "0x03cD6b5c36c15B9feed278C417274902609E5Df9",
+      "version": 300
+    },
+    "controllerTimelockV3": {
+      "address": "0x12064f4f30d73A1562BcfED8BB7A5604a1E2f17D",
+      "policies": {
+        "0xfcf8b1c82005d21488f35981b5ec008da1ba5728d20474b55db19e69cca0ddf5": {
+          "admin": "0x57Fd8B1a9213624157786Fff4a7bc532Ce717773",
+          "delay": {
+            "__type": "bigint",
+            "__value": "86400"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "64"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "65535"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0x207346c08e43887a0ac95f9b868589ba4fa526b82ac0376d59422fe235dfc67f": {
+          "admin": "0x57Fd8B1a9213624157786Fff4a7bc532Ce717773",
+          "delay": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "4"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "4"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0xc9e4e2e7fcb01bc9edce00d049b39b6ef33c8317b9eecfe8817ffa1081e6fc9b": {
+          "admin": "0x57Fd8B1a9213624157786Fff4a7bc532Ce717773",
+          "delay": {
+            "__type": "bigint",
+            "__value": "86400"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "64"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "2592000"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "500"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "2000"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0x72f7bd33bd99a05fb6c3d0ee2946ef5240959cc7fca003d8787e7e418748b07b": {
+          "admin": "0x57Fd8B1a9213624157786Fff4a7bc532Ce717773",
+          "delay": {
+            "__type": "bigint",
+            "__value": "86400"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "64"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "2592000"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "2000"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "500"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0x8d01d9527bd7a4716d0b98d37b4654a733cc41735c7af3031b7c8264082c5b68": {
+          "admin": "0x57Fd8B1a9213624157786Fff4a7bc532Ce717773",
+          "delay": {
+            "__type": "bigint",
+            "__value": "43200"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0x5beb34cfad275f3d33cd189ca0bffbcf3cbf6c61146f618030322629d6f71dd3": {
+          "admin": "0x57Fd8B1a9213624157786Fff4a7bc532Ce717773",
+          "delay": {
+            "__type": "bigint",
+            "__value": "86400"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "70"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "7500"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "9350"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "2592000"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "300"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "300"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0x2437711513143d5e00fbf72cc5fbcd2dc24be952d430e27b6e8f03605cf03ee5": {
+          "admin": "0x57Fd8B1a9213624157786Fff4a7bc532Ce717773",
+          "delay": {
+            "__type": "bigint",
+            "__value": "43200"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0xb81e74f1ba28eba3bbbe47600fe95d998b43c537a3af73acbd58ea2409d20fa5": {
+          "admin": "0xD3a57ce0A61fE63daE62117912e3E9f8AF1fb1cE",
+          "delay": {
+            "__type": "bigint",
+            "__value": "86400"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "64"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "2592000"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "20"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "200"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0xa5a5e9f53efa677a6c6e55b63934a8fe5e6725d0e8649daa84982bc17e218a3b": {
+          "admin": "0x57Fd8B1a9213624157786Fff4a7bc532Ce717773",
+          "delay": {
+            "__type": "bigint",
+            "__value": "43200"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0xc1851252817b2d805f701a5f61152e04689443f88a55e9f2e0b02bfbc0cf1509": {
+          "admin": "0x2c31eFFE426765E68A43163A96DD13DF70B53C14",
+          "delay": {
+            "__type": "bigint",
+            "__value": "86400"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "4"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "100"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0x97a2feb28009c9ba1f48ced8599c927cca0a16f65057d64f8e8c15c78946c132": {
+          "admin": "0x2c31eFFE426765E68A43163A96DD13DF70B53C14",
+          "delay": {
+            "__type": "bigint",
+            "__value": "86400"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "82"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "1"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "2592000"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "5000"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "5000"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "1000"
+          },
+          "enabled": true
+        },
+        "0xcccd31ab0ee8d157a563ff53fa41e0590f90322f83f4d0a89dd49ff2baff3d97": {
+          "admin": "0x2c31eFFE426765E68A43163A96DD13DF70B53C14",
+          "delay": {
+            "__type": "bigint",
+            "__value": "86400"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "82"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "1"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "2592000"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "5000"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "5000"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "1000"
+          },
+          "enabled": true
+        },
+        "0x89407d85a0d3682bfc1071387f8e10bdd999c9a6ae304315f0e045aa619ffb0c": {
+          "admin": "0xD3a57ce0A61fE63daE62117912e3E9f8AF1fb1cE",
+          "delay": {
+            "__type": "bigint",
+            "__value": "28800"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0x12ad5ee1a82fa4e018f28c418a14ce5ff46639111165ccbd2be9fea73e9d6af1": {
+          "admin": "0x57Fd8B1a9213624157786Fff4a7bc532Ce717773",
+          "delay": {
+            "__type": "bigint",
+            "__value": "86400"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "64"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "2592000"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "10000"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "2000"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        },
+        "0x9114dd3dbf11dcba7f41d4963b19eecdc2123e3ced43b345eefdc2708d798a99": {
+          "admin": "0x2c31eFFE426765E68A43163A96DD13DF70B53C14",
+          "delay": {
+            "__type": "bigint",
+            "__value": "86400"
+          },
+          "flags": {
+            "__type": "bigint",
+            "__value": "4"
+          },
+          "exactValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minValue": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxValue": {
+            "__type": "bigint",
+            "__value": "100"
+          },
+          "referencePoint": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointUpdatePeriod": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "referencePointTimestampLU": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeDown": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxPctChangeUp": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "minChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "maxChange": {
+            "__type": "bigint",
+            "__value": "0"
+          },
+          "enabled": true
+        }
+      },
+      "groups": {
+        "TOKEN": [
+          "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+          "0x912CE59144191C1204E64559FE8253a0e49E6548",
+          "0x5979D7b546E38E414F7E9822514be443A4800529",
+          "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
+          "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f",
+          "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a",
+          "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4",
+          "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+          "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+          "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+        ],
+        "POOL": [
+          "0xa76c604145D7394DEc36C49Af494C144Ff327861",
+          "0x04419d3509f13054f60d253E0c79491d9E683399"
+        ],
+        "CREDIT_MANAGER": [
+          "0x75BC0fef1C93723BE3d73b2000b5Ba139A0c680C",
+          "0xB4bc02c0859B372c61AbcCFa5dF91B1CCaa4DD1F",
+          "0xcedaa4B4A42c0A771F6c24a3745c3ca3eD73F17A",
+          "0x3Ab1D35500d2DA4216f5863229A7b81e2F6FF976"
+        ],
+        "PRICE_ORACLE": [
+          "0xF6C709a419e18819dea30248f59c95cA20fd83d5"
+        ]
+      }
+    },
+    "degenNFT2": {
+      "address": "0x32D72d4AB2A6066A2f301EEc0515d04B282aC06A"
+    },
+    "gearStakingV3": {
+      "address": "0xf3599BEfe8E79169Afd5f0b7eb0A1aA322F193D9",
+      "successor": "0x0000000000000000000000000000000000000000",
+      "migrator": "0x0000000000000000000000000000000000000000"
+    }
+  },
+  "priceOracle": {
+    "priceOracleV3": {
+      "address": "0xF6C709a419e18819dea30248f59c95cA20fd83d5"
+    },
+    "mainPriceFeeds": {
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": {
+        "address": "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612",
+        "type": 0,
+        "stalenessPeriod": 86520,
+        "skipCheck": false,
+        "pricefeeds": []
+      },
+      "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+        "address": "0x8510465eDdD32225d40550eB6B308216f5d9a78b",
+        "type": 8,
+        "pricefeeds": [
+          {
+            "address": "0x0017abAc5b6f291F9164e35B1234CA1D697f9CF4",
+            "type": 0,
+            "stalenessPeriod": 87300,
+            "skipCheck": false,
+            "pricefeeds": []
+          },
+          {
+            "address": "0x6ce185860a4963106506C203335A2910413708e9",
+            "type": 0,
+            "stalenessPeriod": 87300,
+            "skipCheck": false,
+            "pricefeeds": []
+          }
+        ],
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0x912CE59144191C1204E64559FE8253a0e49E6548": {
+        "address": "0xb2A824043730FE05F3DA2efaFa1CBbe83fa548D6",
+        "type": 0,
+        "stalenessPeriod": 86520,
+        "skipCheck": false,
+        "pricefeeds": []
+      },
+      "0x5979D7b546E38E414F7E9822514be443A4800529": {
+        "address": "0x93791d9bAb4098623F49c851f8d83A22B0Bf6edf",
+        "type": 8,
+        "pricefeeds": [
+          {
+            "address": "0xb523AE262D20A936BC152e6023996e46FDC2A95D",
+            "type": 0,
+            "stalenessPeriod": 87300,
+            "skipCheck": false,
+            "pricefeeds": []
+          },
+          {
+            "address": "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612",
+            "type": 0,
+            "stalenessPeriod": 87300,
+            "skipCheck": false,
+            "pricefeeds": []
+          }
+        ],
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
+        "address": "0xF23c86048d8C42d96d991F77c622D3255EF80a5E",
+        "type": 8,
+        "pricefeeds": [
+          {
+            "address": "0xF3272CAfe65b190e76caAF483db13424a3e23dD2",
+            "type": 0,
+            "stalenessPeriod": 86520,
+            "skipCheck": false,
+            "pricefeeds": []
+          },
+          {
+            "address": "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612",
+            "type": 0,
+            "stalenessPeriod": 86520,
+            "skipCheck": false,
+            "pricefeeds": []
+          }
+        ],
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": {
+        "address": "0x6ca37b5544EE3B1BC0FfcfC7543610A1B9E9ae35",
+        "type": 8,
+        "pricefeeds": [
+          {
+            "address": "0xa668682974E3f121185a3cD94f00322beC674275",
+            "type": 0,
+            "stalenessPeriod": 86520,
+            "skipCheck": false,
+            "pricefeeds": []
+          },
+          {
+            "address": "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612",
+            "type": 0,
+            "stalenessPeriod": 86520,
+            "skipCheck": false,
+            "pricefeeds": []
+          }
+        ],
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a": {
+        "address": "0xDB98056FecFff59D032aB628337A4887110df3dB",
+        "type": 0,
+        "stalenessPeriod": 86520,
+        "skipCheck": false,
+        "pricefeeds": []
+      },
+      "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4": {
+        "address": "0x86E53CF1B870786351Da77A57575e79CB55812CB",
+        "type": 0,
+        "stalenessPeriod": 3720,
+        "skipCheck": false,
+        "pricefeeds": []
+      },
+      "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8": {
+        "address": "0x66853E19d73c0F9301fe099c324A1E9726953433",
+        "type": 0,
+        "stalenessPeriod": 86520,
+        "skipCheck": false,
+        "pricefeeds": []
+      },
+      "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": {
+        "address": "0x50834F3163758fcC1Df9973b6e91f0F0F0434aD3",
+        "type": 0,
+        "stalenessPeriod": 86520,
+        "skipCheck": false,
+        "pricefeeds": []
+      },
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+        "address": "0x50834F3163758fcC1Df9973b6e91f0F0F0434aD3",
+        "type": 0,
+        "stalenessPeriod": 86520,
+        "skipCheck": false,
+        "pricefeeds": []
+      },
+      "0x2416092f143378750bb29b79eD961ab195CcEea5": {
+        "address": "0x814E6564e8cda436c1ab25041C10bfdb21dEC519",
+        "type": 8,
+        "pricefeeds": [
+          {
+            "address": "0x4a843E8556F85267bcf95CDFcdC7D234A8bb5370",
+            "type": 15,
+            "dataId": "ezETH/ETH",
+            "signers": [
+              "0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774",
+              "0xdEB22f54738d54976C4c0fe5ce6d408E40d88499",
+              "0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202",
+              "0xDD682daEC5A90dD295d14DA4b0bec9281017b5bE",
+              "0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de"
+            ],
+            "signersThreshold": 5,
+            "stalenessPeriod": 0,
+            "skipCheck": true
+          },
+          {
+            "address": "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612",
+            "type": 0,
+            "stalenessPeriod": 86520,
+            "skipCheck": false,
+            "pricefeeds": []
+          }
+        ],
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      }
+    },
+    "reservePriceFeeds": {
+      "0x2416092f143378750bb29b79eD961ab195CcEea5": {
+        "address": "0x639Fe6ab55C921f74e7fac1ee960C0B6293ba612",
+        "type": 0,
+        "stalenessPeriod": 86400,
+        "skipCheck": false,
+        "pricefeeds": []
+      }
+    }
+  },
+  "poolState": [
+    {
+      "pool": {
+        "underlying": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+        "symbol": "dUSDCV3",
+        "name": "Main USDC.e v3",
+        "decimals": 6,
+        "availableLiquidity": {
+          "__type": "bigint",
+          "__value": "55734984763"
+        },
+        "expectedLiquidity": {
+          "__type": "bigint",
+          "__value": "305153422589"
+        },
+        "totalBorrowed": {
+          "__type": "bigint",
+          "__value": "247480470929"
+        },
+        "totalDebtLimit": {
+          "__type": "bigint",
+          "__value": "100000000000000"
+        },
+        "creditManagerDebtParams": [
+          {
+            "creditManager": "0x75BC0fef1C93723BE3d73b2000b5Ba139A0c680C",
+            "borrowed": {
+              "__type": "bigint",
+              "__value": "247480470929"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "4000000000000"
+            },
+            "availableToBorrow": {
+              "__type": "bigint",
+              "__value": "25219642504"
+            }
+          },
+          {
+            "creditManager": "0xB4bc02c0859B372c61AbcCFa5dF91B1CCaa4DD1F",
+            "borrowed": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "2000000000000"
+            },
+            "availableToBorrow": {
+              "__type": "bigint",
+              "__value": "25219642504"
+            }
+          }
+        ],
+        "totalAssets": {
+          "__type": "bigint",
+          "__value": "305153422589"
+        },
+        "totalSupply": {
+          "__type": "bigint",
+          "__value": "302724573768"
+        },
+        "supplyRate": {
+          "__type": "bigint",
+          "__value": "176236385198090689885271531"
+        },
+        "baseInterestIndex": {
+          "__type": "bigint",
+          "__value": "1001081345223459361481452422"
+        },
+        "baseInterestRate": {
+          "__type": "bigint",
+          "__value": "17333899995452407500000000"
+        },
+        "withdrawFee": 0,
+        "lastBaseInterestUpdate": {
+          "__type": "bigint",
+          "__value": "1712516913"
+        },
+        "baseInterestIndexLU": {
+          "__type": "bigint",
+          "__value": "1001074973383731468273883162"
+        },
+        "isPaused": false,
+        "address": "0xa76c604145D7394DEc36C49Af494C144Ff327861",
+        "version": 300
+      },
+      "poolQuotaKeeper": {
+        "address": "0x260304D4A7fEa2ce9821949d818B6d00c9A28F82",
+        "quotas": {
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+            "rate": 1200,
+            "quotaIncreaseFee": 1,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "35748220452"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "4500000000000"
+            },
+            "isActive": true
+          },
+          "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": {
+            "rate": 1200,
+            "quotaIncreaseFee": 1,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "316186482103"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "7000000000000"
+            },
+            "isActive": true
+          },
+          "0x912CE59144191C1204E64559FE8253a0e49E6548": {
+            "rate": 2189,
+            "quotaIncreaseFee": 5,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "4314898731"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "3000000000000"
+            },
+            "isActive": true
+          },
+          "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a": {
+            "rate": 2289,
+            "quotaIncreaseFee": 5,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "500000000000"
+            },
+            "isActive": true
+          },
+          "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4": {
+            "rate": 2189,
+            "quotaIncreaseFee": 5,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "500000000000"
+            },
+            "isActive": true
+          },
+          "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8": {
+            "rate": 2332,
+            "quotaIncreaseFee": 5,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "500000000000"
+            },
+            "isActive": true
+          },
+          "0x5979D7b546E38E414F7E9822514be443A4800529": {
+            "rate": 1072,
+            "quotaIncreaseFee": 1,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "8266417609"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "7000000000000"
+            },
+            "isActive": true
+          },
+          "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
+            "rate": 1500,
+            "quotaIncreaseFee": 1,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "28564084214"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "7000000000000"
+            },
+            "isActive": true
+          },
+          "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": {
+            "rate": 1500,
+            "quotaIncreaseFee": 1,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "7612441051"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "7000000000000"
+            },
+            "isActive": true
+          }
+        }
+      },
+      "linearModel": {
+        "address": "0x3fA0b13Dcb3dF7E378aE13B405E578595637a4ef",
+        "U1": 7000,
+        "U2": 9000,
+        "Rbase": 0,
+        "Rslope1": 100,
+        "Rslope2": 125,
+        "Rslope3": 10000,
+        "isBorrowingMoreU2Forbidden": true
+      },
+      "gauge": {
+        "address": "0xCdE12917842Af3299e167eeA9B15dFD2DbA5B975",
+        "currentEpoch": 16,
+        "epochFrozen": false,
+        "quotaParams": {
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+            "minRate": 4,
+            "maxRate": 1200,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 0,
+            "rate": 1200
+          },
+          "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": {
+            "minRate": 4,
+            "maxRate": 1200,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 0,
+            "rate": 1200
+          },
+          "0x912CE59144191C1204E64559FE8253a0e49E6548": {
+            "minRate": 80,
+            "maxRate": 2400,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 10000000000000000000,
+            "rate": 2189
+          },
+          "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a": {
+            "minRate": 80,
+            "maxRate": 2400,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 5000000000000000000,
+            "rate": 2289
+          },
+          "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4": {
+            "minRate": 80,
+            "maxRate": 2400,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 10000000000000000000,
+            "rate": 2189
+          },
+          "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8": {
+            "minRate": 80,
+            "maxRate": 2400,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 3000000000000000000,
+            "rate": 2332
+          },
+          "0x5979D7b546E38E414F7E9822514be443A4800529": {
+            "minRate": 4,
+            "maxRate": 1500,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 40000000000000000000,
+            "rate": 1072
+          },
+          "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
+            "minRate": 4,
+            "maxRate": 1500,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 0,
+            "rate": 1500
+          },
+          "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": {
+            "minRate": 4,
+            "maxRate": 1500,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 0,
+            "rate": 1500
+          }
+        }
+      }
+    },
+    {
+      "pool": {
+        "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "symbol": "dWETHV3",
+        "name": "Main WETH v3",
+        "decimals": 18,
+        "availableLiquidity": {
+          "__type": "bigint",
+          "__value": "24710418536862090210"
+        },
+        "expectedLiquidity": {
+          "__type": "bigint",
+          "__value": "120435459624150940621"
+        },
+        "totalBorrowed": {
+          "__type": "bigint",
+          "__value": "95689048389931402883"
+        },
+        "totalDebtLimit": {
+          "__type": "bigint",
+          "__value": "150000000000000000000000"
+        },
+        "creditManagerDebtParams": [
+          {
+            "creditManager": "0xcedaa4B4A42c0A771F6c24a3745c3ca3eD73F17A",
+            "borrowed": {
+              "__type": "bigint",
+              "__value": "95689048389931402883"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "1000000000000000000000"
+            },
+            "availableToBorrow": {
+              "__type": "bigint",
+              "__value": "12666872574446996264"
+            }
+          },
+          {
+            "creditManager": "0x3Ab1D35500d2DA4216f5863229A7b81e2F6FF976",
+            "borrowed": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "500000000000000000000"
+            },
+            "availableToBorrow": {
+              "__type": "bigint",
+              "__value": "12666872574446996264"
+            }
+          }
+        ],
+        "totalAssets": {
+          "__type": "bigint",
+          "__value": "120435459624150940621"
+        },
+        "totalSupply": {
+          "__type": "bigint",
+          "__value": "120354404363455019168"
+        },
+        "supplyRate": {
+          "__type": "bigint",
+          "__value": "27723594293680549513987884"
+        },
+        "baseInterestIndex": {
+          "__type": "bigint",
+          "__value": "1000988258850484033823339470"
+        },
+        "baseInterestRate": {
+          "__type": "bigint",
+          "__value": "31851490478285408125000000"
+        },
+        "withdrawFee": 0,
+        "lastBaseInterestUpdate": {
+          "__type": "bigint",
+          "__value": "1712459367"
+        },
+        "baseInterestIndexLU": {
+          "__type": "bigint",
+          "__value": "1000918377185637997671421427"
+        },
+        "isPaused": false,
+        "address": "0x04419d3509f13054f60d253E0c79491d9E683399",
+        "version": 300
+      },
+      "poolQuotaKeeper": {
+        "address": "0xafa5127209c932E35C8Aaf08318c9848ca57Fdb4",
+        "quotas": {
+          "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": {
+            "rate": 1091,
+            "quotaIncreaseFee": 1,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "1500000000000000000000"
+            },
+            "isActive": true
+          },
+          "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+            "rate": 924,
+            "quotaIncreaseFee": 1,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "1422246290948603"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "2000000000000000000000"
+            },
+            "isActive": true
+          },
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+            "rate": 801,
+            "quotaIncreaseFee": 1,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "3500000000000000000000"
+            },
+            "isActive": true
+          },
+          "0x912CE59144191C1204E64559FE8253a0e49E6548": {
+            "rate": 1847,
+            "quotaIncreaseFee": 5,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "1300000000000000000000"
+            },
+            "isActive": true
+          },
+          "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8": {
+            "rate": 2332,
+            "quotaIncreaseFee": 5,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "150000000000000000000"
+            },
+            "isActive": true
+          },
+          "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a": {
+            "rate": 2289,
+            "quotaIncreaseFee": 5,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "150000000000000000000"
+            },
+            "isActive": true
+          },
+          "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4": {
+            "rate": 1864,
+            "quotaIncreaseFee": 5,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "150000000000000000000"
+            },
+            "isActive": true
+          },
+          "0x5979D7b546E38E414F7E9822514be443A4800529": {
+            "rate": 159,
+            "quotaIncreaseFee": 0,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "15453494053393898004"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "3500000000000000000000"
+            },
+            "isActive": true
+          },
+          "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
+            "rate": 219,
+            "quotaIncreaseFee": 0,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "2064978836464240485"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "3500000000000000000000"
+            },
+            "isActive": true
+          },
+          "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": {
+            "rate": 184,
+            "quotaIncreaseFee": 0,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "2500000000000000000000"
+            },
+            "isActive": true
+          },
+          "0x95aB45875cFFdba1E5f451B950bC2E42c0053f39": {
+            "rate": 350,
+            "quotaIncreaseFee": 0,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "2500000000000000000000"
+            },
+            "isActive": true
+          },
+          "0x2416092f143378750bb29b79eD961ab195CcEea5": {
+            "rate": 1893,
+            "quotaIncreaseFee": 0,
+            "totalQuoted": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "limit": {
+              "__type": "bigint",
+              "__value": "0"
+            },
+            "isActive": true
+          }
+        }
+      },
+      "linearModel": {
+        "address": "0x0F7dD9Abd4aEd1297BbF566191e765a8F16EEf91",
+        "U1": 7000,
+        "U2": 9000,
+        "Rbase": 0,
+        "Rslope1": 200,
+        "Rslope2": 250,
+        "Rslope3": 6000,
+        "isBorrowingMoreU2Forbidden": true
+      },
+      "gauge": {
+        "address": "0x4689172EB8b83304832cd8D20F1575C9E33Ee99C",
+        "currentEpoch": 16,
+        "epochFrozen": false,
+        "quotaParams": {
+          "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": {
+            "minRate": 4,
+            "maxRate": 1200,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 10000000000000000000,
+            "rate": 1091
+          },
+          "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+            "minRate": 4,
+            "maxRate": 1200,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 30000000000000000000,
+            "rate": 924
+          },
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+            "minRate": 4,
+            "maxRate": 1200,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 50000000000000000000,
+            "rate": 801
+          },
+          "0x912CE59144191C1204E64559FE8253a0e49E6548": {
+            "minRate": 4,
+            "maxRate": 2400,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 30000000000000000000,
+            "rate": 1847
+          },
+          "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8": {
+            "minRate": 80,
+            "maxRate": 2400,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 3000000000000000000,
+            "rate": 2332
+          },
+          "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a": {
+            "minRate": 80,
+            "maxRate": 2400,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 5000000000000000000,
+            "rate": 2289
+          },
+          "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4": {
+            "minRate": 80,
+            "maxRate": 2400,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 30000000000000000000,
+            "rate": 1864
+          },
+          "0x5979D7b546E38E414F7E9822514be443A4800529": {
+            "minRate": 1,
+            "maxRate": 350,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 120000000000000000000,
+            "rate": 159
+          },
+          "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
+            "minRate": 1,
+            "maxRate": 350,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 60000000000000000000,
+            "rate": 219
+          },
+          "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": {
+            "minRate": 1,
+            "maxRate": 350,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 90000000000000000000,
+            "rate": 184
+          },
+          "0x95aB45875cFFdba1E5f451B950bC2E42c0053f39": {
+            "minRate": 1,
+            "maxRate": 350,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 0,
+            "rate": 350
+          },
+          "0x2416092f143378750bb29b79eD961ab195CcEea5": {
+            "minRate": 50,
+            "maxRate": 3000,
+            "totalVotesLpSide": 100000000000000000000,
+            "totalVotesCaSide": 60000000000000000000,
+            "rate": 1893
+          }
+        }
+      }
+    }
+  ],
+  "creditState": [
+    {
+      "creditFacade": {
+        "address": "0x026329e9b559ecE6eAaB765e6d3aA6aaa7d01E11",
+        "version": 300,
+        "maxQuotaMultiplier": 2,
+        "expirable": true,
+        "weth": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "isDegenMode": false,
+        "degenNFT": "0x0000000000000000000000000000000000000000",
+        "expirationDate": 0,
+        "maxDebtPerBlockMultiplier": 2,
+        "botList": "0xd74Cd076e9A548D32B2c2c91B6F401348a01402c",
+        "minDebt": {
+          "__type": "bigint",
+          "__value": "1000000000"
+        },
+        "maxDebt": {
+          "__type": "bigint",
+          "__value": "400000000000"
+        },
+        "currentCumulativeLoss": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "maxCumulativeLoss": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "forbiddenTokenMask": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "isPaused": false
+      },
+      "creditManager": {
+        "address": "0x75BC0fef1C93723BE3d73b2000b5Ba139A0c680C",
+        "version": 301,
+        "addressProvider": "0x7d04eCdb892Ae074f03B5D0aBA03796F90F3F2af",
+        "accountFactory": "0x03cD6b5c36c15B9feed278C417274902609E5Df9",
+        "underlying": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+        "pool": "0xa76c604145D7394DEc36C49Af494C144Ff327861",
+        "creditFacade": "0x026329e9b559ecE6eAaB765e6d3aA6aaa7d01E11",
+        "creditConfigurator": "0x4f0ddaB78e08Ca71f35AeF17aE59ccd3aDB58269",
+        "priceOracle": "0xF6C709a419e18819dea30248f59c95cA20fd83d5",
+        "maxEnabledTokens": 4,
+        "collateralTokens": {
+          "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": 9850,
+          "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": 9400,
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": 9400,
+          "0x912CE59144191C1204E64559FE8253a0e49E6548": 9000,
+          "0x5979D7b546E38E414F7E9822514be443A4800529": 9400,
+          "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": 9400,
+          "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": 9400
+        },
+        "feeInterest": 2500,
+        "feeLiquidation": 50,
+        "liquidationDiscount": 9900,
+        "feeLiquidationExpired": 50,
+        "liquidationDiscountExpired": 9900,
+        "quotedTokensMask": {
+          "__type": "bigint",
+          "__value": "126"
+        },
+        "contractsToAdapters": {
+          "0xE592427A0AEce92De3Edee1F18E0157C05861564": "0x47C9a78602fb4a14E1EAd0e4a88E8690270c084a",
+          "0xBA12222222228d8Ba445958a75a0704d566BF2C8": "0xb552b2026D1275486679758198623E4CBE207936"
+        },
+        "creditAccounts": [
+          [
+            "0x7eBB0464b1d5326F199B4BDA169e343A4e4c8711",
+            "0x1b264920d1DA06f67FeF9eb6DdaE1D35e1795D42",
+            "0x1D2f6191f8fa5B5733743A79035A5C2c3228b838",
+            "0xa6b0aE7C938cc71919D0FaC07e95813d45b7e7FE",
+            "0xB5dd23433EFc5a4648b1E57234289A46F6ee61fC",
+            "0x9d1653564aC2D75996d9150C8825487508A3479c",
+            "0x6024A140C3502CC2E13EAdd93EFDAa40c6Ef49f6",
+            "0x3D377e6Eee7371C791c8ae5a1f3E88C39F4D1A2e",
+            "0x9F005a16579e82397256A245EBF72d7D332b9D8e",
+            "0xc45Ecb33Fed3214E22468fDfB9353766a9D253E9",
+            "0xA1677B6c4066D085CC1784fe007cE37c39D82aF3",
+            "0xFF030e9E12686cF2361f11779098f34c339C6faB",
+            "0x402EF90624351244060F240CC27A4C25fd235923",
+            "0x5197ae1f13647Ba023BC7BA7Fff3CEeF5f2bc2A6",
+            "0x7bf5308EB55C5e46342493cbf957F054c3893A82",
+            "0x4EA542fAecb36B98ECAB6C240D65f79C3923E08F",
+            "0x5B7ba741C148DF16c186eEF08F6F106E56602ACb",
+            "0x1Bf2875345cD5160C2042A7a0Af59D2717f57508"
+          ]
+        ],
+        "name": "Trade USDC.e Tier 1 Arbitrum"
+      },
+      "creditConfigurator": {
+        "address": "0x4f0ddaB78e08Ca71f35AeF17aE59ccd3aDB58269",
+        "version": 301,
+        "emergencyLiquidators": [
+          "0x7BD9c8161836b1F402233E80F55E3CaE0Fde4d87",
+          "0x16040e932b5Ac7A3aB23b88a2f230B4185727b0d"
+        ]
+      }
+    },
+    {
+      "creditFacade": {
+        "address": "0x8D5d92D4595Fdb190d41e1A20F96a0363F17F72C",
+        "version": 300,
+        "maxQuotaMultiplier": 2,
+        "expirable": true,
+        "weth": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "isDegenMode": false,
+        "degenNFT": "0x0000000000000000000000000000000000000000",
+        "expirationDate": 0,
+        "maxDebtPerBlockMultiplier": 2,
+        "botList": "0xd74Cd076e9A548D32B2c2c91B6F401348a01402c",
+        "minDebt": {
+          "__type": "bigint",
+          "__value": "1000000000"
+        },
+        "maxDebt": {
+          "__type": "bigint",
+          "__value": "100000000000"
+        },
+        "currentCumulativeLoss": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "maxCumulativeLoss": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "forbiddenTokenMask": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "isPaused": false
+      },
+      "creditManager": {
+        "address": "0xB4bc02c0859B372c61AbcCFa5dF91B1CCaa4DD1F",
+        "version": 301,
+        "addressProvider": "0x7d04eCdb892Ae074f03B5D0aBA03796F90F3F2af",
+        "accountFactory": "0x03cD6b5c36c15B9feed278C417274902609E5Df9",
+        "underlying": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+        "pool": "0xa76c604145D7394DEc36C49Af494C144Ff327861",
+        "creditFacade": "0x8D5d92D4595Fdb190d41e1A20F96a0363F17F72C",
+        "creditConfigurator": "0x1fd1431b30b6a0e91fcF9792b31559De0489Ee0C",
+        "priceOracle": "0xF6C709a419e18819dea30248f59c95cA20fd83d5",
+        "maxEnabledTokens": 4,
+        "collateralTokens": {
+          "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": 9700,
+          "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": 9400,
+          "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a": 8350,
+          "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4": 9000,
+          "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8": 8000
+        },
+        "feeInterest": 2500,
+        "feeLiquidation": 100,
+        "liquidationDiscount": 9800,
+        "feeLiquidationExpired": 100,
+        "liquidationDiscountExpired": 9800,
+        "quotedTokensMask": {
+          "__type": "bigint",
+          "__value": "30"
+        },
+        "contractsToAdapters": {
+          "0xE592427A0AEce92De3Edee1F18E0157C05861564": "0x3c59cffbEc9B3B9b73edf35C96B024Ebe7598945"
+        },
+        "creditAccounts": [
+          [
+            "0x6b3705cA7a814849Bc579baC390925F1A540F58f",
+            "0xa3c31c6cFDf2dfA854A80FAfd34daD94AEee7F5f",
+            "0xd5A61B80CA05B7d102BcD9004684ebE140A34233"
+          ]
+        ],
+        "name": "Trade USDC.e Tier 2 Arbitrum"
+      },
+      "creditConfigurator": {
+        "address": "0x1fd1431b30b6a0e91fcF9792b31559De0489Ee0C",
+        "version": 301,
+        "emergencyLiquidators": [
+          "0x7BD9c8161836b1F402233E80F55E3CaE0Fde4d87",
+          "0x16040e932b5Ac7A3aB23b88a2f230B4185727b0d"
+        ]
+      }
+    },
+    {
+      "creditFacade": {
+        "address": "0x7d4A58b2F09F97537310A31e77eCD41E7D0dcBfa",
+        "version": 300,
+        "maxQuotaMultiplier": 2,
+        "expirable": true,
+        "weth": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "isDegenMode": false,
+        "degenNFT": "0x0000000000000000000000000000000000000000",
+        "expirationDate": 0,
+        "maxDebtPerBlockMultiplier": 2,
+        "botList": "0xd74Cd076e9A548D32B2c2c91B6F401348a01402c",
+        "minDebt": {
+          "__type": "bigint",
+          "__value": "350000000000000000"
+        },
+        "maxDebt": {
+          "__type": "bigint",
+          "__value": "150000000000000000000"
+        },
+        "currentCumulativeLoss": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "maxCumulativeLoss": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "forbiddenTokenMask": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "isPaused": false
+      },
+      "creditManager": {
+        "address": "0xcedaa4B4A42c0A771F6c24a3745c3ca3eD73F17A",
+        "version": 301,
+        "addressProvider": "0x7d04eCdb892Ae074f03B5D0aBA03796F90F3F2af",
+        "accountFactory": "0x03cD6b5c36c15B9feed278C417274902609E5Df9",
+        "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "pool": "0x04419d3509f13054f60d253E0c79491d9E683399",
+        "creditFacade": "0x7d4A58b2F09F97537310A31e77eCD41E7D0dcBfa",
+        "creditConfigurator": "0xC3fB79e3affF9580E8761fEbE7C29B59bD72b0B5",
+        "priceOracle": "0xF6C709a419e18819dea30248f59c95cA20fd83d5",
+        "maxEnabledTokens": 4,
+        "collateralTokens": {
+          "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": 9850,
+          "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": 9400,
+          "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": 9400,
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": 9400,
+          "0x912CE59144191C1204E64559FE8253a0e49E6548": 9000,
+          "0x5979D7b546E38E414F7E9822514be443A4800529": 9600,
+          "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": 9600,
+          "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": 9600
+        },
+        "feeInterest": 2500,
+        "feeLiquidation": 50,
+        "liquidationDiscount": 9900,
+        "feeLiquidationExpired": 50,
+        "liquidationDiscountExpired": 9900,
+        "quotedTokensMask": {
+          "__type": "bigint",
+          "__value": "254"
+        },
+        "contractsToAdapters": {
+          "0xE592427A0AEce92De3Edee1F18E0157C05861564": "0x8E7Ff9A2ad3B8720876897EC224b7a0F60354d06",
+          "0xBA12222222228d8Ba445958a75a0704d566BF2C8": "0xa8b10E1A812E3C683d615649EB5D9f52E3061F99"
+        },
+        "creditAccounts": [
+          [
+            "0x3305Fc36cCF3F20056627FA714d008347D7269ca",
+            "0xf5c17bC48805D0E66fD492F139938E6dD7455e24",
+            "0x125a00a00Cd7ab9a29D80A7cD218087007eAbeda",
+            "0x4f7937AC63d646d11aA8d04b4540857ca8a336E2",
+            "0x8eBcC753942414E1F99f920Ec552eB2ee03AA351",
+            "0xeDAe111E0293633374e1d4333d784b1a86ae4803",
+            "0x465753360a854B939722bFEbe552160F3e56BC8f",
+            "0x4CE039815EA5CEd55622c5e91881875fDAF948A6",
+            "0xd7458e34ff20B531FAab61f9c0733e3C7E4B1B82",
+            "0xcC375145f164eF922aF3E248e1969C8F1206c4aA",
+            "0x34465F80e6Fa24Dce5c58E3b6978C4EEA1dE5977",
+            "0xF5bA8c7326860a75c2cB1fF553Fc732eCd82eec3",
+            "0xEd0bF1263fCD2e17eDd1fbF9b11273b618A6d786",
+            "0x22D2B86aB4dCB9812EB8d05F74B0EEddB33d64Ce",
+            "0x3c6247F5999BDE637DF1563AB75e467d1b8296ac",
+            "0x3aCb2EAF6db85027600fc93f5D270dd204880E03",
+            "0x5DEd7844403f88990EF2b382889cca261F1408C6",
+            "0x97795479A778dC21a08D1CACCc5eB3241B0155F8",
+            "0xdcff992Ff35CE69fB2aa585936df678Aa7194354",
+            "0x53e0C48ed11E18Fb6c3485E281d8E64856a6D657",
+            "0xE6De99AbA5672F2D04CF69de3b98784E993e1489",
+            "0x736917F2137f8b27e7ffE9a093BC8Cd527aDacc3",
+            "0xCd6e05eEb505e49c9E5a6D5760430B49080d0ab9",
+            "0x9004E101434B422a84D2c402aE05Ee353dB7024D",
+            "0xB4A807095C0e8DDFacE8adaaaB913086eD1796b9",
+            "0x883dA05C26406FE76878679b151168EB6C95351D",
+            "0x8fa7aBb886F8769DcF85C6e79bc032BFdbd19FA7",
+            "0xe7048167C321D6d6544c6642d03bA0C88976D883",
+            "0x71E31f89D16Aa77851e693CdB55cC42F709e76F0"
+          ]
+        ],
+        "name": "Trade WETH Tier 1 Arbitrum"
+      },
+      "creditConfigurator": {
+        "address": "0xC3fB79e3affF9580E8761fEbE7C29B59bD72b0B5",
+        "version": 301,
+        "emergencyLiquidators": [
+          "0x7BD9c8161836b1F402233E80F55E3CaE0Fde4d87",
+          "0x16040e932b5Ac7A3aB23b88a2f230B4185727b0d"
+        ]
+      }
+    },
+    {
+      "creditFacade": {
+        "address": "0xF1fADA023dd48B9BB5f52c10B0f833E35D1C4C56",
+        "version": 300,
+        "maxQuotaMultiplier": 2,
+        "expirable": true,
+        "weth": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "isDegenMode": false,
+        "degenNFT": "0x0000000000000000000000000000000000000000",
+        "expirationDate": 0,
+        "maxDebtPerBlockMultiplier": 2,
+        "botList": "0xd74Cd076e9A548D32B2c2c91B6F401348a01402c",
+        "minDebt": {
+          "__type": "bigint",
+          "__value": "350000000000000000"
+        },
+        "maxDebt": {
+          "__type": "bigint",
+          "__value": "35000000000000000000"
+        },
+        "currentCumulativeLoss": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "maxCumulativeLoss": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "forbiddenTokenMask": {
+          "__type": "bigint",
+          "__value": "0"
+        },
+        "isPaused": false
+      },
+      "creditManager": {
+        "address": "0x3Ab1D35500d2DA4216f5863229A7b81e2F6FF976",
+        "version": 301,
+        "addressProvider": "0x7d04eCdb892Ae074f03B5D0aBA03796F90F3F2af",
+        "accountFactory": "0x03cD6b5c36c15B9feed278C417274902609E5Df9",
+        "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "pool": "0x04419d3509f13054f60d253E0c79491d9E683399",
+        "creditFacade": "0xF1fADA023dd48B9BB5f52c10B0f833E35D1C4C56",
+        "creditConfigurator": "0x7Df767ecD6E7690E3f5bD0a2aE1220d94a7dafff",
+        "priceOracle": "0xF6C709a419e18819dea30248f59c95cA20fd83d5",
+        "maxEnabledTokens": 4,
+        "collateralTokens": {
+          "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": 9700,
+          "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8": 8000,
+          "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a": 8350,
+          "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4": 9000
+        },
+        "feeInterest": 2500,
+        "feeLiquidation": 100,
+        "liquidationDiscount": 9800,
+        "feeLiquidationExpired": 100,
+        "liquidationDiscountExpired": 9800,
+        "quotedTokensMask": {
+          "__type": "bigint",
+          "__value": "14"
+        },
+        "contractsToAdapters": {
+          "0xE592427A0AEce92De3Edee1F18E0157C05861564": "0x035B48e0620433F81A668A881c234e0a8B5249B5"
+        },
+        "creditAccounts": [
+          [
+            "0x7384F9Ad99704e1341383a5F2682daAe6b692eE3",
+            "0x914706E5fC737812bcDDf7fEfD66b7c889f4620D",
+            "0x9a1Fc8be9867041f756f5dF4C674648366e011b9"
+          ]
+        ],
+        "name": "Trade WETH Tier 2 Arbitrum"
+      },
+      "creditConfigurator": {
+        "address": "0x7Df767ecD6E7690E3f5bD0a2aE1220d94a7dafff",
+        "version": 301,
+        "emergencyLiquidators": [
+          "0x7BD9c8161836b1F402233E80F55E3CaE0Fde4d87",
+          "0x16040e932b5Ac7A3aB23b88a2f230B4185727b0d"
+        ]
+      }
+    }
+  ]
+}

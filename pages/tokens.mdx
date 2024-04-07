@@ -1,0 +1,29 @@
+import { Tab, Tabs } from 'nextra-theme-docs'
+import { TokenTable } from "../components/TokenTable";
+
+# Supported tokens
+
+<Tabs items={["Mainnet", "Arbitrum", "Optimism"]}>
+  <Tab>
+
+<>
+<TokenTable network={"Mainnet"} />
+</>
+  </Tab>
+  
+   <Tab>
+
+<>
+<TokenTable network={"Arbitrum"} />
+</>
+  </Tab>
+
+  <Tab>
+
+<>
+
+<TokenTable network={"Optimism"} />
+</>
+  </Tab>
+
+</Tabs>

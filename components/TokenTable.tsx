@@ -1,5 +1,9 @@
-import React from "react";
-import { NetworkType, tokenDataByNetwork } from "@gearbox-protocol/sdk";
+import {
+  NOT_DEPLOYED,
+  NetworkType,
+  explorerUrls,
+  tokenDataByNetwork,
+} from "@gearbox-protocol/sdk-gov";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Copy } from "react-feather";
 
@@ -8,49 +12,41 @@ export interface TokenTableProps {
 }
 
 export function TokenTable({ network }: TokenTableProps) {
-  console.log(tokenDataByNetwork[network]);
-
-  const tokenLines = Object.entries(tokenDataByNetwork[network]).map(
-    ([symbol, addr]) => (
+  const explorerUrl = explorerUrls[network];
+  const tokenLines = Object.entries(tokenDataByNetwork[network])
+    .filter((t) => t[1] !== NOT_DEPLOYED)
+    .map(([symbol, addr]) => (
       <tr>
         <td>{symbol}</td>
         <td>
           <a
-            href={
-              network === "Goerli"
-                ? `https://goerli.etherscan.io/address/${addr}`
-                : `https://etherscan.io/address/${addr}`
-            }
+            href={`${explorerUrl}/address/${addr}`}
             target="_blank"
             rel="noopener"
           >
             {addr}
           </a>
-          {addr !== "" ? (
-            <CopyToClipboard
-              text={addr}
-              style={{
-                marginTop: "5px",
-                marginLeft: "10px",
-                cursor: "pointer",
-              }}
-            >
-              <Copy size={14} />
-            </CopyToClipboard>
-          ) : (
-            <div />
-          )}
+
+          <CopyToClipboard
+            text={addr}
+            style={{
+              marginTop: "5px",
+              marginLeft: "10px",
+              cursor: "pointer",
+            }}
+          >
+            <Copy size={14} />
+          </CopyToClipboard>
         </td>
       </tr>
-    )
-  );
+    ));
 
   return (
     <table style={{ width: "100%" }}>
       <thead>
         <th>
           <td>Symbol</td>
-          <td>Address</td>
+          <td width="80%">Address</td>
         </th>
       </thead>
       <tbody>{tokenLines}</tbody>
