@@ -48,10 +48,13 @@ jobs:
       - name: Generate new state
         run: |
           mkdir tmp
-          npx --yes --loglevel verbose --package @gearbox-protocol/deploy-v3@${{ inputs.scriptVersion }} -- deploy-v3 mgmt/dump_state generate --network ${{ env.NETWORK }}
+          npx --package @gearbox-protocol/deploy-v3@${{ inputs.scriptVersion }} -- deploy-v3 mgmt/dump_state generate --network ${{ env.NETWORK }}
           ls -la tmp
         env:
           OUTPUT_DIR: tmp
           MAINNET_NODE_URI: ${{ secrets.MAINNET_TESTS_FORK }}
           ARBITRUM_NODE_URI: ${{ secrets.ARBITRUM_TESTS_FORK }}
           OPTIMISM_NODE_URI: ${{ secrets.OPTIMISM_TESTS_FORK }}
+          # well-known pks from anvil
+          EXECUTOR_PRIVATE_KEY: "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
+          DEPLOYER_PRIVATE_KEY: "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
