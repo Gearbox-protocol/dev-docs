@@ -48,7 +48,7 @@ jobs:
       - name: Generate new state
         run: |
           mkdir tmp
-          npx @gearbox-protocol/deploy-v3@${{ inputs.scriptVersion }} deploy-v3 mgmt/dump_state generate --network ${{ env.NETWORK }}
+          npx --yes --loglevel verbose --package @gearbox-protocol/deploy-v3@${{ inputs.scriptVersion }} -- deploy-v3 mgmt/dump_state generate --network ${{ env.NETWORK }}
           ls -la tmp
         env:
           OUTPUT_DIR: tmp
