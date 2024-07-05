@@ -18,6 +18,9 @@ on:
         default: latest
         required: true
 
+permissions:
+  contents: write
+
 env:
   HUSKY: 0
   CI: true
@@ -49,7 +52,12 @@ jobs:
         run: |
           mkdir tmp
           npx --package @gearbox-protocol/deploy-v3@${{ inputs.scriptVersion }} -- deploy-v3 mgmt/dump_state generate --network ${{ env.NETWORK }}
-          ls -la tmp
+          mv ./tmp/${{ env.NETWORK }}/dump_state/stateBefore.json ./state${{ inputs.network}}.json
+          git config --global user.name 'Gearbox CI' 
+          git config --global user.email 'noreply@gearbox.foundation'
+          git add ./state${{ inputs.network}}.json
+          git commit -m '[ci] update state json for ${{ inputs.network }}'
+          git push
         env:
           OUTPUT_DIR: tmp
           MAINNET_NODE_URI: ${{ secrets.MAINNET_TESTS_FORK }}
