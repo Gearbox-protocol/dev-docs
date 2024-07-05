@@ -1,0 +1,57 @@
+name: State
+
+on:
+  workflow_dispatch:
+    inputs:
+      network:
+        description: Network for which we want to generate new state json
+        type: choice
+        default: Mainnet
+        options:
+          - Mainnet
+          - Arbitrum
+          - Optimism
+        required: true
+      scriptVersion:
+        description: Npm tag of @gearbox-protocol/deploy-v3 script to generate state
+        type: string
+        default: latest
+        required: true
+
+env:
+  HUSKY: 0
+  CI: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          cache: "yarn"
+          node-version-file: ".nvmrc"
+
+      - name: Configure access to private npm packages
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+
+      - name: Downcase network
+        env:
+          NETWORK_INPUT: ${{ inputs.network }}
+        run: |
+          echo "NETWORK=${NETWORK_INPUT,,}" >>${GITHUB_ENV}
+
+      - name: Generate new state
+        run: |
+          mkdir tmp
+          npx @gearbox-protocol/deploy-v3@${{ inputs.scriptVersion }} deploy-v3 mgmt/dump_state generate --network ${{ env.NETWORK }}
+          ls -la tmp
+        env:
+          OUTPUT_DIR: tmp
+          MAINNET_NODE_URI: ${{ secrets.MAINNET_TESTS_FORK }}
+          ARBITRUM_NODE_URI: ${{ secrets.ARBITRUM_TESTS_FORK }}
+          OPTIMISM_NODE_URI: ${{ secrets.OPTIMISM_TESTS_FORK }}
