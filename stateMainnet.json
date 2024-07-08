@@ -1,6 +1,6 @@
 {
-  "block": 20243032,
-  "timestamp": 1720215371,
+  "block": 20263808,
+  "timestamp": 1720466087,
   "core": {
     "addressProviderV3": {
       "address": "0x9ea7b04da02a5373317d745c1571c84aad03321d",
@@ -3254,19 +3254,19 @@
         "name": "Trade USDC v3",
         "baseInterestIndex": {
           "__type": "bigint",
-          "__value": "1007788233262018353341303632"
+          "__value": "1007855264482698440632184169"
         },
         "availableLiquidity": {
           "__type": "bigint",
-          "__value": "24026834181081"
+          "__value": "26026184559921"
         },
         "expectedLiquidity": {
           "__type": "bigint",
-          "__value": "57955830545347"
+          "__value": "58171620344561"
         },
         "totalBorrowed": {
           "__type": "bigint",
-          "__value": "32640900248134"
+          "__value": "30889141569597"
         },
         "totalDebtLimit": {
           "__type": "bigint",
@@ -3277,7 +3277,7 @@
             "creditManager": "0x3EB95430FdB99439A86d3c6D7D01C3c561393556",
             "borrowed": {
               "__type": "bigint",
-              "__value": "32640900248134"
+              "__value": "30889141569597"
             },
             "limit": {
               "__type": "bigint",
@@ -3285,7 +3285,7 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "17359099751866"
+              "__value": "19110858430403"
             }
           },
           "0xea7c28428d3916dbe2f113b8a6e6dd0f3819c050": {
@@ -3336,32 +3336,32 @@
         },
         "totalAssets": {
           "__type": "bigint",
-          "__value": "57955830545347"
+          "__value": "58171620344561"
         },
         "totalSupply": {
           "__type": "bigint",
-          "__value": "54252430169317"
+          "__value": "54425749406869"
         },
         "supplyRate": {
           "__type": "bigint",
-          "__value": "68826754859264775686336780"
+          "__value": "33446057814075619376729343"
         },
         "baseInterestRate": {
           "__type": "bigint",
-          "__value": "8363152801439451414285714"
+          "__value": "7894158192231887714285714"
         },
         "dieselRate_RAY": {
           "__type": "bigint",
-          "__value": "1068262386854782678764965203"
+          "__value": "1068825344226114389717724681"
         },
         "withdrawFee": 0,
         "lastBaseInterestUpdate": {
           "__type": "bigint",
-          "__value": "1720206719"
+          "__value": "1720454579"
         },
         "baseInterestIndexLU": {
           "__type": "bigint",
-          "__value": "1007785920940490886616994741"
+          "__value": "1007852361155457775788869182"
         },
         "version": 300,
         "poolQuotaKeeper": "0xC96C20E664303fB8C29ee6333055757AC7D484F4",
@@ -3387,7 +3387,7 @@
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "2224491415080"
+              "__value": "2499748065080"
             },
             "limit": {
               "__type": "bigint",
@@ -3443,7 +3443,7 @@
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "7558410000"
+              "__value": "4727730000"
             },
             "limit": {
               "__type": "bigint",
@@ -3593,7 +3593,7 @@
           },
           {
             "token": "0x83F20F44975D03b1b09e64809B757c47f942BEeA",
-            "rate": 452,
+            "rate": 458,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -3607,7 +3607,7 @@
           },
           {
             "token": "0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE",
-            "rate": 1210,
+            "rate": 1500,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -3621,7 +3621,7 @@
           },
           {
             "token": "0xdA816459F1AB5631232FE5e97a05BBBb94970c95",
-            "rate": 1137,
+            "rate": 1500,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -3691,11 +3691,11 @@
           },
           {
             "token": "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
-            "rate": 963,
+            "rate": 334,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "26088970019183"
+              "__value": "25252399056777"
             },
             "limit": {
               "__type": "bigint",
@@ -3705,11 +3705,11 @@
           },
           {
             "token": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
-            "rate": 803,
+            "rate": 434,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "8415776810185"
+              "__value": "6946954880312"
             },
             "limit": {
               "__type": "bigint",
@@ -3793,7 +3793,7 @@
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "2224491415080"
+              "__value": "2499748065080"
             },
             "limit": {
               "__type": "bigint",
@@ -3845,7 +3845,7 @@
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "7558410000"
+              "__value": "4727730000"
             },
             "limit": {
               "__type": "bigint",
@@ -3984,7 +3984,7 @@
             "isActive": true
           },
           "0x83F20F44975D03b1b09e64809B757c47f942BEeA": {
-            "rate": 452,
+            "rate": 458,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -3997,7 +3997,7 @@
             "isActive": true
           },
           "0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE": {
-            "rate": 1210,
+            "rate": 1500,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -4010,7 +4010,7 @@
             "isActive": true
           },
           "0xdA816459F1AB5631232FE5e97a05BBBb94970c95": {
-            "rate": 1137,
+            "rate": 1500,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -4075,11 +4075,11 @@
             "isActive": true
           },
           "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3": {
-            "rate": 963,
+            "rate": 334,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "26088970019183"
+              "__value": "25252399056777"
             },
             "limit": {
               "__type": "bigint",
@@ -4088,11 +4088,11 @@
             "isActive": true
           },
           "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497": {
-            "rate": 803,
+            "rate": 434,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "8415776810185"
+              "__value": "6946954880312"
             },
             "limit": {
               "__type": "bigint",
@@ -4127,7 +4127,7 @@
       },
       "gauge": {
         "address": "0xffd0c7474b074f8469a627a2d062d106abc3b217",
-        "currentEpoch": 29,
+        "currentEpoch": 30,
         "epochFrozen": false,
         "quotaParams": {
           "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599": {
@@ -4246,22 +4246,22 @@
             "minRate": 50,
             "maxRate": 1500,
             "totalVotesLpSide": 1.9e+24,
-            "totalVotesCaSide": 4.951497e+24,
-            "rate": 452
+            "totalVotesCaSide": 4.851497e+24,
+            "rate": 458
           },
           "0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE": {
             "minRate": 50,
             "maxRate": 1500,
             "totalVotesLpSide": 4e+23,
-            "totalVotesCaSide": 1e+23,
-            "rate": 1210
+            "totalVotesCaSide": 0,
+            "rate": 1500
           },
           "0xdA816459F1AB5631232FE5e97a05BBBb94970c95": {
             "minRate": 50,
             "maxRate": 1500,
             "totalVotesLpSide": 3e+23,
-            "totalVotesCaSide": 1e+23,
-            "rate": 1137
+            "totalVotesCaSide": 0,
+            "rate": 1500
           },
           "0xDb4217B9C8DB788Aa3871d45B4BE6ac5D1FF8C49": {
             "minRate": 100,
@@ -4295,15 +4295,15 @@
             "minRate": 50,
             "maxRate": 5000,
             "totalVotesLpSide": 1.544835865120995e+24,
-            "totalVotesCaSide": 2.9784234155156093e+25,
-            "rate": 963
+            "totalVotesCaSide": 2.5296234155156092e+25,
+            "rate": 334
           },
           "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497": {
             "minRate": 50,
             "maxRate": 5000,
             "totalVotesLpSide": 1.0140482717263877e+24,
             "totalVotesCaSide": 1.202525970485652e+25,
-            "rate": 803
+            "rate": 434
           },
           "0xbf5495Efe5DB9ce00f80364C8B423567e58d2110": {
             "minRate": 50,
@@ -4324,15 +4324,15 @@
         "name": "Trade WBTC v3",
         "baseInterestIndex": {
           "__type": "bigint",
-          "__value": "1010332745431067629141221630"
+          "__value": "1010473641128362411712675190"
         },
         "availableLiquidity": {
           "__type": "bigint",
-          "__value": "726093752"
+          "__value": "746222774"
         },
         "expectedLiquidity": {
           "__type": "bigint",
-          "__value": "1843413797"
+          "__value": "1863841600"
         },
         "totalBorrowed": {
           "__type": "bigint",
@@ -4355,7 +4355,7 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "541752372"
+              "__value": "559838614"
             }
           },
           "0xcac3e41b9bad20e2aa35e150de96eefb2d043735": {
@@ -4370,7 +4370,7 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "541752372"
+              "__value": "559838614"
             }
           },
           "0x46709ca16b1ffea5d6c6bb6b7e77dd9e3b4908ed": {
@@ -4385,38 +4385,38 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "541752372"
+              "__value": "559838614"
             }
           }
         },
         "totalAssets": {
           "__type": "bigint",
-          "__value": "1843413797"
+          "__value": "1863841600"
         },
         "totalSupply": {
           "__type": "bigint",
-          "__value": "1817567958"
+          "__value": "1837408012"
         },
         "supplyRate": {
           "__type": "bigint",
-          "__value": "20255123228690881012730446"
+          "__value": "19924460891389497724748482"
         },
         "baseInterestRate": {
           "__type": "bigint",
-          "__value": "17317227627530011628571428"
+          "__value": "17132162347081247371428571"
         },
         "dieselRate_RAY": {
           "__type": "bigint",
-          "__value": "1014220012454686990031103970"
+          "__value": "1014386346324476569224843458"
         },
         "withdrawFee": 0,
         "lastBaseInterestUpdate": {
           "__type": "bigint",
-          "__value": "1720169327"
+          "__value": "1720441619"
         },
         "baseInterestIndexLU": {
           "__type": "bigint",
-          "__value": "1010307200881310079648035942"
+          "__value": "1010460209667144565212937050"
         },
         "version": 300,
         "poolQuotaKeeper": "0x7bbaeC0e41d133325a958edFA6Ef69A05477c444",
@@ -4961,7 +4961,7 @@
       },
       "gauge": {
         "address": "0x245f3c6acdabc0ca10ebfc50ee26ab85566fc21c",
-        "currentEpoch": 29,
+        "currentEpoch": 30,
         "epochFrozen": false,
         "quotaParams": {
           "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48": {
@@ -5087,7 +5087,7 @@
             "minRate": 50,
             "maxRate": 500,
             "totalVotesLpSide": 0,
-            "totalVotesCaSide": 1.5e+23,
+            "totalVotesCaSide": 0,
             "rate": 50
           }
         }
@@ -5102,19 +5102,19 @@
         "name": "Trade WETH v3",
         "baseInterestIndex": {
           "__type": "bigint",
-          "__value": "1011088693649305043869364172"
+          "__value": "1011176784765744739324432620"
         },
         "availableLiquidity": {
           "__type": "bigint",
-          "__value": "20700735383376747632196"
+          "__value": "20004018189363596690128"
         },
         "expectedLiquidity": {
           "__type": "bigint",
-          "__value": "34284224690168527946486"
+          "__value": "32827333309113682584754"
         },
         "totalBorrowed": {
           "__type": "bigint",
-          "__value": "13335292623257962103254"
+          "__value": "12577554765513570623854"
         },
         "totalDebtLimit": {
           "__type": "bigint",
@@ -5125,7 +5125,7 @@
             "creditManager": "0xa30099925B14b00b76Ae2EfE2639CD01598fE68a",
             "borrowed": {
               "__type": "bigint",
-              "__value": "650939314640301103410"
+              "__value": "810794559480726857701"
             },
             "limit": {
               "__type": "bigint",
@@ -5133,7 +5133,7 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "1649060685359698896590"
+              "__value": "1489205440519273142299"
             }
           },
           "0x3f11758aca3f2eb7a27828c9cbcd0b347944ac14": {
@@ -5185,7 +5185,7 @@
             "creditManager": "0x50bA483272484fC5EEbE8676Dc87d814A11fAEf6",
             "borrowed": {
               "__type": "bigint",
-              "__value": "12310310954893116596451"
+              "__value": "11392717852308299362760"
             },
             "limit": {
               "__type": "bigint",
@@ -5193,38 +5193,38 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "10689689045106883403549"
+              "__value": "11607282147691700637240"
             }
           }
         },
         "totalAssets": {
           "__type": "bigint",
-          "__value": "34284224690168527946486"
+          "__value": "32827333309113682584754"
         },
         "totalSupply": {
           "__type": "bigint",
-          "__value": "32604821405612580462926"
+          "__value": "31210154592723850862475"
         },
         "supplyRate": {
           "__type": "bigint",
-          "__value": "38800854685133003690068684"
+          "__value": "30182914401663557657227472"
         },
         "baseInterestRate": {
           "__type": "bigint",
-          "__value": "11319937612466209714285714"
+          "__value": "11160761847781192342857142"
         },
         "dieselRate_RAY": {
           "__type": "bigint",
-          "__value": "1051507820382259652469515685"
+          "__value": "1051815786800583522733278773"
         },
         "withdrawFee": 0,
         "lastBaseInterestUpdate": {
           "__type": "bigint",
-          "__value": "1720209311"
+          "__value": "1720461731"
         },
         "baseInterestIndexLU": {
           "__type": "bigint",
-          "__value": "1011086494278986093003915268"
+          "__value": "1011175225925799722158485780"
         },
         "version": 300,
         "poolQuotaKeeper": "0x05eF8Da767687c0137aE143EB23883FcaD235ce7",
@@ -5264,7 +5264,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "725328452160061347370"
+              "__value": "910839763156215477370"
             },
             "limit": {
               "__type": "bigint",
@@ -5470,7 +5470,7 @@
           },
           {
             "token": "0xa258C4606Ca8206D8aA700cE2143D7db854D168c",
-            "rate": 275,
+            "rate": 500,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -5498,11 +5498,11 @@
           },
           {
             "token": "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
-            "rate": 719,
+            "rate": 568,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "7059950044439502019356"
+              "__value": "6069336413137066121718"
             },
             "limit": {
               "__type": "bigint",
@@ -5540,7 +5540,7 @@
           },
           {
             "token": "0x0Bf1626d4925F8A872801968be11c052862AC2D3",
-            "rate": 1206,
+            "rate": 1470,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -5554,7 +5554,7 @@
           },
           {
             "token": "0xDd1fE5AD401D4777cE89959b7fa587e569Bf125D",
-            "rate": 175,
+            "rate": 550,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -5568,7 +5568,7 @@
           },
           {
             "token": "0xbf5495Efe5DB9ce00f80364C8B423567e58d2110",
-            "rate": 880,
+            "rate": 579,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -5600,7 +5600,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "132228556161359020000"
+              "__value": "118381031920342060000"
             },
             "limit": {
               "__type": "bigint",
@@ -5702,7 +5702,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "725328452160061347370"
+              "__value": "910839763156215477370"
             },
             "limit": {
               "__type": "bigint",
@@ -5893,7 +5893,7 @@
             "isActive": true
           },
           "0xa258C4606Ca8206D8aA700cE2143D7db854D168c": {
-            "rate": 275,
+            "rate": 500,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -5919,11 +5919,11 @@
             "isActive": true
           },
           "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee": {
-            "rate": 719,
+            "rate": 568,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "7059950044439502019356"
+              "__value": "6069336413137066121718"
             },
             "limit": {
               "__type": "bigint",
@@ -5958,7 +5958,7 @@
             "isActive": true
           },
           "0x0Bf1626d4925F8A872801968be11c052862AC2D3": {
-            "rate": 1206,
+            "rate": 1470,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -5971,7 +5971,7 @@
             "isActive": true
           },
           "0xDd1fE5AD401D4777cE89959b7fa587e569Bf125D": {
-            "rate": 175,
+            "rate": 550,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -5984,7 +5984,7 @@
             "isActive": true
           },
           "0xbf5495Efe5DB9ce00f80364C8B423567e58d2110": {
-            "rate": 880,
+            "rate": 579,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -6014,7 +6014,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "132228556161359020000"
+              "__value": "118381031920342060000"
             },
             "limit": {
               "__type": "bigint",
@@ -6049,7 +6049,7 @@
       },
       "gauge": {
         "address": "0xbfca0dafa3b7aed9db6a8b793eba207be1202ab3",
-        "currentEpoch": 29,
+        "currentEpoch": 30,
         "epochFrozen": false,
         "quotaParams": {
           "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599": {
@@ -6174,9 +6174,9 @@
           "0xa258C4606Ca8206D8aA700cE2143D7db854D168c": {
             "minRate": 50,
             "maxRate": 500,
-            "totalVotesLpSide": 1.00001e+23,
-            "totalVotesCaSide": 1e+23,
-            "rate": 275
+            "totalVotesLpSide": 2000000000000000000,
+            "totalVotesCaSide": 0,
+            "rate": 500
           },
           "0xae78736Cd615f374D3085123A210448E74Fc6393": {
             "minRate": 5,
@@ -6189,8 +6189,8 @@
             "minRate": 5,
             "maxRate": 3000,
             "totalVotesLpSide": 2.8e+24,
-            "totalVotesCaSide": 8.94132060266603e+24,
-            "rate": 719
+            "totalVotesCaSide": 1.209132060266603e+25,
+            "rate": 568
           },
           "0xf1C9acDc66974dFB6dEcB12aA385b9cD01190E38": {
             "minRate": 5,
@@ -6210,22 +6210,22 @@
             "minRate": 100,
             "maxRate": 1470,
             "totalVotesLpSide": 2.1e+23,
-            "totalVotesCaSide": 5e+22,
-            "rate": 1206
+            "totalVotesCaSide": 0,
+            "rate": 1470
           },
           "0xDd1fE5AD401D4777cE89959b7fa587e569Bf125D": {
             "minRate": 100,
             "maxRate": 550,
             "totalVotesLpSide": 1e+22,
-            "totalVotesCaSide": 5e+22,
-            "rate": 175
+            "totalVotesCaSide": 0,
+            "rate": 550
           },
           "0xbf5495Efe5DB9ce00f80364C8B423567e58d2110": {
             "minRate": 5,
             "maxRate": 3000,
-            "totalVotesLpSide": 3.55e+24,
-            "totalVotesCaSide": 8.59e+24,
-            "rate": 880
+            "totalVotesLpSide": 2.75e+24,
+            "totalVotesCaSide": 1.159e+25,
+            "rate": 579
           },
           "0xA1290d69c65A6Fe4DF752f95823fae25cB99e5A7": {
             "minRate": 50,
@@ -6561,15 +6561,15 @@
         "name": "GHO v3",
         "baseInterestIndex": {
           "__type": "bigint",
-          "__value": "1004722118546722862330007558"
+          "__value": "1004896815272932920244565286"
         },
         "availableLiquidity": {
           "__type": "bigint",
-          "__value": "1397067414543577256730804"
+          "__value": "197900060347033301731894"
         },
         "expectedLiquidity": {
           "__type": "bigint",
-          "__value": "3375457175529697682688631"
+          "__value": "2177592438834233985545649"
         },
         "totalBorrowed": {
           "__type": "bigint",
@@ -6592,38 +6592,38 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "1059521696990607489158443"
+              "__value": "0"
             }
           }
         },
         "totalAssets": {
           "__type": "bigint",
-          "__value": "3375457175529697682688631"
+          "__value": "2177592438834233985545649"
         },
         "totalSupply": {
           "__type": "bigint",
-          "__value": "3229423047463301403999902"
+          "__value": "2082451725696646575260651"
         },
         "supplyRate": {
           "__type": "bigint",
-          "__value": "40727337818504959559698359"
+          "__value": "157415516980572636238578413"
         },
         "baseInterestRate": {
           "__type": "bigint",
-          "__value": "8372626362236430657142857"
+          "__value": "113553119696416680000000000"
         },
         "dieselRate_RAY": {
           "__type": "bigint",
-          "__value": "1045219881669298634946737441"
+          "__value": "1045686875697327295688497111"
         },
         "withdrawFee": 0,
         "lastBaseInterestUpdate": {
           "__type": "bigint",
-          "__value": "1720166135"
+          "__value": "1720434179"
         },
         "baseInterestIndexLU": {
           "__type": "bigint",
-          "__value": "1004708985117045164724765556"
+          "__value": "1004781373331397242391549936"
         },
         "version": 300,
         "poolQuotaKeeper": "0x99dd2da32147b11765a66f77AC914f483688b196",
@@ -6677,7 +6677,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "1362820553767061061440000"
+              "__value": "1363318898924724578580000"
             },
             "limit": {
               "__type": "bigint",
@@ -6791,7 +6791,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "1362820553767061061440000"
+              "__value": "1363318898924724578580000"
             },
             "limit": {
               "__type": "bigint",
@@ -6839,7 +6839,7 @@
       },
       "gauge": {
         "address": "0xbf78c4747b9265eda0329ab2c0d669caa9eb8fdf",
-        "currentEpoch": 29,
+        "currentEpoch": 30,
         "epochFrozen": false,
         "quotaParams": {
           "0x6B175474E89094C44Da98b954EedeAC495271d0F": {
@@ -6896,19 +6896,19 @@
         "name": "DAI v3",
         "baseInterestIndex": {
           "__type": "bigint",
-          "__value": "1004316971890280137199033551"
+          "__value": "1004379321983685355549609717"
         },
         "availableLiquidity": {
           "__type": "bigint",
-          "__value": "4051085314249227528314177"
+          "__value": "3809047806142855199289869"
         },
         "expectedLiquidity": {
           "__type": "bigint",
-          "__value": "8843876010912046822720411"
+          "__value": "8582834210399228431360005"
         },
         "totalBorrowed": {
           "__type": "bigint",
-          "__value": "4643413936469248113027235"
+          "__value": "4621594787424924440263679"
         },
         "totalDebtLimit": {
           "__type": "bigint",
@@ -6919,7 +6919,7 @@
             "creditManager": "0x4582411643f9Bbe6C736ed2114eda856B1c9ed40",
             "borrowed": {
               "__type": "bigint",
-              "__value": "4643413936469248113027235"
+              "__value": "4621594787424924440263679"
             },
             "limit": {
               "__type": "bigint",
@@ -6927,38 +6927,38 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "3166697713158022848556325"
+              "__value": "2950764385102932360322155"
             }
           }
         },
         "totalAssets": {
           "__type": "bigint",
-          "__value": "8843876010912046822720411"
+          "__value": "8582834210399228431360005"
         },
         "totalSupply": {
           "__type": "bigint",
-          "__value": "8468419671568471435634431"
+          "__value": "8215472264702705874507181"
         },
         "supplyRate": {
           "__type": "bigint",
-          "__value": "45316339424548278594304316"
+          "__value": "46596635791631205364669747"
         },
         "baseInterestRate": {
           "__type": "bigint",
-          "__value": "7741663243911205085714285"
+          "__value": "7945050809469761585714285"
         },
         "dieselRate_RAY": {
           "__type": "bigint",
-          "__value": "1044336057246208199283379340"
+          "__value": "1044715864634449754389740857"
         },
         "withdrawFee": 0,
         "lastBaseInterestUpdate": {
           "__type": "bigint",
-          "__value": "1720189775"
+          "__value": "1720392779"
         },
         "baseInterestIndexLU": {
           "__type": "bigint",
-          "__value": "1004310661331105637348134423"
+          "__value": "1004360772527358945831192607"
         },
         "version": 300,
         "poolQuotaKeeper": "0x812be18545267AA8C43DCc61670AB7e75960cb51",
@@ -6984,7 +6984,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "4411061276245461927100000"
+              "__value": "4387038239198852157330000"
             },
             "limit": {
               "__type": "bigint",
@@ -7058,7 +7058,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "4411061276245461927100000"
+              "__value": "4387038239198852157330000"
             },
             "limit": {
               "__type": "bigint",
@@ -7093,7 +7093,7 @@
       },
       "gauge": {
         "address": "0x4d6806bda37a62f7b6d290eb4f197e0f5ec82bea",
-        "currentEpoch": 29,
+        "currentEpoch": 30,
         "epochFrozen": false,
         "quotaParams": {
           "0x83F20F44975D03b1b09e64809B757c47f942BEeA": {
@@ -7129,19 +7129,19 @@
         "name": "Universal USDT v3",
         "baseInterestIndex": {
           "__type": "bigint",
-          "__value": "1003391036783253901849096400"
+          "__value": "1003510909030122287966146582"
         },
         "availableLiquidity": {
           "__type": "bigint",
-          "__value": "5670424864801"
+          "__value": "2089709705080"
         },
         "expectedLiquidity": {
           "__type": "bigint",
-          "__value": "13838281138822"
+          "__value": "10321009592216"
         },
         "totalBorrowed": {
           "__type": "bigint",
-          "__value": "7974565499842"
+          "__value": "8034840909035"
         },
         "totalDebtLimit": {
           "__type": "bigint",
@@ -7152,7 +7152,7 @@
             "creditManager": "0xe35eb22a349BABA4F1A28a9cdBA641D3B72C6203",
             "borrowed": {
               "__type": "bigint",
-              "__value": "7974565499842"
+              "__value": "8034840909035"
             },
             "limit": {
               "__type": "bigint",
@@ -7160,38 +7160,38 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "4286596750918"
+              "__value": "1057608745858"
             }
           }
         },
         "totalAssets": {
           "__type": "bigint",
-          "__value": "13838281138822"
+          "__value": "10321009592216"
         },
         "totalSupply": {
           "__type": "bigint",
-          "__value": "13344579731547"
+          "__value": "9947469675325"
         },
         "supplyRate": {
           "__type": "bigint",
-          "__value": "48308678973378002045560517"
+          "__value": "57679945434983161099692416"
         },
         "baseInterestRate": {
           "__type": "bigint",
-          "__value": "8431830172444627000000000"
+          "__value": "16095038905193257750000000"
         },
         "dieselRate_RAY": {
           "__type": "bigint",
-          "__value": "1036996399827255299366946496"
+          "__value": "1037551249622562518027748315"
         },
         "withdrawFee": 0,
         "lastBaseInterestUpdate": {
           "__type": "bigint",
-          "__value": "1720202279"
+          "__value": "1720444799"
         },
         "baseInterestIndexLU": {
           "__type": "bigint",
-          "__value": "1003387524496729836666680016"
+          "__value": "1003500006239676118196591880"
         },
         "version": 300,
         "poolQuotaKeeper": "0xFa8B83Bb0cD4f9d07b1E3E254D0A5b15921d0bA3",
@@ -7241,11 +7241,11 @@
           },
           {
             "token": "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3",
-            "rate": 669,
+            "rate": 478,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "7334022850000"
+              "__value": "7267443320000"
             },
             "limit": {
               "__type": "bigint",
@@ -7259,7 +7259,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "1829328200000"
+              "__value": "1962233890000"
             },
             "limit": {
               "__type": "bigint",
@@ -7341,11 +7341,11 @@
             "isActive": true
           },
           "0x4c9EDD5852cd905f086C759E8383e09bff1E68B3": {
-            "rate": 669,
+            "rate": 478,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "7334022850000"
+              "__value": "7267443320000"
             },
             "limit": {
               "__type": "bigint",
@@ -7358,7 +7358,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "1829328200000"
+              "__value": "1962233890000"
             },
             "limit": {
               "__type": "bigint",
@@ -7380,7 +7380,7 @@
       },
       "gauge": {
         "address": "0xcf9d69810bd4c953a904d1d1b74a121295c9b4e0",
-        "currentEpoch": 29,
+        "currentEpoch": 30,
         "epochFrozen": false,
         "quotaParams": {
           "0x6B175474E89094C44Da98b954EedeAC495271d0F": {
@@ -7408,8 +7408,8 @@
             "minRate": 5,
             "maxRate": 5000,
             "totalVotesLpSide": 3.3e+22,
-            "totalVotesCaSide": 2.15e+23,
-            "rate": 669
+            "totalVotesCaSide": 3.15e+23,
+            "rate": 478
           },
           "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497": {
             "minRate": 5,
@@ -7430,19 +7430,19 @@
         "name": "crvUSD v3",
         "baseInterestIndex": {
           "__type": "bigint",
-          "__value": "1000453092380142580149404218"
+          "__value": "1000489997268324316086529386"
         },
         "availableLiquidity": {
           "__type": "bigint",
-          "__value": "2478249153021964242034386"
+          "__value": "2411691526229028819616922"
         },
         "expectedLiquidity": {
           "__type": "bigint",
-          "__value": "3638264033475968346799148"
+          "__value": "3609728132526238612142810"
         },
         "totalBorrowed": {
           "__type": "bigint",
-          "__value": "1153386999355691046993973"
+          "__value": "1190661982438060021880491"
         },
         "totalDebtLimit": {
           "__type": "bigint",
@@ -7453,7 +7453,7 @@
             "creditManager": "0x629F097996a5fB606470974bdA1C3B6AbC4D6857",
             "borrowed": {
               "__type": "bigint",
-              "__value": "1153386999355691046993973"
+              "__value": "1190661982438060021880491"
             },
             "limit": {
               "__type": "bigint",
@@ -7461,38 +7461,38 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "2114422749674367407768718"
+              "__value": "2050718712976404960225762"
             }
           }
         },
         "totalAssets": {
           "__type": "bigint",
-          "__value": "3638264033475968346799148"
+          "__value": "3609728132526238612142810"
         },
         "totalSupply": {
           "__type": "bigint",
-          "__value": "3627088541033718229241223"
+          "__value": "3597897417015566493244000"
         },
         "supplyRate": {
           "__type": "bigint",
-          "__value": "26025108344269360827059143"
+          "__value": "21582276503216745230266605"
         },
         "baseInterestRate": {
           "__type": "bigint",
-          "__value": "4554784787665995042857142"
+          "__value": "4740548221955487242857142"
         },
         "dieselRate_RAY": {
           "__type": "bigint",
-          "__value": "1003081119282261885007467795"
+          "__value": "1003288230357742001370452495"
         },
         "withdrawFee": 0,
         "lastBaseInterestUpdate": {
           "__type": "bigint",
-          "__value": "1720210871"
+          "__value": "1720369187"
         },
         "baseInterestIndexLU": {
           "__type": "bigint",
-          "__value": "1000452442145330327460393704"
+          "__value": "1000475424160982453150315323"
         },
         "version": 300,
         "poolQuotaKeeper": "0x727B4691d2F7d2aac098dfce2aA251D903396C20",
@@ -7546,7 +7546,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "0"
+              "__value": "44674321229432175890000"
             },
             "limit": {
               "__type": "bigint",
@@ -7570,7 +7570,7 @@
           },
           {
             "token": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
-            "rate": 710,
+            "rate": 542,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -7655,7 +7655,7 @@
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "0"
+              "__value": "44674321229432175890000"
             },
             "limit": {
               "__type": "bigint",
@@ -7677,7 +7677,7 @@
             "isActive": true
           },
           "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497": {
-            "rate": 710,
+            "rate": 542,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
@@ -7703,7 +7703,7 @@
       },
       "gauge": {
         "address": "0xd455eb17c46e3fa6dd64bc70a06b3629409fbb43",
-        "currentEpoch": 29,
+        "currentEpoch": 30,
         "epochFrozen": false,
         "quotaParams": {
           "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48": {
@@ -7744,9 +7744,9 @@
           "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497": {
             "minRate": 5,
             "maxRate": 5000,
-            "totalVotesLpSide": 3e+22,
+            "totalVotesLpSide": 2.2e+22,
             "totalVotesCaSide": 1.825e+23,
-            "rate": 710
+            "rate": 542
           }
         }
       }
