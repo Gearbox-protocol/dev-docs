@@ -1,6 +1,6 @@
 # Closing a credit account
 
-The user may fully exit their position and return the Credit Account to the factory is they wish. Generally, this is not required, as they can simply decrease their debt to zero and keep the account as a smart contract wallet. But the option is there is the user chooses to do so.
+The user may fully exit their position and return the Credit Account to the factory if they wish. Generally, this is not required, as they can simply decrease their debt to zero and keep the account as a smart contract wallet. But the option is there is the user chooses to do so.
 
 In order to fully close the account, several conditions must be fulfilled:
 
