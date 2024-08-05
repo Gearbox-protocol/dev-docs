@@ -1,6 +1,6 @@
 {
-  "block": 230146303,
-  "timestamp": 1720466245,
+  "block": 239832594,
+  "timestamp": 1722897519,
   "core": {
     "addressProviderV3": {
       "address": "0x7d04ecdb892ae074f03b5d0aba03796f90f3f2af",
@@ -708,20 +708,38 @@
         "pricefeeds": []
       },
       "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
-        "address": "0x50834f3163758fcc1df9973b6e91f0f0f0434ad3",
-        "version": 4,
-        "type": 0,
+        "address": "0x4b7d784c8d09df369e128a2325e860c54c5c63b7",
+        "version": 300,
+        "pricefeeds": [
+          {
+            "address": "0x50834f3163758fcc1df9973b6e91f0f0f0434ad3",
+            "version": 4,
+            "type": 0,
+            "stalenessPeriod": 86520,
+            "skipCheck": false,
+            "pricefeeds": []
+          }
+        ],
+        "type": 7,
         "stalenessPeriod": 0,
-        "skipCheck": false,
-        "pricefeeds": []
+        "skipCheck": true
       },
       "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": {
-        "address": "0x50834f3163758fcc1df9973b6e91f0f0f0434ad3",
-        "version": 4,
-        "type": 0,
+        "address": "0x4b7d784c8d09df369e128a2325e860c54c5c63b7",
+        "version": 300,
+        "pricefeeds": [
+          {
+            "address": "0x50834f3163758fcc1df9973b6e91f0f0f0434ad3",
+            "version": 4,
+            "type": 0,
+            "stalenessPeriod": 86520,
+            "skipCheck": false,
+            "pricefeeds": []
+          }
+        ],
+        "type": 7,
         "stalenessPeriod": 0,
-        "skipCheck": false,
-        "pricefeeds": []
+        "skipCheck": true
       },
       "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
         "address": "0x8510465eddd32225d40550eb6b308216f5d9a78b",
@@ -893,12 +911,21 @@
         "skipCheck": true
       },
       "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34": {
-        "address": "0x88ac7bca36567525a866138f03a6f6844868e0bc",
-        "version": 4,
-        "type": 0,
+        "address": "0xbf2e8845277f2a773d171b1c3f041de00200fd0e",
+        "version": 300,
+        "pricefeeds": [
+          {
+            "address": "0x88ac7bca36567525a866138f03a6f6844868e0bc",
+            "version": 4,
+            "type": 0,
+            "stalenessPeriod": 86520,
+            "skipCheck": false,
+            "pricefeeds": []
+          }
+        ],
+        "type": 7,
         "stalenessPeriod": 0,
-        "skipCheck": false,
-        "pricefeeds": []
+        "skipCheck": true
       },
       "0x1c34204FCFE5314Dcf53BE2671C02c35DB58B4e3": {
         "address": "0xa3f2fabebcd699bd8cdf3a39681e06c1680350fc",
@@ -947,6 +974,186 @@
       }
     },
     "reservePriceFeeds": {
+      "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4": {
+        "address": "0x7d576053841b12f0bd14d76148e2c89584769d4c",
+        "version": 300,
+        "type": 15,
+        "dataId": "LINK",
+        "signers": [
+          "0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774",
+          "0xdEB22f54738d54976C4c0fe5ce6d408E40d88499",
+          "0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202",
+          "0xDD682daEC5A90dD295d14DA4b0bec9281017b5bE",
+          "0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000"
+        ],
+        "signersThreshold": 5,
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
+        "address": "0xa3ee1c6431be103f08040394ff5a717bf16b07d1",
+        "version": 300,
+        "type": 15,
+        "dataId": "USDC",
+        "signers": [
+          "0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774",
+          "0xdEB22f54738d54976C4c0fe5ce6d408E40d88499",
+          "0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202",
+          "0xDD682daEC5A90dD295d14DA4b0bec9281017b5bE",
+          "0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000"
+        ],
+        "signersThreshold": 5,
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": {
+        "address": "0x4def366a70413ba40f8103ade48cb6ee1998456d",
+        "version": 300,
+        "type": 15,
+        "dataId": "USDC",
+        "signers": [
+          "0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774",
+          "0xdEB22f54738d54976C4c0fe5ce6d408E40d88499",
+          "0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202",
+          "0xDD682daEC5A90dD295d14DA4b0bec9281017b5bE",
+          "0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000"
+        ],
+        "signersThreshold": 5,
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
+        "address": "0xe394326259b31de319c2913ac2ab98e8fb74ab2a",
+        "version": 300,
+        "type": 15,
+        "dataId": "WBTC",
+        "signers": [
+          "0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774",
+          "0xdEB22f54738d54976C4c0fe5ce6d408E40d88499",
+          "0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202",
+          "0xDD682daEC5A90dD295d14DA4b0bec9281017b5bE",
+          "0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000"
+        ],
+        "signersThreshold": 5,
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": {
+        "address": "0xbb6803a4affa01ef21b10c439436199e4de0f689",
+        "version": 300,
+        "type": 15,
+        "dataId": "ETH",
+        "signers": [
+          "0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774",
+          "0xdEB22f54738d54976C4c0fe5ce6d408E40d88499",
+          "0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202",
+          "0xDD682daEC5A90dD295d14DA4b0bec9281017b5bE",
+          "0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000"
+        ],
+        "signersThreshold": 5,
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a": {
+        "address": "0x251d72c74f0eeee4cd3b7c4cb62458232fe63447",
+        "version": 300,
+        "type": 15,
+        "dataId": "GMX",
+        "signers": [
+          "0x345Efd26098e173F811e3B9Af1B0e0a11872B38b",
+          "0xbD0c5ccd85D5831B10E3e49527B8Cd67e2EFAf39",
+          "0x2F3E8EC88C01593d10ca9461c807660fF2D8DB28",
+          "0xb7f154bB5491565D215F4EB1c3fe3e84960627aF",
+          "0xE6b0De8F4B31F137d3c59b5a0A71e66e7D504Ef9",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000"
+        ],
+        "signersThreshold": 5,
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0x912CE59144191C1204E64559FE8253a0e49E6548": {
+        "address": "0xb1a029d3e96c0395a8779ab291e77fc76772e17b",
+        "version": 300,
+        "type": 15,
+        "dataId": "ARB",
+        "signers": [
+          "0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774",
+          "0xdEB22f54738d54976C4c0fe5ce6d408E40d88499",
+          "0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202",
+          "0xDD682daEC5A90dD295d14DA4b0bec9281017b5bE",
+          "0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000"
+        ],
+        "signersThreshold": 5,
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0x5979D7b546E38E414F7E9822514be443A4800529": {
+        "address": "0xace9a1914336393a65321a6dbb1bd7d97bbef27c",
+        "version": 300,
+        "type": 15,
+        "dataId": "wstETH",
+        "signers": [
+          "0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774",
+          "0xdEB22f54738d54976C4c0fe5ce6d408E40d88499",
+          "0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202",
+          "0xDD682daEC5A90dD295d14DA4b0bec9281017b5bE",
+          "0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000"
+        ],
+        "signersThreshold": 5,
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
+      "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
+        "address": "0x2c8c4c72be132107afc3d3b39ce7fff0991b1870",
+        "version": 300,
+        "type": 15,
+        "dataId": "rETH",
+        "signers": [
+          "0x8BB8F32Df04c8b654987DAaeD53D6B6091e3B774",
+          "0xdEB22f54738d54976C4c0fe5ce6d408E40d88499",
+          "0x51Ce04Be4b3E32572C4Ec9135221d0691Ba7d202",
+          "0xDD682daEC5A90dD295d14DA4b0bec9281017b5bE",
+          "0x9c5AE89C4Af6aA32cE58588DBaF90d18a855B6de",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000",
+          "0x0000000000000000000000000000000000000000"
+        ],
+        "signersThreshold": 5,
+        "stalenessPeriod": 0,
+        "skipCheck": true
+      },
       "0x2416092f143378750bb29b79eD961ab195CcEea5": {
         "address": "0x06f8bc793f64c02d5676783b46091738fcc595c4",
         "version": 300,
@@ -1086,19 +1293,19 @@
         "name": "Main USDC.e v3",
         "baseInterestIndex": {
           "__type": "bigint",
-          "__value": "1009129249697775397184855807"
+          "__value": "1009652211763815306400776944"
         },
         "availableLiquidity": {
           "__type": "bigint",
-          "__value": "126421042336"
+          "__value": "164448465724"
         },
         "expectedLiquidity": {
           "__type": "bigint",
-          "__value": "243010615371"
+          "__value": "206792987965"
         },
         "totalBorrowed": {
           "__type": "bigint",
-          "__value": "111882035687"
+          "__value": "41507427134"
         },
         "totalDebtLimit": {
           "__type": "bigint",
@@ -1109,7 +1316,7 @@
             "creditManager": "0x75BC0fef1C93723BE3d73b2000b5Ba139A0c680C",
             "borrowed": {
               "__type": "bigint",
-              "__value": "111882035687"
+              "__value": "41507427134"
             },
             "limit": {
               "__type": "bigint",
@@ -1117,7 +1324,7 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "102119980798"
+              "__value": "143769166927"
             }
           },
           "0xb4bc02c0859b372c61abccfa5df91b1ccaa4dd1f": {
@@ -1132,38 +1339,38 @@
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "102119980798"
+              "__value": "143769166927"
             }
           }
         },
         "totalAssets": {
           "__type": "bigint",
-          "__value": "243010615371"
+          "__value": "206792987965"
         },
         "totalSupply": {
           "__type": "bigint",
-          "__value": "232692049197"
+          "__value": "196543842866"
         },
         "supplyRate": {
           "__type": "bigint",
-          "__value": "97412948109970199589062872"
+          "__value": "32987874118319893256988285"
         },
         "baseInterestRate": {
           "__type": "bigint",
-          "__value": "6851233136761879757142857"
+          "__value": "2924950470881206614285714"
         },
         "dieselRate_RAY": {
           "__type": "bigint",
-          "__value": "1044344300587873429161255675"
+          "__value": "1052146864279984999649762572"
         },
         "withdrawFee": 0,
         "lastBaseInterestUpdate": {
           "__type": "bigint",
-          "__value": "1720351035"
+          "__value": "1722872087"
         },
         "baseInterestIndexLU": {
           "__type": "bigint",
-          "__value": "1009103992321154024382255124"
+          "__value": "1009649830194637899479190941"
         },
         "version": 300,
         "poolQuotaKeeper": "0x260304D4A7fEa2ce9821949d818B6d00c9A28F82",
@@ -1189,7 +1396,7 @@
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "184665253227"
+              "__value": "49563150000"
             },
             "limit": {
               "__type": "bigint",
@@ -1203,7 +1410,7 @@
             "quotaIncreaseFee": 5,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "1091630000"
+              "__value": "0"
             },
             "limit": {
               "__type": "bigint",
@@ -1255,11 +1462,11 @@
           },
           {
             "token": "0x5979D7b546E38E414F7E9822514be443A4800529",
-            "rate": 398,
+            "rate": 627,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "17057410127"
+              "__value": "12004400127"
             },
             "limit": {
               "__type": "bigint",
@@ -1347,7 +1554,7 @@
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "184665253227"
+              "__value": "49563150000"
             },
             "limit": {
               "__type": "bigint",
@@ -1360,7 +1567,7 @@
             "quotaIncreaseFee": 5,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "1091630000"
+              "__value": "0"
             },
             "limit": {
               "__type": "bigint",
@@ -1408,11 +1615,11 @@
             "isActive": true
           },
           "0x5979D7b546E38E414F7E9822514be443A4800529": {
-            "rate": 398,
+            "rate": 627,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "17057410127"
+              "__value": "12004400127"
             },
             "limit": {
               "__type": "bigint",
@@ -1460,7 +1667,7 @@
       },
       "gauge": {
         "address": "0xcde12917842af3299e167eea9b15dfd2dba5b975",
-        "currentEpoch": 30,
+        "currentEpoch": 34,
         "epochFrozen": false,
         "quotaParams": {
           "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
@@ -1473,7 +1680,7 @@
           "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": {
             "minRate": 4,
             "maxRate": 1200,
-            "totalVotesLpSide": 1000000000000000000,
+            "totalVotesLpSide": 2000000000000000000,
             "totalVotesCaSide": 0,
             "rate": 1200
           },
@@ -1508,9 +1715,9 @@
           "0x5979D7b546E38E414F7E9822514be443A4800529": {
             "minRate": 4,
             "maxRate": 1500,
-            "totalVotesLpSide": 5.01e+22,
+            "totalVotesLpSide": 1.001e+23,
             "totalVotesCaSide": 1.399367322658273e+23,
-            "rate": 398
+            "rate": 627
           },
           "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
             "minRate": 4,
@@ -1538,19 +1745,19 @@
         "name": "Main WETH v3",
         "baseInterestIndex": {
           "__type": "bigint",
-          "__value": "1007109858827224011170023701"
+          "__value": "1008098031131626745065547810"
         },
         "availableLiquidity": {
           "__type": "bigint",
-          "__value": "2115370981137407226889"
+          "__value": "1075783523996561394114"
         },
         "expectedLiquidity": {
           "__type": "bigint",
-          "__value": "3124439211042332995188"
+          "__value": "4511827204947593222262"
         },
         "totalBorrowed": {
           "__type": "bigint",
-          "__value": "998876085209662105581"
+          "__value": "3423311485449961748840"
         },
         "totalDebtLimit": {
           "__type": "bigint",
@@ -1561,61 +1768,61 @@
             "creditManager": "0xcedaa4B4A42c0A771F6c24a3745c3ca3eD73F17A",
             "borrowed": {
               "__type": "bigint",
-              "__value": "998876085209662105581"
+              "__value": "3259871867175755607076"
             },
             "limit": {
               "__type": "bigint",
-              "__value": "1000000000000000000000"
+              "__value": "8000000000000000000000"
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "1123914790337894419"
+              "__value": "624600803501802076001"
             }
           },
           "0x3ab1d35500d2da4216f5863229a7b81e2f6ff976": {
             "creditManager": "0x3Ab1D35500d2DA4216f5863229A7b81e2F6FF976",
             "borrowed": {
               "__type": "bigint",
-              "__value": "0"
+              "__value": "163439618274206141764"
             },
             "limit": {
               "__type": "bigint",
-              "__value": "500000000000000000000"
+              "__value": "4000000000000000000000"
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "500000000000000000000"
+              "__value": "624600803501802076001"
             }
           }
         },
         "totalAssets": {
           "__type": "bigint",
-          "__value": "3124439211042332995188"
+          "__value": "4511827204947593222262"
         },
         "totalSupply": {
           "__type": "bigint",
-          "__value": "3051947894766688289441"
+          "__value": "4402597220442261502785"
         },
         "supplyRate": {
           "__type": "bigint",
-          "__value": "14961187933024441113984186"
+          "__value": "35268330666505362822133401"
         },
         "baseInterestRate": {
           "__type": "bigint",
-          "__value": "9227417372085379800000000"
+          "__value": "27695439249538343750000000"
         },
         "dieselRate_RAY": {
           "__type": "bigint",
-          "__value": "1023752475066808582043255069"
+          "__value": "1024810351489378139420776620"
         },
         "withdrawFee": 0,
         "lastBaseInterestUpdate": {
           "__type": "bigint",
-          "__value": "1720465680"
+          "__value": "1722896937"
         },
         "baseInterestIndexLU": {
           "__type": "bigint",
-          "__value": "1007109692333149591262184588"
+          "__value": "1008097515870736274056452915"
         },
         "version": 300,
         "poolQuotaKeeper": "0xafa5127209c932E35C8Aaf08318c9848ca57Fdb4",
@@ -1623,7 +1830,7 @@
         "quotas": [
           {
             "token": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
-            "rate": 389,
+            "rate": 4,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
@@ -1641,7 +1848,7 @@
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "1422246290948603"
+              "__value": "0"
             },
             "limit": {
               "__type": "bigint",
@@ -1721,25 +1928,25 @@
           },
           {
             "token": "0x5979D7b546E38E414F7E9822514be443A4800529",
-            "rate": 12,
+            "rate": 26,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "511588732069624444689"
+              "__value": "3390556863988858440000"
             },
             "limit": {
               "__type": "bigint",
-              "__value": "2000000000000000000000"
+              "__value": "4000000000000000000000"
             },
             "isActive": true
           },
           {
             "token": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
-            "rate": 233,
+            "rate": 49,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "183471130944387906382"
+              "__value": "5617970794460395888"
             },
             "limit": {
               "__type": "bigint",
@@ -1749,11 +1956,11 @@
           },
           {
             "token": "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f",
-            "rate": 192,
+            "rate": 5,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "0"
+              "__value": "199840854689551900000"
             },
             "limit": {
               "__type": "bigint",
@@ -1777,11 +1984,11 @@
           },
           {
             "token": "0x2416092f143378750bb29b79eD961ab195CcEea5",
-            "rate": 670,
+            "rate": 1337,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "487155817862517150000"
+              "__value": "414148108946084020000"
             },
             "limit": {
               "__type": "bigint",
@@ -1844,7 +2051,7 @@
         "address": "0xafa5127209c932e35c8aaf08318c9848ca57fdb4",
         "quotas": {
           "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": {
-            "rate": 389,
+            "rate": 4,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
@@ -1861,7 +2068,7 @@
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "1422246290948603"
+              "__value": "0"
             },
             "limit": {
               "__type": "bigint",
@@ -1935,24 +2142,24 @@
             "isActive": true
           },
           "0x5979D7b546E38E414F7E9822514be443A4800529": {
-            "rate": 12,
+            "rate": 26,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "511588732069624444689"
+              "__value": "3390556863988858440000"
             },
             "limit": {
               "__type": "bigint",
-              "__value": "2000000000000000000000"
+              "__value": "4000000000000000000000"
             },
             "isActive": true
           },
           "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
-            "rate": 233,
+            "rate": 49,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "183471130944387906382"
+              "__value": "5617970794460395888"
             },
             "limit": {
               "__type": "bigint",
@@ -1961,11 +2168,11 @@
             "isActive": true
           },
           "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": {
-            "rate": 192,
+            "rate": 5,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "0"
+              "__value": "199840854689551900000"
             },
             "limit": {
               "__type": "bigint",
@@ -1987,11 +2194,11 @@
             "isActive": true
           },
           "0x2416092f143378750bb29b79eD961ab195CcEea5": {
-            "rate": 670,
+            "rate": 1337,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "487155817862517150000"
+              "__value": "414148108946084020000"
             },
             "limit": {
               "__type": "bigint",
@@ -2013,15 +2220,15 @@
       },
       "gauge": {
         "address": "0x4689172eb8b83304832cd8d20f1575c9e33ee99c",
-        "currentEpoch": 30,
+        "currentEpoch": 34,
         "epochFrozen": false,
         "quotaParams": {
           "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8": {
             "minRate": 4,
             "maxRate": 1200,
             "totalVotesLpSide": 100000000000000000000,
-            "totalVotesCaSide": 210000000000000000000,
-            "rate": 389
+            "totalVotesCaSide": 6.457966301363114e+23,
+            "rate": 4
           },
           "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": {
             "minRate": 4,
@@ -2069,22 +2276,22 @@
             "minRate": 1,
             "maxRate": 350,
             "totalVotesLpSide": 5e+22,
-            "totalVotesCaSide": 1.4268875219920648e+24,
-            "rate": 12
+            "totalVotesCaSide": 6.46706e+23,
+            "rate": 26
           },
           "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
             "minRate": 1,
             "maxRate": 350,
-            "totalVotesLpSide": 2e+23,
+            "totalVotesLpSide": 1.6e+22,
             "totalVotesCaSide": 1.0006e+23,
-            "rate": 233
+            "rate": 49
           },
           "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": {
             "minRate": 1,
             "maxRate": 350,
-            "totalVotesLpSide": 110000000000000000000,
-            "totalVotesCaSide": 90000000000000000000,
-            "rate": 192
+            "totalVotesLpSide": 14000000000000000000,
+            "totalVotesCaSide": 1.09e+21,
+            "rate": 5
           },
           "0x95aB45875cFFdba1E5f451B950bC2E42c0053f39": {
             "minRate": 1,
@@ -2096,9 +2303,9 @@
           "0x2416092f143378750bb29b79eD961ab195CcEea5": {
             "minRate": 50,
             "maxRate": 3000,
-            "totalVotesLpSide": 5.29504e+23,
-            "totalVotesCaSide": 1.9859359628333425e+24,
-            "rate": 670
+            "totalVotesLpSide": 1.548644e+24,
+            "totalVotesCaSide": 2e+24,
+            "rate": 1337
           }
         }
       }
@@ -2112,19 +2319,19 @@
         "name": "Main USDC v3",
         "baseInterestIndex": {
           "__type": "bigint",
-          "__value": "1000122732959706998806808522"
+          "__value": "1000636445834142429913506093"
         },
         "availableLiquidity": {
           "__type": "bigint",
-          "__value": "1816640336764"
+          "__value": "5108694235684"
         },
         "expectedLiquidity": {
           "__type": "bigint",
-          "__value": "4986828483583"
+          "__value": "6600312043069"
         },
         "totalBorrowed": {
           "__type": "bigint",
-          "__value": "3167555428189"
+          "__value": "1483751331685"
         },
         "totalDebtLimit": {
           "__type": "bigint",
@@ -2135,61 +2342,61 @@
             "creditManager": "0xe5E2D4Bb15D26a6036805fcE666c5488367623E2",
             "borrowed": {
               "__type": "bigint",
-              "__value": "3166545261502"
+              "__value": "963320947720"
             },
             "limit": {
               "__type": "bigint",
-              "__value": "4000000000000"
+              "__value": "16000000000000"
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "833454738498"
+              "__value": "4448663031377"
             }
           },
           "0xb780dd9cec259a0bbf7b32587802f33730353e86": {
             "creditManager": "0xb780dd9CEc259a0bBF7b32587802F33730353E86",
             "borrowed": {
               "__type": "bigint",
-              "__value": "1010166687"
+              "__value": "520430383965"
             },
             "limit": {
               "__type": "bigint",
-              "__value": "2000000000000"
+              "__value": "8000000000000"
             },
             "availableToBorrow": {
               "__type": "bigint",
-              "__value": "1317957488405"
+              "__value": "4448663031377"
             }
           }
         },
         "totalAssets": {
           "__type": "bigint",
-          "__value": "4986828483583"
+          "__value": "6600312043069"
         },
         "totalSupply": {
           "__type": "bigint",
-          "__value": "4983639503399"
+          "__value": "6574612418514"
         },
         "supplyRate": {
           "__type": "bigint",
-          "__value": "43446892486851768762802917"
+          "__value": "41258077650014483770357558"
         },
         "baseInterestRate": {
           "__type": "bigint",
-          "__value": "9081600290431987771428571"
+          "__value": "3228434520646145971428571"
         },
         "dieselRate_RAY": {
           "__type": "bigint",
-          "__value": "1000639889819844516141737075"
+          "__value": "1003908918567219305832614827"
         },
         "withdrawFee": 0,
         "lastBaseInterestUpdate": {
           "__type": "bigint",
-          "__value": "1720465711"
+          "__value": "1722895942"
         },
         "baseInterestIndexLU": {
           "__type": "bigint",
-          "__value": "1000122579161856546149359310"
+          "__value": "1000636284289218664312047860"
         },
         "version": 300,
         "poolQuotaKeeper": "0x3a7A7B61CEE01910360258766567CA3BC4efE732",
@@ -2197,11 +2404,11 @@
         "quotas": [
           {
             "token": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
-            "rate": 1200,
+            "rate": 299,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "0"
+              "__value": "4564190000"
             },
             "limit": {
               "__type": "bigint",
@@ -2211,11 +2418,11 @@
           },
           {
             "token": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-            "rate": 668,
+            "rate": 196,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "252028850000"
+              "__value": "5746300000"
             },
             "limit": {
               "__type": "bigint",
@@ -2225,11 +2432,11 @@
           },
           {
             "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-            "rate": 923,
+            "rate": 379,
             "quotaIncreaseFee": 5,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "0"
+              "__value": "13530000"
             },
             "limit": {
               "__type": "bigint",
@@ -2253,11 +2460,11 @@
           },
           {
             "token": "0x5979D7b546E38E414F7E9822514be443A4800529",
-            "rate": 203,
+            "rate": 452,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "0"
+              "__value": "34858860000"
             },
             "limit": {
               "__type": "bigint",
@@ -2267,7 +2474,7 @@
           },
           {
             "token": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
-            "rate": 4,
+            "rate": 50,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
@@ -2281,7 +2488,7 @@
           },
           {
             "token": "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f",
-            "rate": 1200,
+            "rate": 203,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
@@ -2295,11 +2502,11 @@
           },
           {
             "token": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
-            "rate": 500,
+            "rate": 1679,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "3421204030000"
+              "__value": "1582494120000"
             },
             "limit": {
               "__type": "bigint",
@@ -2342,11 +2549,11 @@
         "address": "0x3a7a7b61cee01910360258766567ca3bc4efe732",
         "quotas": {
           "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
-            "rate": 1200,
+            "rate": 299,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "0"
+              "__value": "4564190000"
             },
             "limit": {
               "__type": "bigint",
@@ -2355,11 +2562,11 @@
             "isActive": true
           },
           "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": {
-            "rate": 668,
+            "rate": 196,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "252028850000"
+              "__value": "5746300000"
             },
             "limit": {
               "__type": "bigint",
@@ -2368,11 +2575,11 @@
             "isActive": true
           },
           "0x912CE59144191C1204E64559FE8253a0e49E6548": {
-            "rate": 923,
+            "rate": 379,
             "quotaIncreaseFee": 5,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "0"
+              "__value": "13530000"
             },
             "limit": {
               "__type": "bigint",
@@ -2394,11 +2601,11 @@
             "isActive": true
           },
           "0x5979D7b546E38E414F7E9822514be443A4800529": {
-            "rate": 203,
+            "rate": 452,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "0"
+              "__value": "34858860000"
             },
             "limit": {
               "__type": "bigint",
@@ -2407,7 +2614,7 @@
             "isActive": true
           },
           "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
-            "rate": 4,
+            "rate": 50,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
@@ -2420,7 +2627,7 @@
             "isActive": true
           },
           "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": {
-            "rate": 1200,
+            "rate": 203,
             "quotaIncreaseFee": 1,
             "totalQuoted": {
               "__type": "bigint",
@@ -2433,11 +2640,11 @@
             "isActive": true
           },
           "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34": {
-            "rate": 500,
+            "rate": 1679,
             "quotaIncreaseFee": 0,
             "totalQuoted": {
               "__type": "bigint",
-              "__value": "3421204030000"
+              "__value": "1582494120000"
             },
             "limit": {
               "__type": "bigint",
@@ -2459,29 +2666,29 @@
       },
       "gauge": {
         "address": "0x52ec794b37706a136c443b786b966426e70c70f4",
-        "currentEpoch": 30,
+        "currentEpoch": 34,
         "epochFrozen": false,
         "quotaParams": {
           "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": {
             "minRate": 4,
             "maxRate": 1200,
-            "totalVotesLpSide": 1.5e+22,
-            "totalVotesCaSide": 0,
-            "rate": 1200
+            "totalVotesLpSide": 1.15e+23,
+            "totalVotesCaSide": 3.5e+23,
+            "rate": 299
           },
           "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1": {
             "minRate": 4,
             "maxRate": 1200,
             "totalVotesLpSide": 5e+21,
-            "totalVotesCaSide": 4e+21,
-            "rate": 668
+            "totalVotesCaSide": 2.6e+22,
+            "rate": 196
           },
           "0x912CE59144191C1204E64559FE8253a0e49E6548": {
             "minRate": 80,
             "maxRate": 2400,
             "totalVotesLpSide": 2e+22,
-            "totalVotesCaSide": 3.5e+22,
-            "rate": 923
+            "totalVotesCaSide": 1.35e+23,
+            "rate": 379
           },
           "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8": {
             "minRate": 80,
@@ -2493,30 +2700,30 @@
           "0x5979D7b546E38E414F7E9822514be443A4800529": {
             "minRate": 4,
             "maxRate": 1200,
-            "totalVotesLpSide": 5e+21,
+            "totalVotesLpSide": 1.5e+22,
             "totalVotesCaSide": 2.5e+22,
-            "rate": 203
+            "rate": 452
           },
           "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": {
             "minRate": 4,
             "maxRate": 1200,
-            "totalVotesLpSide": 0,
-            "totalVotesCaSide": 0,
-            "rate": 4
+            "totalVotesLpSide": 400000000000000000000,
+            "totalVotesCaSide": 1e+22,
+            "rate": 50
           },
           "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": {
             "minRate": 4,
             "maxRate": 1200,
             "totalVotesLpSide": 5e+21,
-            "totalVotesCaSide": 0,
-            "rate": 1200
+            "totalVotesCaSide": 2.5e+22,
+            "rate": 203
           },
           "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34": {
             "minRate": 50,
             "maxRate": 5000,
-            "totalVotesLpSide": 5.5e+21,
-            "totalVotesCaSide": 5.5e+22,
-            "rate": 500
+            "totalVotesLpSide": 8.87155281473103e+23,
+            "totalVotesCaSide": 8.55e+23,
+            "rate": 1679
           }
         }
       }
@@ -2729,9 +2936,9 @@
           "0xaf88d065e77c8cC2239327C5EDb3A432268e5831": 8700,
           "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f": 8700,
           "0x912CE59144191C1204E64559FE8253a0e49E6548": 9000,
-          "0x5979D7b546E38E414F7E9822514be443A4800529": 9346,
-          "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": 9346,
-          "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": 9346,
+          "0x5979D7b546E38E414F7E9822514be443A4800529": 9000,
+          "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": 9000,
+          "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": 9000,
           "0x2416092f143378750bb29b79eD961ab195CcEea5": 8700
         },
         "feeInterest": 2500,
@@ -2816,7 +3023,8 @@
           "0x5979D7b546E38E414F7E9822514be443A4800529": 9000,
           "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8": 9000,
           "0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f": 9000,
-          "0x912CE59144191C1204E64559FE8253a0e49E6548": 8000
+          "0x912CE59144191C1204E64559FE8253a0e49E6548": 8000,
+          "0x2416092f143378750bb29b79eD961ab195CcEea5": 8700
         },
         "feeInterest": 2500,
         "feeLiquidation": 100,
@@ -2825,11 +3033,12 @@
         "liquidationDiscountExpired": 9500,
         "quotedTokensMask": {
           "__type": "bigint",
-          "__value": "2046"
+          "__value": "4094"
         },
         "contractsToAdapters": {
           "0xE592427A0AEce92De3Edee1F18E0157C05861564": "0x035B48e0620433F81A668A881c234e0a8B5249B5",
-          "0xBA12222222228d8Ba445958a75a0704d566BF2C8": "0xDbF0A3912436c53625Dbe644f4cec79E63dBf343"
+          "0xBA12222222228d8Ba445958a75a0704d566BF2C8": "0xDbF0A3912436c53625Dbe644f4cec79E63dBf343",
+          "0x1F721E2E82F6676FCE4eA07A5958cF098D339e18": "0xB0332a08485A8D8520d2d07Bb15802601980fA1b"
         },
         "creditAccounts": [],
         "name": "Trade WETH Tier 2 Arbitrum"
@@ -3013,9 +3222,261 @@
   "routerState": {
     "router": {
       "address": "0xf26186465964ed3564edfe0046ee65502a6ac34d",
-      "components": [],
-      "tokenTypesToResolver": [],
-      "tokensAdded": []
+      "components": [
+        {
+          "routerComponent": 13,
+          "address": "0xf0f60381C0ae335968B6030304cc30Aaa379D108"
+        },
+        {
+          "routerComponent": 12,
+          "address": "0x421ee867B0EE9a37c2F59BA4b6104b0726cB4802"
+        },
+        {
+          "routerComponent": 21,
+          "address": "0x979C5784edf44c46876c299c88E039d940D324b5"
+        },
+        {
+          "routerComponent": 32,
+          "address": "0x421462b03BF99bdb9e4d41AF1202D1Cee4c2F409"
+        },
+        {
+          "routerComponent": 27,
+          "address": "0x7aceB8F9da6D3DADac42BfF5b0352aCa96A6EcCA"
+        },
+        {
+          "routerComponent": 28,
+          "address": "0xC496Be095d9Ce3C002a7a35bcA88FCeb2A807090"
+        },
+        {
+          "routerComponent": 29,
+          "address": "0xc705134Ba45dCC720974505a4767B8d4F5784beB"
+        },
+        {
+          "routerComponent": 17,
+          "address": "0x102035a8eF8e49E7ea1f14c72943F1a10f67aeA7"
+        },
+        {
+          "routerComponent": 24,
+          "address": "0x218C927F99e879fc8eD54143C31afAbC7AB18028"
+        },
+        {
+          "routerComponent": 25,
+          "address": "0xAFB0E90448dD4CbAE2c067C388ada2757a154944"
+        },
+        {
+          "routerComponent": 26,
+          "address": "0x752ACD91d52C211e56489AF1CbceA917F6D3724b"
+        },
+        {
+          "routerComponent": 3,
+          "address": "0xd0a97aFdc9b43D8B62aF13E1a2661ca712Ff5E21"
+        },
+        {
+          "routerComponent": 8,
+          "address": "0x61dBd1f19cf7BFec29e5A3c8cBC0ECBdD37fcA65"
+        },
+        {
+          "routerComponent": 9,
+          "address": "0x0760E92745772af4ddf73713B248A20de19aa1d2"
+        },
+        {
+          "routerComponent": 14,
+          "address": "0xdf53A95af08F51451b811d23A8435C270f7d3c4C"
+        },
+        {
+          "routerComponent": 18,
+          "address": "0x1fF9627A122075dD4d1D521243F864F3eFa63f01"
+        },
+        {
+          "routerComponent": 19,
+          "address": "0x65Fb42637a3cF2278967f5a6be315D5FeB96040A"
+        },
+        {
+          "routerComponent": 20,
+          "address": "0xA9E6ca0fB4F6971f0041674E719D213A05a0f709"
+        },
+        {
+          "routerComponent": 1,
+          "address": "0x7efaf896a33551CAC12d7a7Fb36D5300Ff099e87"
+        },
+        {
+          "routerComponent": 2,
+          "address": "0xc890325E2e8C7B41F34f5830763E8A44a343064e"
+        },
+        {
+          "routerComponent": 6,
+          "address": "0x25E3B39EEAE121Aa048476eA2B6dfcB15dcB5052"
+        },
+        {
+          "routerComponent": 7,
+          "address": "0x20A2eB033cc6ba8F73F7fEe3Ab5A3B9A5f2A03DD"
+        },
+        {
+          "routerComponent": 15,
+          "address": "0x111eC613A7F83e8F08d2fd5fbb6ca659f4dE288F"
+        },
+        {
+          "routerComponent": 16,
+          "address": "0xdFCF286f08f2e5F6D800c254563Cd6669C9c8132"
+        },
+        {
+          "routerComponent": 29,
+          "address": "0x27dEBAacD8172Df7390679abC961328Ae3660525"
+        },
+        {
+          "routerComponent": 31,
+          "address": "0x3b5a724066c9cdca96614cA23315B8A12Ab2b9Fa"
+        }
+      ],
+      "tokenTypesToResolver": [
+        {
+          "tokenType0": 1,
+          "tokenType1": 1,
+          "resolver": 12
+        },
+        {
+          "tokenType0": 1,
+          "tokenType1": 15,
+          "resolver": 29
+        },
+        {
+          "tokenType0": 1,
+          "tokenType1": 16,
+          "resolver": 29
+        },
+        {
+          "tokenType0": 10,
+          "tokenType1": 15,
+          "resolver": 29
+        },
+        {
+          "tokenType0": 10,
+          "tokenType1": 16,
+          "resolver": 29
+        },
+        {
+          "tokenType0": 15,
+          "tokenType1": 16,
+          "resolver": 29
+        },
+        {
+          "tokenType0": 1,
+          "tokenType1": 10,
+          "resolver": 26
+        },
+        {
+          "tokenType0": 10,
+          "tokenType1": 10,
+          "resolver": 26
+        },
+        {
+          "tokenType0": 1,
+          "tokenType1": 2,
+          "resolver": 14
+        },
+        {
+          "tokenType0": 2,
+          "tokenType1": 2,
+          "resolver": 14
+        },
+        {
+          "tokenType0": 1,
+          "tokenType1": 13,
+          "resolver": 20
+        },
+        {
+          "tokenType0": 2,
+          "tokenType1": 13,
+          "resolver": 20
+        },
+        {
+          "tokenType0": 1,
+          "tokenType1": 3,
+          "resolver": 15
+        },
+        {
+          "tokenType0": 2,
+          "tokenType1": 4,
+          "resolver": 15
+        },
+        {
+          "tokenType0": 1,
+          "tokenType1": 4,
+          "resolver": 15
+        }
+      ],
+      "tokensAdded": [
+        "0xba5ddd1f9d7f570dc94a51479a000e3bce967196",
+        "0x354a6da3fcde098f8389cad84b0182725c6c91de",
+        "0x11cdb42b0eb46d95f990bedd4695a6e3fa034978",
+        "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+        "0xf97f4df75117a78c1a5a0dbb814af92458539fb4",
+        "0xcba56cd8216fcbbf3fa6df6137f3147cbca37d60",
+        "0xfa7f8980b0f1e64a2062791cc3b0871572f1f7f0",
+        "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
+        "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+        "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
+        "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+        "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+        "0x82e3a8f066a6989666b031d916c43672085b1582",
+        "0x6e6a3d8f1affac703b1aef1f43b8d2321be40043",
+        "0xfea7a6a0b346362bf88a9e4a88416b77a57d6c2a",
+        "0x3e6648c5a70a150a88bce65f4ad4d506fe15d2af",
+        "0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
+        "0x912ce59144191c1204e64559fe8253a0e49e6548",
+        "0x3082cc23568ea640225c2467653db90e9250aaa0",
+        "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8",
+        "0x1509706a6c66ca549ff0cb464de88231ddbe213b",
+        "0x5979d7b546e38e414f7e9822514be443a4800529",
+        "0xb952a807345991bd529fdded05009f5e80fe8f45",
+        "0x17fc002b466eec40dae837fc4be5c67993ddbd6f",
+        "0x9d2f299715d94d8a7e6f5eaa8e654e8c74a988a7",
+        "0x13ad51ed4f1b7e9dc168d8a00cb3f4ddd85efa60",
+        "0x93b346b6bc2548da6a1e7d98e9a421b42541425b",
+        "0xa970af1a584579b618be4d69ad6f73459d112f95",
+        "0xfb9e5d956d889d91a82737b9bfcdac1dce3e1449",
+        "0xb766039cc6db368759c1e56b79affe831d0cc507",
+        "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+        "0x35751007a407ca6feffe80b3cb397736d2cf4dbe",
+        "0x2416092f143378750bb29b79ed961ab195cceea5",
+        "0x4186bfc76e2e237523cbc30fd220fe055156b41f",
+        "0x0c880f6761f1af8d9aa9c466984b80dab9a8c9e8",
+        "0x178412e79c25968a32e89b11f63b33f733770c2a",
+        "0x95ab45875cffdba1e5f451b950bc2e42c0053f39",
+        "0x1debd73e752beaf79865fd6446b0c970eae7732f",
+        "0x7f90122bf0700f9e7e1f688fe926940e8839f353",
+        "0x82670f35306253222f8a165869b28c64739ac62e",
+        "0x2fe7ae43591e534c256a1594d326e5779e302ff4",
+        "0xec090cf6dd891d2d014bea6edada6e05e025d93d",
+        "0x73af1150f265419ef8a5db41908b700c32d49135",
+        "0x3adf984c937fa6846e5a24e0a68521bdaf767ce1",
+        "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "0x9791d590788598535278552eecd4b211bfc790cb",
+        "0x0c8972437a38b389ec83d1e666b69b8a4fcf8bfd",
+        "0x4a2f6ae7f3e5d715689530873ec35593dc28951b",
+        "0xade4a71bb62bec25154cfc7e6ff49a513b491e81",
+        "0xbcaa6c053cab3dd73a2e898d89a4f84a180ae1ca",
+        "0xc99b6fd0486448f100891ca43c015fd6f09c8bd0",
+        "0x5db70b93942936c01e5a1a1d19abc442a9c967e3",
+        "0x7a1b7f30a98d4c8bdb66aadc6e13be4acdd4de2c",
+        "0xe23b5ec0100d446e4086d03e3546d6ef6f6bcf1c",
+        "0xa7bdad177d474f946f3cdeb4bcea9d24cf017471",
+        "0xa427b131059a503b5fc9c7e1a130585ca3b32e3d",
+        "0x8ca64bd82abfe138e195ce5cb7268ca285d42245",
+        "0x129a44ac6ff0f965c907579f96f2ed682e52c84a",
+        "0x2f26337576127efabeec1f62be79db1bca9148a4",
+        "0x724dc807b04555b71ed48a6896b6f41593b8c637",
+        "0x82e64f49ed5ec1bc6e43dad4fc8af9bb3a2312ee",
+        "0x6ab707aca953edaefbc4fd23ba73294241490620",
+        "0xe50fa9b3c56ffb159cb0fca61f5c9d750e8128c8",
+        "0xb61371ab661b1acec81c699854d2f911070c059e",
+        "0xaafcfd42c9954c6689ef1901e03db742520829c5",
+        "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34",
+        "0x1c34204fcfe5314dcf53be2671c02c35db58b4e3",
+        "0xf74d4c9b0f49fb70d8ff6706ddf39e3a16d61e67",
+        "0x2d6ced12420a9af5a83765a8c48be2afcd1a8feb",
+        "0xd0ec47c54ca5e20aaae4616c25c825c7f48d4069"
+      ]
     }
   },
   "contractLabels": {
@@ -3083,16 +3544,20 @@
     "0xa427b131059a503b5fc9c7e1a130585ca3b32e3d": "AURA_WSTETH_RETH_SFRXETH_POOL_ARB",
     "0x8ca64bd82abfe138e195ce5cb7268ca285d42245": "AURA_CBETH_RETH_WSTETH_POOL_ARB",
     "0x129a44ac6ff0f965c907579f96f2ed682e52c84a": "AURA_RETH_WETH_POOL_ARB",
-    "0xa76c604145d7394dec36c49af494c144ff327861": "PoolV3(Main USDC.e v3)",
+    "0x890a69ef363c9c7bdd5e36eb95ceb569f63acbf6": "PoolV3(Main USDC v3)",
+    "0xd0181a36b0566a8645b7eecff2148ade7ecf2be9": "sdUSDCV3",
     "0x04419d3509f13054f60d253e0c79491d9e683399": "PoolV3(Main WETH v3)",
-    "0x608f9e2e8933ce6b39a8cddbc34a1e3e8d21ce75": "sdUSDCV3",
-    "0x6773ff780dd38175247795545ee37add6ab6139a": "sdWETHV3",
+    "0xf3b7994e4da53e04155057fd61dc501599d57877": "sdWETHV3",
+    "0x6773ff780dd38175247795545ee37add6ab6139a": "sdWETHV3_OLD",
+    "0xa76c604145d7394dec36c49af494c144ff327861": "PoolV3(Main USDC.e v3)",
+    "0x608f9e2e8933ce6b39a8cddbc34a1e3e8d21ce75": "sdUSDC_eV3",
     "0x2f26337576127efabeec1f62be79db1bca9148a4": "GearToken",
     "0x724dc807b04555b71ed48a6896b6f41593b8c637": "aUSDC",
     "0x82e64f49ed5ec1bc6e43dad4fc8af9bb3a2312ee": "aDAI",
     "0x6ab707aca953edaefbc4fd23ba73294241490620": "aUSDT",
     "0xe50fa9b3c56ffb159cb0fca61f5c9d750e8128c8": "aWETH",
     "0x07299e4e806e4253727084c0493ffdf6fb2dba3d": "ezETH/ETH",
+    "0x15094b05e679c9b7fdde6fb8e6bda930ff1d6a62": "rsETH/ETH",
     "0xe592427a0aece92de3edee1f18e0157c05861564": "UNISWAP_V3_ROUTER",
     "0x1b81d678ffb9c0263b24a97847620c99d213eb14": "PANCAKESWAP_V3_ROUTER",
     "0x1f721e2e82f6676fce4ea07a5958cf098d339e18": "CAMELOT_V3_ROUTER",
@@ -3130,6 +3595,7 @@
     "0xf6c709a419e18819dea30248f59c95ca20fd83d5": "PriceOracleV3",
     "0x7abc634ad057438af054714d920a9d16c318bc13": "ZeroPriceFeed",
     "0x86e53cf1b870786351da77a57575e79cb55812cb": "ChainlinkPriceFeed, LINK.Main",
+    "0x4b7d784c8d09df369e128a2325e860c54c5c63b7": "BoundedPriceFeed, USDC_e.Main",
     "0x50834f3163758fcc1df9973b6e91f0f0f0434ad3": "ChainlinkPriceFeed",
     "0x8510465eddd32225d40550eb6b308216f5d9a78b": "CompositePriceFeed, WBTC.Main",
     "0x0017abac5b6f291f9164e35b1234ca1d697f9cf4": "ChainlinkPriceFeed",
@@ -3146,8 +3612,18 @@
     "0x66853e19d73c0f9301fe099c324a1e9726953433": "ChainlinkPriceFeed, PENDLE.Main",
     "0x6ca37b5544ee3b1bc0ffcfc7543610a1b9e9ae35": "CompositePriceFeed, cbETH.Main",
     "0xa668682974e3f121185a3cd94f00322bec674275": "ChainlinkPriceFeed",
+    "0xbf2e8845277f2a773d171b1c3f041de00200fd0e": "BoundedPriceFeed, USDe.Main",
     "0x88ac7bca36567525a866138f03a6f6844868e0bc": "ChainlinkPriceFeed",
     "0xa3f2fabebcd699bd8cdf3a39681e06c1680350fc": "CurveStablePriceFeed, USDEUSDC.Main",
+    "0x7d576053841b12f0bd14d76148e2c89584769d4c": "RedstonePriceFeed, LINK.Reserve",
+    "0xa3ee1c6431be103f08040394ff5a717bf16b07d1": "RedstonePriceFeed, USDC.Reserve",
+    "0x4def366a70413ba40f8103ade48cb6ee1998456d": "RedstonePriceFeed, USDC_e.Reserve",
+    "0xe394326259b31de319c2913ac2ab98e8fb74ab2a": "RedstonePriceFeed, WBTC.Reserve",
+    "0xbb6803a4affa01ef21b10c439436199e4de0f689": "RedstonePriceFeed, WETH.Reserve",
+    "0x251d72c74f0eeee4cd3b7c4cb62458232fe63447": "RedstonePriceFeed, GMX.Reserve",
+    "0xb1a029d3e96c0395a8779ab291e77fc76772e17b": "RedstonePriceFeed, ARB.Reserve",
+    "0xace9a1914336393a65321a6dbb1bd7d97bbef27c": "RedstonePriceFeed, wstETH.Reserve",
+    "0x2c8c4c72be132107afc3d3b39ce7fff0991b1870": "RedstonePriceFeed, rETH.Reserve",
     "0x06f8bc793f64c02d5676783b46091738fcc595c4": "CompositePriceFeed, ezETH.Reserve",
     "0x11e1836bff2ce9d6a5bec9ca79dc998210f3886d": "ChainlinkPriceFeed",
     "0x36219d88c77c54318c79a2daf9d485e153054924": "RedstonePriceFeed, USDe.Reserve",
@@ -3157,7 +3633,6 @@
     "0xafa5127209c932e35c8aaf08318c9848ca57fdb4": "PoolQuotaKeeper(Main WETH v3)",
     "0x4689172eb8b83304832cd8d20f1575c9e33ee99c": "Gauge(Main WETH v3)",
     "0x0f7dd9abd4aed1297bbf566191e765a8f16eef91": "LinearInterestRateModel",
-    "0x890a69ef363c9c7bdd5e36eb95ceb569f63acbf6": "PoolV3(Main USDC v3)",
     "0x3a7a7b61cee01910360258766567ca3bc4efe732": "PoolQuotaKeeper(Main USDC v3)",
     "0x52ec794b37706a136c443b786b966426e70c70f4": "Gauge(Main USDC v3)",
     "0xe00602db5595686efbe3530f80c0500873a670e5": "LinearInterestRateModel",
@@ -3181,6 +3656,7 @@
     "0xf1fada023dd48b9bb5f52c10b0f833e35d1c4c56": "CreditFacadeV3(Trade WETH Tier 2 Arbitrum)",
     "0x035b48e0620433f81a668a881c234e0a8b5249b5": "UniswapV3Adapter",
     "0xdbf0a3912436c53625dbe644f4cec79e63dbf343": "BalancerV2VaultAdapter",
+    "0xb0332a08485a8d8520d2d07bb15802601980fa1b": "CamelotV3Adapter",
     "0xe5e2d4bb15d26a6036805fce666c5488367623e2": "CreditManagerV3(Trade USDC Tier 1 Arbitrum)",
     "0x847d711361ad80fbb9e4044a69f18af5d6e33dc2": "CreditConfigurator(Trade USDC Tier 1 Arbitrum)",
     "0xbe0715eceadb3b238be599bbdb30bea28a3ebef6": "CreditFacadeV3(Trade USDC Tier 1 Arbitrum)",
@@ -3196,6 +3672,26 @@
     "0xf9ac0bad15742955460e667eb756171479535074": "CamelotV3Adapter",
     "0xdce75a268a76f0c73e4fad87b22e1857713037f6": "CurveV1AdapterStableNG",
     "0xf26186465964ed3564edfe0046ee65502a6ac34d": "RouterV3",
+    "0x421462b03bf99bdb9e4d41af1202d1cee4c2f409": "OverrideAggregator",
+    "0x7aceb8f9da6d3dadac42bff5b0352aca96a6ecca": "AuraLPDepositor",
+    "0xc496be095d9ce3c002a7a35bca88fceb2a807090": "AuraLPWithdrawer",
+    "0x27debaacd8172df7390679abc961328ae3660525": "AuraLPPathResolver",
+    "0x102035a8ef8e49e7ea1f14c72943f1a10f67aea7": "BalancerSwapper",
+    "0x218c927f99e879fc8ed54143c31afabc7ab18028": "BalancerLPDepositor",
+    "0xafb0e90448dd4cbae2c067c388ada2757a154944": "BalancerLPWithdrawer",
+    "0x752acd91d52c211e56489af1cbcea917f6d3724b": "BalancerLPPathResolver",
+    "0xd0a97afdc9b43d8b62af13e1a2661ca712ff5e21": "CurveSwapper",
+    "0x61dbd1f19cf7bfec29e5a3c8cbc0ecbdd37fca65": "CurveLPDepositor",
+    "0x0760e92745772af4ddf73713b248a20de19aa1d2": "CurveLPWithdrawer",
+    "0xdf53a95af08f51451b811d23a8435c270f7d3c4c": "CurveLPPathResolver",
+    "0x1ff9627a122075dd4d1d521243f864f3efa63f01": "ERC4626LPDepositor",
+    "0x65fb42637a3cf2278967f5a6be315d5feb96040a": "ERC4626LPWithdrawer",
+    "0xa9e6ca0fb4f6971f0041674e719d213a05a0f709": "ERC4626LPPathResolver",
+    "0x7efaf896a33551cac12d7a7fb36d5300ff099e87": "UniswapV2Swapper",
+    "0xc890325e2e8c7b41f34f5830763e8a44a343064e": "UniswapV3Swapper",
+    "0x25e3b39eeae121aa048476ea2b6dfcb15dcb5052": "YearnDepositor",
+    "0x20a2eb033cc6ba8f73f7fee3ab5a3b9a5f2a03dd": "YearnWithdrawer",
+    "0x111ec613a7f83e8f08d2fd5fbb6ca659f4de288f": "YearnPathResolver",
     "0x938094b41ddac7bd3f21fc962d424e1a84ac4a85": "PARTIAL_LIQUIDATION_BOT",
     "0x44a9fdef7307ae8c0997a1a339588a1c073930a7": "DELEVERAGE_BOT_PEGGED",
     "0x8a35c229ff4f96e8b7a4f9168b22b9f7df6b82f3": "DELEVERAGE_BOT_LV",
