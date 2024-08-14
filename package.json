@@ -10,7 +10,7 @@
   "author": "Gearbox protocol",
   "license": "MIT",
   "dependencies": {
-    "@gearbox-protocol/sdk-gov": "^1.59.4",
+    "@gearbox-protocol/sdk-gov": "^2.15.0",
     "@types/axios": "^0.14.0",
     "axios": "^1.2.1",
     "ethers": "^5.7.2",
@@ -27,5 +27,6 @@
   "devDependencies": {
     "@types/node": "18.11.10",
     "typescript": "^4.9.3"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
