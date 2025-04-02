@@ -12,14 +12,13 @@ There are two types of calls that can be submitted within a multicall - account 
 
 A multicall can have calls that instruct to change various parameters of a Credit Account in Gearbox. These typically have the account's Credit Facade as a target and include:
 
-1. **Adding collateral** - transferring a collateral token from the user to the account and enabling the token;
+1. **Adding collateral** - transferring a collateral token from the user to the account;
 2. **Withdrawing collateral** - transferring collateral from the account to the user;
 3. **Managing debt** - borrowing more from the pool or repaying debt partially or fully;
-4. **Enabling and disabling tokens** - manually enabling and disabling tokens as collateral (for non-quoted tokens only);
-5. **Updating quotas** - increasing and reducing the value of collateral tokens that is counted towards account health;
-6. **Adding slippage control** - enabling a slippage control check at the end of the multicall, which ensures that some tokens' balances are not less than expected;
-7. **Updating oracle prices** - some price feeds require on demand updates, which need to be submitted to manage an account that has the associated token (see more [here](../credit/multicall/on-demand-pf));
-8. **Revoking allowances** - generally, adapters set allowances to 1 after any operation. If this didn't happen for some reason (or this is an old account that existed before automatic allowance resets), the user can do that manually.
+4. **Updating quotas** - increasing and reducing the value of collateral tokens that is counted towards account health;
+5. **Adding slippage control** - enabling a slippage control check at the end of the multicall, which ensures that some tokens' balances are not less than expected;
+6. **Updating oracle prices** - some price feeds require on demand updates, which need to be submitted to manage an account that has the associated token (see more [here](../credit/multicall/on-demand-pf));
+7. **Setting bot permissions** - users can grant or revoke permissions for specific bots to manage their credit account within a multicall.
 
 ## External calls
 
@@ -29,10 +28,25 @@ External calls are used to instruct the Credit Account to interact with external
 
 Suppose that a user wants to deposit USDC to an empty account, then borrow more USDC and deposit all of that into Convex steCRV. They would then submit the following multicall to the Credit Facade:
 
-1. Credit Facade - Add USDC as collateral;
-2. Credit Facade - Borrow USDC;
-3. UniswapV3 adapter - Swap USDC to WETH;
-4. Curve steCRV adapter - Deposit WETH into Curve steCRV LP;
-5. Convex Booster adapter - Deposit Curve steCRV into staked Convex steCRV;
+| Target                 | Action                                         |
+| ---------------------- | ---------------------------------------------- |
+| Credit Facade          | Add USDC as collateral                         |
+| Credit Facade          | Borrow USDC                                    |
+| UniswapV3 adapter      | Swap USDC to WETH                              |
+| Curve steCRV adapter   | Deposit WETH into Curve steCRV LP              |
+| Convex Booster adapter | Deposit Curve steCRV into staked Convex steCRV |
 
 The user can optionally add a slippage check call to Credit Facade to check the final `stkcvxsteCRV` (token representing a staked Convex position) balance, to ensure that they did not suffer a lot of slippage when swapping USDC to WETH, or depositing WETH into Curve.
+
+## Collateral checks
+
+After each multicall, the protocol performs a collateral check to ensure that the account's collateral is sufficient to cover the debt. In order to pass a collateral check (aside from the obvious requirement that the collateral value must be greater than the debt), the user must make sure that:
+
+1. Collateral tokens have appropriate quotas;
+2. Prices are updated for tokens which have push (updatable on-demand) price feeds;
+
+In some cases, the protocol may also require **_safe prices_**. Safe prices are computed as the minimum of the token's main and reserve price feeds (compared to non-safe price checks, which only use the main price feed). In general, safe prices are invoked when:
+
+1. The multicall performs a withdrawal;
+2. The multicall makes an external call that may result in slippage - this generally includes external calls to DEX adapters;
+3. There are forbidden tokens on the account at the end of the multicall.

@@ -7,7 +7,7 @@ A quota is the maximum underlying equivalent of a quoted asset that is counted t
 
 See [Debt and Collateral](../core/debt-collateral#collateral-value-and-account-health) for the mathematical representation of this relationship.
 
-Users set quotas for their quoted collateral assets themselves, which is typically done when the Credit Account receives an asset and the owner wants to use it as collateral. While a Credit Account owner can potentially set as large a quota as they want, there are both global limits on total sum of all quotas for an asset, and ongoing costs of having a quota, which are proportional to the quota size. 
+Users set quotas for their quoted collateral assets themselves by including `updateQuota` in a multicall, which is typically done when the Credit Account receives an asset and the owner wants to use it as collateral. While a Credit Account owner can potentially set as large a quota as they want, there are both global limits on total sum of all quotas for an asset, and ongoing costs of having a quota, which are proportional to the quota size. 
 
 Zero-debt accounts cannot have any non-zero quotas. All quotas must be removed before fully repaying debt.
 

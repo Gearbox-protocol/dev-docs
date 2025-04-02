@@ -4,7 +4,7 @@ Gearbox is a generalized leverage protocol: it allows anyone to take leverage in
 
 The protocol has two sides to it: passive liquidity providers who earn higher APY by providing liquidity; - and active traders, farmers, or even other protocols who can borrow those assets to trade or farm with x4+ leverage.
 
-That is possible thanks to Credit Accounts…
+That is possible because of Credit Accounts…
 
 ### Credit Accounts
 
