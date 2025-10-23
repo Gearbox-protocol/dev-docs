@@ -1,5 +1,4 @@
 {
-    "overview": "Overview",
-    "adapters": "Supported adapters",
-    "build": "Building new adapters"
+  "overview": "Overview",
+  "build": "Building new adapters"
 }

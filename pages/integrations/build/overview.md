@@ -17,13 +17,13 @@ Keep in mind the following things:
 - pools don't support rebasing tokens, so non-rebasing wrapper is needed if there should be a pool for this token (e.g., `WstETH` and `WrappedAToken`);
 - Gearbox only recognizes ERC-20 tokens as collateral, so if the protocol itself doesn't tokenize the operation, the adapter should do that instead (e.g., `ConvexStakedPositionToken` used in Convex `BaseRewardPool` adapter);
 - if adapter produces a token that has no Chainlink price feed (LP tokens, non-rebasing wrappers, etc), a custom price feed must be created for this token (this is explained in more detail in the [oracles](../oracle/overview) section);
-- Gearbox generally does not support protocols with delayed withdrawals, since a lot of its security assumptions rely on being able to liquidate assets immediately upon the account becoming unhealthy. While this does not **totally** preclude integrations with such protocols, a solution to this issue needs to be presented before the adapter can be included into the whitelist.
 
 Now, what functionality should be in the adapter?
 
-- wrappers for all target contract functions that can modify account's state (interface must be the same, but returned values are replaced with `tokensToEnable` and `tokensToDisable`, i.e., masks of tokens that should be enabled or disabled after the call);
+- wrappers for all required target contract functions that can modify account's state. Signatures of the functions must be the same, but returned values are replaced with a bool value that determines whether "safe prices" are used. Safe prices need to be used when a conversion a function implements can result in price impact / slippage. E.g., swap functions in DEX adapters (like UniswapV3) need to return `true`, while deposits into vaults at a fixed rate that can't be somehow manipulated can return `false`.
 - versions of those functions that operate on the difference between the entire balance and some specified amount (these are called `diff` functions internally and are needed to handle multi-step operations properly);
-- wrappers for state-reading functions should only be added when necessary (e.g., it may be useful to save some non-changing values as immutable fields in the adapter, to save on gas).
+- if the adapter interacts with a contract that can handle arbitrary tokens / pools, there must be a function to configure a whitelist, and each state-changing function must check that a pool it interacts with is included in the whitelist. The whitelist function must also check that all tokens that can potentially be touched by a pool interaction are allowed collaterals (via `_getTokenMaskOrRevert()`).
+- if there is a pool whitelist, there must be a function to retrieve the list of allowed pools and what actions are allowed in each.
 
 We now need to make wrapping functions secure.
 In order to do that, beyond simply calling the target contract, adapter functions must ensure that:
@@ -33,8 +33,6 @@ In order to do that, beyond simply calling the target contract, adapter function
 - tokens spent and received during the operation are recognized as collateral by the credit manager;
 - ability to execute arbitrary code during the target contract call is minimized;
 - tokens recipient is always the credit account.
-
-Finally, for every adapter, there should be a library (see [example](https://github.com/Gearbox-protocol/integrations-v3/blob/main/contracts/test/multicall/uniswap/UniswapV3_Calls.sol)) that would prepare calldata for multicalls.
 
 ## `AbstractAdapter`
 
@@ -74,11 +72,8 @@ Let's analyze the functionality it provides:
 
 Here are some additional optimizations that can be made in wrapping functions:
 
-- if wrapping function doesn't process or modify parameters in any way, pass `msg.data` directly to `_execute...` (saves gas);
 - when spending the entire balance, spend `balance - 1` instead of `balance` (saves gas);
 - when revoking an approval, set the allowance to `1` instead of `0` (saves gas);
-- enable tokens received after the operation, disable tokens whose entire balance is spent after the operation (simplifies multicalls for users);
-- If input and output tokens for some operation are known at adapter deployment, pre-save their masks into immutable fields to efficiently return `tokensToEnable` and `tokensToDisable`.
 
 ## Checklist
 
@@ -90,6 +85,6 @@ Keeping all written above in mind, we can create a formal set of conditions that
 - [ ] All wrapping functions can only modify the state of the `_creditAccount()`;
 - [ ] All wrapping functions that allow to specify a recipient must set it to the `_creditAccount()`;
 - [ ] All wrapping functions that require token approval to execute an operation must reset it to `1` after;
-- [ ] All wrapping functions that modify account's state must return appropriate `tokensToEnable` and `tokensToDisable`;
+- [ ] All wrapping functions that modify account's state must return appropriate `useSafePrices`;
 
 On the next page, we'll try to write a generic adapter for ERC-4626 vaults and evaluate it against this checklist.
